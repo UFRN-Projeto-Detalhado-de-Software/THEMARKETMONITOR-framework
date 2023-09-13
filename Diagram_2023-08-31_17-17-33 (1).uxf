@@ -1,4 +1,4 @@
-<diagram program="umletino" version="15.1"><zoom_level>3</zoom_level><help_text></help_text><element><id>UMLClass</id><coordinates><x>984</x><y>738</y><w>93</w><h>141</h></coordinates><panel_attributes>Funcionario
+<diagram program="umletino" version="15.1"><zoom_level>1</zoom_level><help_text></help_text><element><id>UMLClass</id><coordinates><x>328</x><y>421</y><w>31</w><h>47</h></coordinates><panel_attributes>Funcionario
 --
 - nome
 - id
@@ -26,21 +26,21 @@
 --
 Responsabilidade
 Armazenar informações sobre o
-funcionário</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1908</x><y>27</y><w>51</w><h>33</h></coordinates><panel_attributes>VerFaturamento
+funcionário</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>636</x><y>184</y><w>17</w><h>11</h></coordinates><panel_attributes>VerFaturamento
 --
 - tela
 --
 
 --
 Responsabilidades
-Mostrar Faturamento</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>177</x><y>30</y><w>63</w><h>30</h></coordinates><panel_attributes>VerRanking
+Mostrar Faturamento</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>59</x><y>185</y><w>21</w><h>10</h></coordinates><panel_attributes>VerRanking
 --
 - tela
 --
 
 --
 Responsibilities
-Mostrar Ranking</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1905</x><y>750</y><w>51</w><h>57</h></coordinates><panel_attributes>Faturamento
+Mostrar Ranking</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>635</x><y>425</y><w>17</w><h>19</h></coordinates><panel_attributes>Faturamento
 --
 - valorTotal
 - tempo: Periodo
@@ -52,7 +52,7 @@ Mostrar Ranking</panel_attributes><additional_attributes></additional_attributes
 --
 Responsabilidades
 Armazenar as informações
-do faturamento</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>366</x><y>36</y><w>63</w><h>33</h></coordinates><panel_attributes>VerAnalise
+do faturamento</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>122</x><y>187</y><w>21</w><h>11</h></coordinates><panel_attributes>VerAnalise
 --
 - tela
 --
@@ -61,7 +61,7 @@ do faturamento</panel_attributes><additional_attributes></additional_attributes>
 Responsabilidades
 Mostrar Analise
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>801</x><y>567</y><w>66</w><h>36</h></coordinates><panel_attributes>CalcularFaturamentoFuncionario
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>267</x><y>364</y><w>22</w><h>12</h></coordinates><panel_attributes>CalcularFaturamentoFuncionario
 --
 - historicoFuncionario
 --
@@ -69,7 +69,7 @@ Mostrar Analise
 --
 Responsabilidades
 Calcular o faturamento 
-de um dado funcionario</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>363</x><y>549</y><w>63</w><h>33</h></coordinates><panel_attributes>Analise
+de um dado funcionario</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>121</x><y>358</y><w>21</w><h>11</h></coordinates><panel_attributes>Analise
 --
 
 --
@@ -77,7 +77,7 @@ de um dado funcionario</panel_attributes><additional_attributes></additional_att
 --
 Responsabilidades
 Calcular uma analise
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>885</x><y>567</y><w>66</w><h>36</h></coordinates><panel_attributes>CalcularFaturamentoEquipe
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>295</x><y>364</y><w>22</w><h>12</h></coordinates><panel_attributes>CalcularFaturamentoEquipe
 --
 - historicoFuncionarios
 --
@@ -85,7 +85,7 @@ Calcular uma analise
 --
 Responsabilidades
 Calcular o faturamento 
-de uma dada equipe</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>966</x><y>567</y><w>69</w><h>36</h></coordinates><panel_attributes>CalcularFaturamentoEmpresa
+de uma dada equipe</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>322</x><y>364</y><w>23</w><h>12</h></coordinates><panel_attributes>CalcularFaturamentoEmpresa
 --
 - historicoVendas
 --
@@ -93,7 +93,7 @@ de uma dada equipe</panel_attributes><additional_attributes></additional_attribu
 --
 Responsabilidades
 Calcular o faturamento 
-da empresa</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>291</x><y>609</y><w>66</w><h>63</h></coordinates><panel_attributes>AnaliseFuncionario
+da empresa</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>97</x><y>378</y><w>22</w><h>21</h></coordinates><panel_attributes>AnaliseFuncionario
 --
 - tipoCliente
 - tipoFuncionario
@@ -108,10 +108,10 @@ da empresa</panel_attributes><additional_attributes></additional_attributes></el
 --
 Responsabilidades
 Armazenar a Análise do Funcionário
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>885</x><y>513</y><w>66</w><h>24</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>295</x><y>346</y><w>22</w><h>8</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
 CalcularFaturamento
 --
-+ calcularFaturamento()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>363</x><y>609</y><w>63</w><h>63</h></coordinates><panel_attributes>AnaliseCliente
++ calcularFaturamento()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>121</x><y>378</y><w>21</w><h>21</h></coordinates><panel_attributes>AnaliseCliente
 --
 - tipoCliente
 - tipoFuncionario
@@ -125,7 +125,7 @@ CalcularFaturamento
 +setTipoCurso()
 --
 Responsabilidades
-Armazenar a Análise do Cliente</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>432</x><y>609</y><w>63</w><h>63</h></coordinates><panel_attributes>AnaliseProduto
+Armazenar a Análise do Cliente</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>144</x><y>378</y><w>21</w><h>21</h></coordinates><panel_attributes>AnaliseProduto
 --
 -tipoProduto
 -tipoFuncionario
@@ -139,7 +139,7 @@ Armazenar a Análise do Cliente</panel_attributes><additional_attributes></addit
 +setTipoCurso()
 --
 Responsabilidades
-Armazenar a Análise do Produto</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1182</x><y>1062</y><w>63</w><h>33</h></coordinates><panel_attributes>ManterFuncionario
+Armazenar a Análise do Produto</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>394</x><y>529</y><w>21</w><h>11</h></coordinates><panel_attributes>ManterFuncionario
 --
 
 --
@@ -147,14 +147,14 @@ Armazenar a Análise do Produto</panel_attributes><additional_attributes></addit
 --
 Responsabilidade
 Manutenção (CRUD) do Funcionario
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>663</x><y>33</y><w>63</w><h>33</h></coordinates><panel_attributes>VerVenda
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>221</x><y>186</y><w>21</w><h>11</h></coordinates><panel_attributes>VerVenda
 --
 - tela
 --
 
 --
 Mostrar Venda
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>36</x><y>519</y><w>63</w><h>60</h></coordinates><panel_attributes>Login
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>12</x><y>348</y><w>21</w><h>20</h></coordinates><panel_attributes>Login
 --
 -nomeDeUsuario
 -senha
@@ -166,7 +166,7 @@ Mostrar Venda
 +setNomeDeUsuario()
 +serSenha()
 +setIdUsuario()
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1098</x><y>897</y><w>63</w><h>42</h></coordinates><panel_attributes>Gerente
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>366</x><y>474</y><w>21</w><h>14</h></coordinates><panel_attributes>Gerente
 --
 - setor
 --
@@ -175,7 +175,7 @@ Mostrar Venda
 --
 Responsabilidade
 Armazenar informações sobre o
-gerente</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2187</x><y>471</y><w>63</w><h>33</h></coordinates><panel_attributes>GerarNotificacao
+gerente</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>729</x><y>332</y><w>21</w><h>11</h></coordinates><panel_attributes>GerarNotificacao
 --
 -flag
 --
@@ -184,7 +184,7 @@ gerente</panel_attributes><additional_attributes></additional_attributes></eleme
 
 --
 Responsibilities
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>672</x><y>1062</y><w>63</w><h>42</h></coordinates><panel_attributes>ManterVenda
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>224</x><y>529</y><w>21</w><h>14</h></coordinates><panel_attributes>ManterVenda
 --
 -flag
 --
@@ -193,7 +193,7 @@ Responsibilities
 Responsabilidades
 Manutenção (CRUD) da Venda
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1542</x><y>759</y><w>63</w><h>111</h></coordinates><panel_attributes>Equipe
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>514</x><y>428</y><w>21</w><h>37</h></coordinates><panel_attributes>Equipe
 --
 - id
 - nome
@@ -217,7 +217,7 @@ Manutenção (CRUD) da Venda
 + setPontuacao()
 --
 Responsabilidades
-Armazenar informações da Equipe</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1554</x><y>1065</y><w>63</w><h>33</h></coordinates><panel_attributes>ManterEquipe
+Armazenar informações da Equipe</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>518</x><y>530</y><w>21</w><h>11</h></coordinates><panel_attributes>ManterEquipe
 --
 
 --
@@ -225,18 +225,18 @@ Armazenar informações da Equipe</panel_attributes><additional_attributes></add
 --
 Responsabilidades
 Manutenção (CRUD) da Equipe
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2301</x><y>39</y><w>63</w><h>27</h></coordinates><panel_attributes>VerNotificacao
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>767</x><y>188</y><w>21</w><h>9</h></coordinates><panel_attributes>VerNotificacao
 --
 - tela
 --
 
 --
 Responsibilities
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1716</x><y>555</y><w>63</w><h>21</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>572</x><y>360</y><w>21</w><h>7</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
 CalcularProgresso
 --
 + calcularProgresso()
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1266</x><y>33</y><w>63</w><h>33</h></coordinates><panel_attributes>VerHistorico
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>422</x><y>186</y><w>21</w><h>11</h></coordinates><panel_attributes>VerHistorico
 --
 - tela
 --
@@ -244,7 +244,7 @@ CalcularProgresso
 --
 Responsibilities
 Mostrar histórico
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1278</x><y>510</y><w>63</w><h>42</h></coordinates><panel_attributes>Historico
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>426</x><y>345</y><w>21</w><h>14</h></coordinates><panel_attributes>Historico
 --
 * registro
 * receita: Faturamento
@@ -254,7 +254,7 @@ Mostrar histórico
 todo
 --
 Responsibilities
-Armazenar um registro de informações</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1278</x><y>567</y><w>63</w><h>33</h></coordinates><panel_attributes>HistoricoVendas
+Armazenar um registro de informações</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>426</x><y>364</y><w>21</w><h>11</h></coordinates><panel_attributes>HistoricoVendas
 --
 
 --
@@ -262,7 +262,7 @@ Armazenar um registro de informações</panel_attributes><additional_attributes>
 --
 Responsibilities
 Armazenar um registro de vendas
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1350</x><y>570</y><w>63</w><h>33</h></coordinates><panel_attributes>HistoricoDesempenhoFuncionario
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>450</x><y>365</y><w>21</w><h>11</h></coordinates><panel_attributes>HistoricoDesempenhoFuncionario
 --
 
 --
@@ -270,35 +270,35 @@ Armazenar um registro de vendas
 --
 Responsibilities
 Armazenar um registro de vendas
-de um funcionario</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>318</x><y>573</y><w>51</w><h>42</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>150;10;10;10;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>423</x><y>573</y><w>51</w><h>42</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;150;10;150;120</additional_attributes></element><element><id>Relation</id><coordinates><x>393</x><y>579</y><w>9</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>393</x><y>207</y><w>9</w><h>348</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;1140;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>915</x><y>534</y><w>9</w><h>39</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>1929</x><y>57</y><w>9</w><h>117</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;370;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>837</x><y>519</y><w>54</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>160;10;10;10;10;160</additional_attributes></element><element><id>Relation</id><coordinates><x>948</x><y>519</y><w>42</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;120;10;120;160</additional_attributes></element><element><id>UMLClass</id><coordinates><x>177</x><y>540</y><w>63</w><h>33</h></coordinates><panel_attributes>Ranking
+de um funcionario</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>106</x><y>366</y><w>17</w><h>14</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>150;10;10;10;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>141</x><y>366</y><w>17</w><h>14</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;150;10;150;120</additional_attributes></element><element><id>Relation</id><coordinates><x>131</x><y>368</y><w>3</w><h>12</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>131</x><y>244</y><w>3</w><h>116</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;1140;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>305</x><y>353</y><w>3</w><h>13</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>643</x><y>194</y><w>3</w><h>39</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;370;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>279</x><y>348</y><w>18</w><h>18</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>160;10;10;10;10;160</additional_attributes></element><element><id>Relation</id><coordinates><x>316</x><y>348</y><w>14</w><h>18</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;120;10;120;160</additional_attributes></element><element><id>UMLClass</id><coordinates><x>59</x><y>355</y><w>21</w><h>11</h></coordinates><panel_attributes>Ranking
 --
 
 --
 + ranquear()
 --
 Responsibilities
-Calcular ranking</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>204</x><y>186</y><w>9</w><h>360</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;1180;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1302</x><y>549</y><w>9</w><h>24</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element><element><id>Relation</id><coordinates><x>1290</x><y>204</y><w>12</w><h>312</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;1020;20;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1320</x><y>549</y><w>63</w><h>27</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;30;190;30;190;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>972</x><y>36</y><w>63</w><h>33</h></coordinates><panel_attributes>VerFuncionario
+Calcular ranking</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>68</x><y>237</y><w>3</w><h>120</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;1180;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>434</x><y>358</y><w>3</w><h>8</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element><element><id>Relation</id><coordinates><x>430</x><y>243</y><w>4</w><h>104</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;1020;20;10</additional_attributes></element><element><id>Relation</id><coordinates><x>440</x><y>358</y><w>21</w><h>9</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;30;190;30;190;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>324</x><y>187</y><w>21</w><h>11</h></coordinates><panel_attributes>VerFuncionario
 --
 - tela
 --
 
 --
 Responsabilidade
-Ver informações do funcionário</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1074</x><y>831</y><w>144</w><h>237</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>450;770;460;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1680</x><y>42</y><w>63</w><h>33</h></coordinates><panel_attributes>VerMeta
+Ver informações do funcionário</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>358</x><y>452</y><w>48</w><h>79</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>450;770;460;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>560</x><y>189</y><w>21</w><h>11</h></coordinates><panel_attributes>VerMeta
 --
 - tela
 --
 
 --
 Responsabilidades
-Mostrar Meta</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1758</x><y>1062</y><w>63</w><h>33</h></coordinates><panel_attributes>ManterMeta
+Mostrar Meta</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>586</x><y>529</y><w>21</w><h>11</h></coordinates><panel_attributes>ManterMeta
 --
 
 --
 
 --
 Responsabilidades
-Manuntenção (CRUD) da Meta</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1713</x><y>765</y><w>63</w><h>69</h></coordinates><panel_attributes>Meta
+Manuntenção (CRUD) da Meta</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>571</x><y>430</y><w>21</w><h>23</h></coordinates><panel_attributes>Meta
 --
 - id
 - periodo
@@ -313,13 +313,13 @@ Manuntenção (CRUD) da Meta</panel_attributes><additional_attributes></addition
 --
 todo vercomo flexibilizar
 Responsabilidades
-Armazenar Meta</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1656</x><y>1131</y><w>66</w><h>33</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
+Armazenar Meta</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>552</x><y>552</y><w>22</w><h>11</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
 Manter
 --
 + criar()
 + ler()
 + editar()
-+ deletar()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1746</x><y>531</y><w>159</w><h>237</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;770;10;620;510;620;510;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>2205</x><y>783</y><w>63</w><h>57</h></coordinates><panel_attributes>Notificação
++ deletar()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>582</x><y>352</y><w>53</w><h>79</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;770;10;620;510;620;510;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>735</x><y>436</y><w>21</w><h>19</h></coordinates><panel_attributes>Notificação
 --
 - objetivo
 - idUsuario
@@ -331,8 +331,8 @@ Manter
 + setMeta()
 + setIdUsuario()
 + setMensagem()
-# ciarMensagem()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>2208</x><y>501</y><w>12</w><h>288</h></coordinates><panel_attributes>lt=&lt;.
-</panel_attributes><additional_attributes>20;940;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>2331</x><y>63</y><w>9</w><h>117</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;10;10;370</additional_attributes></element><element><id>UMLClass</id><coordinates><x>669</x><y>756</y><w>63</w><h>183</h></coordinates><panel_attributes>Venda
+# ciarMensagem()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>736</x><y>342</y><w>4</w><h>96</h></coordinates><panel_attributes>lt=&lt;.
+</panel_attributes><additional_attributes>20;940;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>777</x><y>196</y><w>3</w><h>39</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;10;10;370</additional_attributes></element><element><id>UMLClass</id><coordinates><x>223</x><y>427</y><w>21</w><h>61</h></coordinates><panel_attributes>Venda
 --
 - id
 - cliente
@@ -374,14 +374,14 @@ Manter
 --
 Responsabilidades
 Armazenar informações da Venda
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>573</y><w>9</w><h>189</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;610;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>90</x><y>873</y><w>12</w><h>204</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;660;20;10</additional_attributes></element><element><id>Relation</id><coordinates><x>66</x><y>198</y><w>9</w><h>327</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;1070;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1569</x><y>24</y><w>63</w><h>27</h></coordinates><panel_attributes>VerEquipe
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>231</x><y>366</y><w>3</w><h>63</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;610;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>30</x><y>466</y><w>4</w><h>68</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;660;20;10</additional_attributes></element><element><id>Relation</id><coordinates><x>22</x><y>241</y><w>3</w><h>109</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;1070;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>523</x><y>183</y><w>21</w><h>9</h></coordinates><panel_attributes>VerEquipe
 --
 - tela
 --
 
 --
 Mostrar Equipe
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1593</x><y>195</y><w>12</w><h>423</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;1390;20;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1569</x><y>867</y><w>12</w><h>204</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;660;20;10</additional_attributes></element><element><id>Relation</id><coordinates><x>999</x><y>501</y><w>72</w><h>243</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;790;10;660;220;660;220;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>900</x><y>897</y><w>63</w><h>54</h></coordinates><panel_attributes>Closer
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>531</x><y>240</y><w>4</w><h>141</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;1390;20;10</additional_attributes></element><element><id>Relation</id><coordinates><x>523</x><y>464</y><w>4</w><h>68</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;660;20;10</additional_attributes></element><element><id>Relation</id><coordinates><x>333</x><y>342</y><w>24</w><h>81</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;790;10;660;220;660;220;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>300</x><y>474</y><w>21</w><h>18</h></coordinates><panel_attributes>Closer
 --
 - numeroDeVendas
 - metaCloser
@@ -393,7 +393,7 @@ Mostrar Equipe
 --
 Responsabilidade
 Armazenar informações sobre o
-closer</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>996</x><y>897</y><w>63</w><h>54</h></coordinates><panel_attributes>SDR
+closer</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>332</x><y>474</y><w>21</w><h>18</h></coordinates><panel_attributes>SDR
 --
 - numeroDeAssistencias
 - metaSDR
@@ -405,7 +405,7 @@ closer</panel_attributes><additional_attributes></additional_attributes></elemen
 --
 Responsabilidade
 Armazenar informações sobre o
-SDR</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1038</x><y>876</y><w>96</w><h>27</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;40;300;40;300;70</additional_attributes></element><element><id>Relation</id><coordinates><x>930</x><y>876</y><w>87</w><h>27</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>270;10;270;40;10;40;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>1023</x><y>876</y><w>9</w><h>27</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>69</x><y>822</y><w>63</w><h>54</h></coordinates><panel_attributes>Cliente
+SDR</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>346</x><y>467</y><w>32</w><h>9</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;40;300;40;300;70</additional_attributes></element><element><id>Relation</id><coordinates><x>310</x><y>467</y><w>29</w><h>9</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>270;10;270;40;10;40;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>341</x><y>467</y><w>3</w><h>9</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>23</x><y>449</y><w>21</w><h>18</h></coordinates><panel_attributes>Cliente
 --
 - id
 - comprasEfetuadas
@@ -417,9 +417,9 @@ SDR</panel_attributes><additional_attributes></additional_attributes></element><
 --
 Responsabilidades:
 Armazenar informações
-sobre um cliente</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>549</x><y>738</y><w>63</w><h>15</h></coordinates><panel_attributes>tipoDeVenda
+sobre um cliente</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>183</x><y>421</y><w>21</w><h>5</h></coordinates><panel_attributes>tipoDeVenda
 --
-- enum tiposDeVenda</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>138</x><y>840</y><w>63</w><h>66</h></coordinates><panel_attributes>Produto
+- enum tiposDeVenda</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>46</x><y>455</y><w>21</w><h>22</h></coordinates><panel_attributes>Produto
 --
 - id
 - nome
@@ -434,11 +434,11 @@ sobre um cliente</panel_attributes><additional_attributes></additional_attribute
 --
 Responsabilidades
 Armazenar as informações
-do produto</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>549</x><y>768</y><w>63</w><h>15</h></coordinates><panel_attributes>origemDaVenda
+do produto</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>183</x><y>431</y><w>21</w><h>5</h></coordinates><panel_attributes>origemDaVenda
 --
-- enum origemDaVenda</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>549</x><y>801</y><w>63</w><h>15</h></coordinates><panel_attributes>meioDePagamento
+- enum origemDaVenda</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>183</x><y>442</y><w>21</w><h>5</h></coordinates><panel_attributes>meioDePagamento
 --
-- enum tiposDePagamento</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1434</x><y>786</y><w>63</w><h>48</h></coordinates><panel_attributes>Pontuacao
+- enum tiposDePagamento</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>478</x><y>437</y><w>21</w><h>16</h></coordinates><panel_attributes>Pontuacao
 --
 - modificador
 - qtdPontos
@@ -447,25 +447,25 @@ do produto</panel_attributes><additional_attributes></additional_attributes></el
 + getQtdPontos()
 + setModificador()
 + setQtdPontos()
-+ resetModificador()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1635</x><y>855</y><w>63</w><h>12</h></coordinates><panel_attributes>MetaCloser
++ resetModificador()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>545</x><y>460</y><w>21</w><h>4</h></coordinates><panel_attributes>MetaCloser
 --
 - valorObtido
-- valorMeta</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1713</x><y>855</y><w>63</w><h>12</h></coordinates><panel_attributes>MetaSDR
+- valorMeta</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>571</x><y>460</y><w>21</w><h>4</h></coordinates><panel_attributes>MetaSDR
 --
 - numeroDeAssistenciasObtido
-- numeroDeAssistenciasMeta</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1791</x><y>855</y><w>63</w><h>18</h></coordinates><panel_attributes>MetaEquipe
+- numeroDeAssistenciasMeta</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>597</x><y>460</y><w>21</w><h>6</h></coordinates><panel_attributes>MetaEquipe
 --
 - valorMeta
 - assistenciasMeta
 - valorObtido
-- assistenciasObtido</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1659</x><y>831</y><w>78</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>240;10;240;40;10;40;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>1755</x><y>831</y><w>72</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;40;220;40;220;80</additional_attributes></element><element><id>Relation</id><coordinates><x>1740</x><y>831</y><w>9</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>2352</x><y>1050</y><w>63</w><h>33</h></coordinates><panel_attributes>ManterHistorico
+- assistenciasObtido</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>553</x><y>452</y><w>26</w><h>10</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>240;10;240;40;10;40;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>585</x><y>452</y><w>24</w><h>10</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;40;220;40;220;80</additional_attributes></element><element><id>Relation</id><coordinates><x>580</x><y>452</y><w>3</w><h>10</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>784</x><y>525</y><w>21</w><h>11</h></coordinates><panel_attributes>ManterHistorico
 --
 
 --
 + adicionarRegistro()
 --
 Responsibilities
-Manutenção (CRUD) do Historico</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1305</x><y>483</y><w>1080</w><h>573</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;90;10;10;1050;10;1050;410;3570;400;3580;1890</additional_attributes></element><element><id>Relation</id><coordinates><x>948</x><y>528</y><w>972</w><h>228</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>3220;740;3220;570;540;570;540;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>915</x><y>600</y><w>324</w><h>63</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>1060;10;1060;190;10;190;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1203</x><y>570</y><w>63</w><h>33</h></coordinates><panel_attributes>HistoricoEquipe
+Manutenção (CRUD) do Historico</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>435</x><y>336</y><w>360</w><h>191</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;90;10;10;1050;10;1050;410;3570;400;3580;1890</additional_attributes></element><element><id>Relation</id><coordinates><x>316</x><y>351</y><w>324</w><h>76</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>3220;740;3220;570;540;570;540;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>305</x><y>375</y><w>108</w><h>21</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>1060;10;1060;190;10;190;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>401</x><y>365</y><w>21</w><h>11</h></coordinates><panel_attributes>HistoricoEquipe
 --
 
 --
@@ -474,28 +474,28 @@ Manutenção (CRUD) do Historico</panel_attributes><additional_attributes></addi
 Responsibilities
 Armazenar um registro de vendas
 de uma equipe
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1230</x><y>549</y><w>63</w><h>27</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>190;10;190;30;10;30;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>837</x><y>600</y><w>549</w><h>72</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>1810;10;1810;220;10;220;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>981</x><y>597</y><w>330</w><h>57</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>1080;10;1080;170;10;170;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1338</x><y>465</y><w>642</w><h>291</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>2010;950;2010;790;2110;790;2120;10;190;10;190;220;10;220</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1638</x><y>636</y><w>63</w><h>27</h></coordinates><panel_attributes>CalcularProgressoCloser
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>410</x><y>358</y><w>21</w><h>9</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>190;10;190;30;10;30;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>279</x><y>375</y><w>183</w><h>24</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>1810;10;1810;220;10;220;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>327</x><y>374</y><w>110</w><h>19</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>1080;10;1080;170;10;170;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>446</x><y>330</y><w>214</w><h>97</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>2010;950;2010;790;2110;790;2120;10;190;10;190;220;10;220</additional_attributes></element><element><id>UMLClass</id><coordinates><x>546</x><y>387</y><w>21</w><h>9</h></coordinates><panel_attributes>CalcularProgressoCloser
 --
 - objetivo : MetaCloser
 --
 
 --
 Responsibilities
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1716</x><y>636</y><w>63</w><h>27</h></coordinates><panel_attributes>CalcularProgressoSDR
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>572</x><y>387</y><w>21</w><h>9</h></coordinates><panel_attributes>CalcularProgressoSDR
 --
 - objetivo : MetaSDR
 --
  
 --
 Responsibilities
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1794</x><y>636</y><w>63</w><h>27</h></coordinates><panel_attributes>CalcularProgressoEquipe
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>598</x><y>387</y><w>21</w><h>9</h></coordinates><panel_attributes>CalcularProgressoEquipe
 --
 - objetivo : MetaSDR
 --
  
 --
 Responsibilities
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1665</x><y>573</y><w>69</w><h>69</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>210;10;210;70;10;70;10;210</additional_attributes></element><element><id>Relation</id><coordinates><x>1767</x><y>573</y><w>63</w><h>69</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;80;190;80;190;210</additional_attributes></element><element><id>Relation</id><coordinates><x>1743</x><y>573</y><w>9</w><h>69</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;210</additional_attributes></element><element><id>Relation</id><coordinates><x>1608</x><y>660</y><w>51</w><h>201</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>110;650;110;600;10;600;10;50;150;50;150;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1698</x><y>660</y><w>42</w><h>201</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>120;650;120;620;10;620;10;60;110;60;110;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1833</x><y>660</y><w>9</w><h>201</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;650;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1617</x><y>765</y><w>63</w><h>51</h></coordinates><panel_attributes>Periodo
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>555</x><y>366</y><w>23</w><h>23</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>210;10;210;70;10;70;10;210</additional_attributes></element><element><id>Relation</id><coordinates><x>589</x><y>366</y><w>21</w><h>23</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;80;190;80;190;210</additional_attributes></element><element><id>Relation</id><coordinates><x>581</x><y>366</y><w>3</w><h>23</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;210</additional_attributes></element><element><id>Relation</id><coordinates><x>536</x><y>395</y><w>17</w><h>67</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>110;650;110;600;10;600;10;50;150;50;150;10</additional_attributes></element><element><id>Relation</id><coordinates><x>566</x><y>395</y><w>14</w><h>67</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>120;650;120;620;10;620;10;60;110;60;110;10</additional_attributes></element><element><id>Relation</id><coordinates><x>611</x><y>395</y><w>3</w><h>67</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;650;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>539</x><y>430</y><w>21</w><h>17</h></coordinates><panel_attributes>Periodo
 --
 - tipo
 - inicio
@@ -506,26 +506,26 @@ Responsibilities
 + getFim()
 + setTipo()
 + setInicio()
-+ setFim()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2133</x><y>870</y><w>63</w><h>18</h></coordinates><panel_attributes>NotificaçãoCloser
++ setFim()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>711</x><y>465</y><w>21</w><h>6</h></coordinates><panel_attributes>NotificaçãoCloser
 --
 
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2202</x><y>870</y><w>63</w><h>18</h></coordinates><panel_attributes>NotificaçãoSDR
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>734</x><y>465</y><w>21</w><h>6</h></coordinates><panel_attributes>NotificaçãoSDR
 --
 
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2271</x><y>870</y><w>63</w><h>18</h></coordinates><panel_attributes>NotificaçãoEquipe
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>757</x><y>465</y><w>21</w><h>6</h></coordinates><panel_attributes>NotificaçãoEquipe
 --
 
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>2166</x><y>837</y><w>63</w><h>39</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>190;10;190;60;10;60;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>2244</x><y>837</y><w>69</w><h>39</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60;210;60;210;110</additional_attributes></element><element><id>Relation</id><coordinates><x>2232</x><y>837</y><w>9</w><h>39</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>1218</x><y>600</y><w>348</w><h>165</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;10;380;1140;380;1140;530</additional_attributes></element><element><id>Relation</id><coordinates><x>1074</x><y>600</y><w>321</w><h>165</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>1050;10;1050;530;10;530</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1428</x><y>1059</y><w>63</w><h>30</h></coordinates><panel_attributes>ManterPontuacao
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>722</x><y>454</y><w>21</w><h>13</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>190;10;190;60;10;60;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>748</x><y>454</y><w>23</w><h>13</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60;210;60;210;110</additional_attributes></element><element><id>Relation</id><coordinates><x>744</x><y>454</y><w>3</w><h>13</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>406</x><y>375</y><w>116</w><h>55</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;10;380;1140;380;1140;530</additional_attributes></element><element><id>Relation</id><coordinates><x>358</x><y>375</y><w>107</w><h>55</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>1050;10;1050;530;10;530</additional_attributes></element><element><id>UMLClass</id><coordinates><x>476</x><y>528</y><w>21</w><h>10</h></coordinates><panel_attributes>ManterPontuacao
 --
 
 --
 
 --
 Responsibilities
-- Crud de Pontuacao</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1428</x><y>621</y><w>63</w><h>39</h></coordinates><panel_attributes>ModificaPontuacao
+- Crud de Pontuacao</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>476</x><y>382</y><w>21</w><h>13</h></coordinates><panel_attributes>ModificaPontuacao
 --
 _Pontuacao_
 --
@@ -534,43 +534,43 @@ _Pontuacao_
 + setQtdPontos()
 --
 Responsibilities
-Modifica a  pontuação</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1455</x><y>831</y><w>12</w><h>234</h></coordinates><panel_attributes>lt=&lt;.
-</panel_attributes><additional_attributes>10;760;20;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1455</x><y>657</y><w>9</w><h>135</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;430;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>609</x><y>741</y><w>66</w><h>60</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;110;10;110;180;200;180</additional_attributes></element><element><id>Relation</id><coordinates><x>609</x><y>771</y><w>66</w><h>36</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;60;10;60;100;200;100</additional_attributes></element><element><id>Relation</id><coordinates><x>609</x><y>804</y><w>66</w><h>9</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;200;10</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>0</x><y>126</y><w>2961</w><h>111</h></coordinates><panel_attributes>Controller
+Modifica a  pontuação</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>485</x><y>452</y><w>4</w><h>78</h></coordinates><panel_attributes>lt=&lt;.
+</panel_attributes><additional_attributes>10;760;20;10</additional_attributes></element><element><id>Relation</id><coordinates><x>485</x><y>394</y><w>3</w><h>45</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;430;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>203</x><y>422</y><w>22</w><h>20</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;110;10;110;180;200;180</additional_attributes></element><element><id>Relation</id><coordinates><x>203</x><y>432</y><w>22</w><h>12</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;60;10;60;100;200;100</additional_attributes></element><element><id>Relation</id><coordinates><x>203</x><y>443</y><w>22</w><h>3</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;200;10</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>0</x><y>217</y><w>987</w><h>37</h></coordinates><panel_attributes>Controller
 --
-bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>12</x><y>1002</y><w>3003</w><h>195</h></coordinates><panel_attributes>Repository
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>4</x><y>509</y><w>1001</w><h>65</h></coordinates><panel_attributes>Repository
 --
-bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>3</x><y>444</y><w>3015</w><h>246</h></coordinates><panel_attributes>Service
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>1</x><y>323</y><w>1005</w><h>82</h></coordinates><panel_attributes>Service
 --
-bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>3</x><y>0</y><w>2958</w><h>93</h></coordinates><panel_attributes>Templates
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>1</x><y>175</y><w>986</w><h>31</h></coordinates><panel_attributes>Templates
 --
-bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1773</x><y>813</y><w>438</w><h>12</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;1440;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>39</x><y>36</y><w>63</w><h>21</h></coordinates><panel_attributes>VerLogin
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>591</x><y>446</y><w>146</w><h>4</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;1440;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>13</x><y>187</y><w>21</w><h>7</h></coordinates><panel_attributes>VerLogin
 --
 - tela
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1209</x><y>1092</y><w>453</w><h>66</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>1490;190;10;200;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1614</x><y>1077</y><w>48</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>140;180;60;180;60;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1719</x><y>1068</y><w>639</w><h>96</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;300;2050;300;2050;10;2110;10</additional_attributes></element><element><id>Relation</id><coordinates><x>732</x><y>1077</y><w>930</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>3080;270;1330;280;1330;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1458</x><y>1086</y><w>204</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>660;180;10;180;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1719</x><y>1077</y><w>45</w><h>63</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;190;80;190;80;10;130;10</additional_attributes></element><element><id>Relation</id><coordinates><x>198</x><y>846</y><w>477</w><h>9</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;1570;10</additional_attributes></element><element><id>Relation</id><coordinates><x>129</x><y>828</y><w>546</w><h>9</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;1800;10</additional_attributes></element><element><id>Relation</id><coordinates><x>729</x><y>771</y><w>273</w><h>141</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>890;450;810;450;810;340;170;340;170;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>729</x><y>789</y><w>177</w><h>123</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>570;390;470;390;470;310;120;310;120;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1074</x><y>810</y><w>474</w><h>54</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;1150;10;1150;160;1560;160</additional_attributes></element><element><id>Relation</id><coordinates><x>1677</x><y>777</y><w>42</w><h>9</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;120;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1494</x><y>792</y><w>54</w><h>9</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;160;10</additional_attributes></element><element><id>Relation</id><coordinates><x>927</x><y>858</y><w>714</w><h>105</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>2360;10;2330;10;2330;330;10;330;10;310</additional_attributes></element><element><id>Relation</id><coordinates><x>1056</x><y>858</y><w>663</w><h>93</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>2190;10;2160;10;2160;290;70;290;70;170;10;170</additional_attributes></element><element><id>UMLClass</id><coordinates><x>39</x><y>165</y><w>63</w><h>36</h></coordinates><panel_attributes>ControllerLogin
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>403</x><y>539</y><w>151</w><h>22</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>1490;190;10;200;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>538</x><y>534</y><w>16</w><h>20</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>140;180;60;180;60;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>573</x><y>531</y><w>213</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;300;2050;300;2050;10;2110;10</additional_attributes></element><element><id>Relation</id><coordinates><x>244</x><y>534</y><w>310</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>3080;270;1330;280;1330;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>486</x><y>537</y><w>68</w><h>20</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>660;180;10;180;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>573</x><y>534</y><w>15</w><h>21</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;190;80;190;80;10;130;10</additional_attributes></element><element><id>Relation</id><coordinates><x>66</x><y>457</y><w>159</w><h>3</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;1570;10</additional_attributes></element><element><id>Relation</id><coordinates><x>43</x><y>451</y><w>182</w><h>3</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;1800;10</additional_attributes></element><element><id>Relation</id><coordinates><x>243</x><y>432</y><w>91</w><h>47</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>890;450;810;450;810;340;170;340;170;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>243</x><y>438</y><w>59</w><h>41</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>570;390;470;390;470;310;120;310;120;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>358</x><y>445</y><w>158</w><h>18</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;1150;10;1150;160;1560;160</additional_attributes></element><element><id>Relation</id><coordinates><x>559</x><y>434</y><w>14</w><h>3</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;120;10</additional_attributes></element><element><id>Relation</id><coordinates><x>498</x><y>439</y><w>18</w><h>3</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;160;10</additional_attributes></element><element><id>Relation</id><coordinates><x>309</x><y>461</y><w>238</w><h>35</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>2360;10;2330;10;2330;330;10;330;10;310</additional_attributes></element><element><id>Relation</id><coordinates><x>352</x><y>461</y><w>221</w><h>31</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>2190;10;2160;10;2160;290;70;290;70;170;10;170</additional_attributes></element><element><id>UMLClass</id><coordinates><x>13</x><y>230</y><w>21</w><h>12</h></coordinates><panel_attributes>ControllerLogin
 --
 - servicosLogin
 --
 + mostrarLogin()
 + fazerLogin()
 + cadastrarNovo()
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>174</x><y>165</y><w>63</w><h>21</h></coordinates><panel_attributes>ControllerRanking
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>58</x><y>230</y><w>21</w><h>7</h></coordinates><panel_attributes>ControllerRanking
 --
 - servicosRanking
 --
 + mostrarRanking()
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>366</x><y>189</y><w>63</w><h>21</h></coordinates><panel_attributes>ControllerAnalise
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>122</x><y>238</y><w>21</w><h>7</h></coordinates><panel_attributes>ControllerAnalise
 --
 - servicosAnalise
 --
 + mostrarAnalise()
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>663</x><y>168</y><w>63</w><h>39</h></coordinates><panel_attributes>ControllerVenda
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>221</x><y>231</y><w>21</w><h>13</h></coordinates><panel_attributes>ControllerVenda
 --
 - servicosVenda
 --
 + mostrarVenda()
 + cadastrarVenda()
-+ editarVenda()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>972</x><y>165</y><w>63</w><h>33</h></coordinates><panel_attributes>ControllerFuncionario
++ editarVenda()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>324</x><y>230</y><w>21</w><h>11</h></coordinates><panel_attributes>ControllerFuncionario
 --
 - servicosFuncionario
 --
@@ -578,12 +578,12 @@ bg=orange</panel_attributes><additional_attributes></additional_attributes></ele
 + cadastrarFuncionario()
 + editarFuncionario()
 + deletarFuncionario()
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1266</x><y>186</y><w>63</w><h>21</h></coordinates><panel_attributes>ControllerHistorico
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>422</x><y>237</y><w>21</w><h>7</h></coordinates><panel_attributes>ControllerHistorico
 --
 - servicosHistorico
 --
 + mostrarHistorico()
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1566</x><y>165</y><w>63</w><h>33</h></coordinates><panel_attributes>ControllerEquipe
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>522</x><y>230</y><w>21</w><h>11</h></coordinates><panel_attributes>ControllerEquipe
 --
 - servicosEquipe
 --
@@ -591,63 +591,63 @@ bg=orange</panel_attributes><additional_attributes></additional_attributes></ele
 + cadastrarEquipe()
 + editarEquipe()
 + deletarEquipe()
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1680</x><y>162</y><w>63</w><h>36</h></coordinates><panel_attributes>ControllerMeta
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>560</x><y>229</y><w>21</w><h>12</h></coordinates><panel_attributes>ControllerMeta
 --
 - servicosMeta
 --
 + mostrarMeta()
 + cadastrarMeta()
 + editarMeta()
-+ deletarMeta()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1899</x><y>168</y><w>63</w><h>21</h></coordinates><panel_attributes>ControllerFaturamento
++ deletarMeta()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>633</x><y>231</y><w>21</w><h>7</h></coordinates><panel_attributes>ControllerFaturamento
 --
 - servicosFaturamento
 --
 + mostrarFaturamento()
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2301</x><y>174</y><w>63</w><h>21</h></coordinates><panel_attributes>ControllerNotificacao
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>767</x><y>233</y><w>21</w><h>7</h></coordinates><panel_attributes>ControllerNotificacao
 --
 - servicosNotificacao
 --
 + mostrarNotificacao()
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>666</x><y>537</y><w>63</w><h>39</h></coordinates><panel_attributes>ServicesVenda
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>222</x><y>354</y><w>21</w><h>13</h></coordinates><panel_attributes>ServicesVenda
 --
 
 --
 + mostrarVenda()
 + cadastrarVenda()
-+ editarVenda()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1035</x><y>465</y><w>63</w><h>39</h></coordinates><panel_attributes>ServicesFuncionario
++ editarVenda()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>345</x><y>330</y><w>21</w><h>13</h></coordinates><panel_attributes>ServicesFuncionario
 --
 
 --
 + mostrarVenda()
 + cadastrarVenda()
-+ editarVenda()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1560</x><y>612</y><w>63</w><h>39</h></coordinates><panel_attributes>ServicesEquipe
++ editarVenda()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>520</x><y>379</y><w>21</w><h>13</h></coordinates><panel_attributes>ServicesEquipe
 --
 
 --
 + mostrarEquipe()
 + cadastrarEquipe()
-+ editarEquipe()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1854</x><y>495</y><w>63</w><h>39</h></coordinates><panel_attributes>ServicesMeta
++ editarEquipe()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>618</x><y>340</y><w>21</w><h>13</h></coordinates><panel_attributes>ServicesMeta
 --
 
 --
 + mostrarMeta()
 + cadastrarMeta()
 + editarMeta()
-+ deletarMeta()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1905</x><y>552</y><w>63</w><h>39</h></coordinates><panel_attributes>ServicesFaturamento
++ deletarMeta()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>635</x><y>359</y><w>21</w><h>13</h></coordinates><panel_attributes>ServicesFaturamento
 --
 
 --
 + mostrarFaturamento()
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>2214</x><y>192</y><w>126</w><h>285</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>400;10;400;820;10;820;10;930</additional_attributes></element><element><id>Relation</id><coordinates><x>1776</x><y>486</y><w>417</w><h>84</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>1370;10;1320;10;1320;190;110;190;110;260;10;260</additional_attributes></element><element><id>Relation</id><coordinates><x>702</x><y>204</y><w>1020</w><h>363</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>3380;1190;3310;1190;3310;790;10;780;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1926</x><y>186</y><w>12</w><h>372</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;1220;20;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1920</x><y>588</y><w>9</w><h>168</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;540;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1899</x><y>1056</y><w>63</w><h>33</h></coordinates><panel_attributes>ManterFaturamento
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>239</y><w>42</w><h>95</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>400;10;400;820;10;820;10;930</additional_attributes></element><element><id>Relation</id><coordinates><x>592</x><y>337</y><w>139</w><h>28</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>1370;10;1320;10;1320;190;110;190;110;260;10;260</additional_attributes></element><element><id>Relation</id><coordinates><x>234</x><y>243</y><w>340</w><h>121</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>3380;1190;3310;1190;3310;790;10;780;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>642</x><y>237</y><w>4</w><h>124</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;1220;20;10</additional_attributes></element><element><id>Relation</id><coordinates><x>640</x><y>371</y><w>3</w><h>56</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;540;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>633</x><y>527</y><w>21</w><h>11</h></coordinates><panel_attributes>ManterFaturamento
 --
 
 --
 
 --
 Responsabilidades
-Manuntenção (CRUD) do Faturamento</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1923</x><y>804</y><w>12</w><h>258</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;840;20;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1719</x><y>1080</y><w>186</w><h>72</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;220;550;210;550;10;600;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1749</x><y>831</y><w>39</w><h>234</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>110;760;110;60;10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>66</x><y>57</y><w>9</w><h>114</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;360;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>204</x><y>57</y><w>9</w><h>114</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;360;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>393</x><y>66</y><w>9</w><h>129</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;410;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>690</x><y>63</y><w>9</w><h>111</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;350;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>204</y><w>9</w><h>339</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;1110;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>999</x><y>66</y><w>9</w><h>105</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;330;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>999</x><y>198</y><w>78</w><h>273</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>230;890;240;170;10;170;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1293</x><y>63</y><w>9</w><h>129</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;410;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1596</x><y>48</y><w>9</w><h>123</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;390;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1584</x><y>648</y><w>9</w><h>117</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;370;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1707</x><y>72</y><w>9</w><h>96</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;300;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1731</x><y>195</y><w>174</w><h>306</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>560;1000;560;800;10;800;10;10</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>15</x><y>732</y><w>3003</w><h>243</h></coordinates><panel_attributes>Entidade
+Manuntenção (CRUD) do Faturamento</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>641</x><y>443</y><w>4</w><h>86</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;840;20;10</additional_attributes></element><element><id>Relation</id><coordinates><x>573</x><y>535</y><w>62</w><h>24</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;220;550;210;550;10;600;10</additional_attributes></element><element><id>Relation</id><coordinates><x>583</x><y>452</y><w>13</w><h>78</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>110;760;110;60;10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>22</x><y>194</y><w>3</w><h>38</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;360;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>68</x><y>194</y><w>3</w><h>38</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;360;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>131</x><y>197</y><w>3</w><h>43</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;410;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>230</x><y>196</y><w>3</w><h>37</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;350;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>231</x><y>243</y><w>3</w><h>113</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;1110;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>333</x><y>197</y><w>3</w><h>35</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;330;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>333</x><y>241</y><w>26</w><h>91</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>230;890;240;170;10;170;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>431</x><y>196</y><w>3</w><h>43</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;410;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>532</x><y>191</y><w>3</w><h>41</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;390;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>528</x><y>391</y><w>3</w><h>39</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;370;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>569</x><y>199</y><w>3</w><h>32</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;300;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>577</x><y>240</y><w>58</w><h>102</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>560;1000;560;800;10;800;10;10</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>5</x><y>419</y><w>1001</w><h>81</h></coordinates><panel_attributes>Entidade
 --
-bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>57</x><y>1071</y><w>63</w><h>42</h></coordinates><panel_attributes>ManterCliente
+bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>19</x><y>532</y><w>21</w><h>14</h></coordinates><panel_attributes>ManterCliente
 --
 
 --
@@ -656,7 +656,7 @@ bg=orange</panel_attributes><additional_attributes></additional_attributes></ele
 Responsabilidades
 Manutenção (CRUD) do Cliente
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>138</x><y>1074</y><w>63</w><h>42</h></coordinates><panel_attributes>ManterProduto
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>46</x><y>533</y><w>21</w><h>14</h></coordinates><panel_attributes>ManterProduto
 --
 
 --
@@ -665,4 +665,4 @@ Manutenção (CRUD) do Cliente
 Responsabilidades
 Manutenção (CRUD) do Produro
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>696</x><y>939</y><w>12</w><h>132</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;420;20;10</additional_attributes></element><element><id>Relation</id><coordinates><x>165</x><y>903</y><w>9</w><h>177</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;570;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>162</x><y>1113</y><w>1500</w><h>75</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>4980;160;4900;160;4900;230;3180;230;3180;110;10;110;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>84</x><y>1113</y><w>1578</w><h>78</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>5240;170;5170;170;5170;240;3410;240;3410;150;10;150;10;10</additional_attributes></element></diagram>
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>232</x><y>488</y><w>4</w><h>44</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;420;20;10</additional_attributes></element><element><id>Relation</id><coordinates><x>55</x><y>476</y><w>3</w><h>59</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;570;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>54</x><y>546</y><w>500</w><h>25</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>4980;160;4900;160;4900;230;3180;230;3180;110;10;110;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>28</x><y>546</y><w>526</w><h>26</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>5240;170;5170;170;5170;240;3410;240;3410;150;10;150;10;10</additional_attributes></element></diagram>

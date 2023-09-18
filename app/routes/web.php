@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VendasController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get("/", [HomeController::class, 'index'])->name('home');
+Route::get("/vendas", [VendasController::class, 'index'])->name('vendas.index');
+Route::get("/vendas/create", [VendasController::class, 'create'])->name('vendas.create');
+Route::get("/vendas", [VendasController::class, 'store'])->name('vendas.store');
+Route::get("/vendas/{venda}", [VendasController::class, 'show'])->name('vendas.show');
+Route::get("/vendas/{venda}/edit", [VendasController::class, 'edit'])->name('vendas.edit');
+Route::get("/vendas/{venda}", [VendasController::class, 'update'])->name('vendas.update');
+Route::get("/vendas/{venda}", [VendasController::class, 'destroy'])->name('vendas.destroy');

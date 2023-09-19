@@ -15,11 +15,13 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get("/", [HomeController::class, 'index'])->name('home');
-Route::get("/vendas", [VendasController::class, 'index'])->name('vendas.index');
-Route::get("/vendas/create", [VendasController::class, 'create'])->name('vendas.create');
-Route::get("/vendas", [VendasController::class, 'store'])->name('vendas.store');
-Route::get("/vendas/{venda}", [VendasController::class, 'show'])->name('vendas.show');
-Route::get("/vendas/{venda}/edit", [VendasController::class, 'edit'])->name('vendas.edit');
-Route::get("/vendas/{venda}", [VendasController::class, 'update'])->name('vendas.update');
-Route::get("/vendas/{venda}", [VendasController::class, 'destroy'])->name('vendas.destroy');
+//Route::get("/", [HomeController::class, 'index'])->name('home');
+//Route::get("/", [VendasController::class, 'index'])->name('vendas');
+//Route::get("/vendas", [VendasController::class, 'index'])->name('vendas.index');
+//Route::get("/vendas/create", [VendasController::class, 'create'])->name('vendas.create');
+//Route::post("/vendas", [VendasController::class, 'store'])->name('vendas.store');
+//Route::get("/vendas/{venda}", [VendasController::class, 'show'])->name('vendas.show');
+//Route::get("/vendas/{venda}/edit", [VendasController::class, 'edit'])->name('vendas.edit');
+//Route::put("/vendas/{venda}", [VendasController::class, 'update'])->name('vendas.update');
+//Route::delete("/vendas/{venda}", [VendasController::class, 'destroy'])->name('vendas.destroy');
+Route::resource('vendas', VendasController::class);

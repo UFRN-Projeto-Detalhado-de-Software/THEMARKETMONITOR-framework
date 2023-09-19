@@ -3,24 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Vendas;
 use Illuminate\Http\Request;
-use App\Models\User;
+
 
 class VendasController extends Controller
 {
-    public readonly User $vendas;
-
+    public readonly Vendas $venda;
     public function __construct()
     {
-        $this->vendas = new User();
+        $this->venda = new Vendas();
     }
+
 
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $vendas = $this->vendas->all();
+        $vendas = $this->venda->all();
+
         return view('vendas',['vendas' => $vendas]);
     }
 
@@ -29,7 +31,7 @@ class VendasController extends Controller
      */
     public function create()
     {
-        //
+        return view('venda_create');
     }
 
     /**
@@ -37,23 +39,46 @@ class VendasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $created = $this->venda->create([
+            'id' => $request->input('id'),
+            'data' => $request->input('data'),
+            'valor' => $request->input('valor'),
+            'meioDePagamento' => $request->input('meioDePagamento'),
+            'cliente' => $request->input('cliente'),
+            'produto' => $request->input('produto'),
+            'closer' => $request->input('closer'),
+            'sdr' => $request->input('sdr'),
+            'tipo' => $request->input('tipo'),
+            'origem' => $request->input('origem'),
+            'deTerceiro' => $request->input('deTerceiro'),
+            'obs' => $request->input('obs'),
+
+
+        ]);
+
+        if($created){
+            return redirect()->back()->with('message', 'Criado com Sucesso');
+        }
+
+        return redirect()->back()->with('message', 'Erro de Criação');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Vendas $venda)
     {
-        //
+        var_dump($venda);
+
+        return view('venda_show', ['venda' => $venda]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Vendas $venda)
     {
-        //
+        return view('venda_edit', ['venda' => $venda]);
     }
 
     /**
@@ -61,7 +86,15 @@ class VendasController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+
+        $updated = $this->venda->where('id', $id)->update($request->except('_token', '_method'));
+
+
+        if($updated){
+            return redirect()->back()->with('message', 'Atualizado com Sucesso');
+        }
+
+        return redirect()->back()->with('message', 'Erro família');
     }
 
     /**
@@ -69,6 +102,8 @@ class VendasController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $this->venda->where('id', $id)->delete();
+
+        return redirect()->route('vendas.index');
     }
 }

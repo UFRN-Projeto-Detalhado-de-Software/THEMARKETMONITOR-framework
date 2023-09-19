@@ -15,6 +15,26 @@ use App\Http\Controllers\HomeController;
 |
 */
 
+
+use App\Http\Controllers\FuncionarioController;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/funcionario/create', [FuncionarioController::class, 'create']);
+
+Route::get('/funcionario', [FuncionarioController::class, 'home']);
+
+Route::post('/funcionario/recebido', [FuncionarioController::class, 'store']);
+
+Route::get('/funcionario/edit/{id}', [FuncionarioController::class, 'edit']);
+Route::post('/funcionario/edited/{id}', [FuncionarioController::class, 'edited']);
+
+Route::get('/funcionario/edit/{id}', [FuncionarioController::class, 'edit']);
+
+Route::get('/funcionario/deleted/{id}', [FuncionarioController::class, 'deleted']);
+
 //Route::get("/", [HomeController::class, 'index'])->name('home');
 //Route::get("/", [VendasController::class, 'index'])->name('vendas');
 //Route::get("/vendas", [VendasController::class, 'index'])->name('vendas.index');

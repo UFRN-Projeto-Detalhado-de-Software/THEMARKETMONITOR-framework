@@ -44,4 +44,4 @@ Route::get('/funcionario/deleted/{id}', [FuncionarioController::class, 'deleted'
 //Route::get("/vendas/{venda}/edit", [VendasController::class, 'edit'])->name('vendas.edit');
 //Route::put("/vendas/{venda}", [VendasController::class, 'update'])->name('vendas.update');
 //Route::delete("/vendas/{venda}", [VendasController::class, 'destroy'])->name('vendas.destroy');
-Route::resource('vendas', VendasController::class);
+Route::resource('/venda/vendas', VendasController::class);

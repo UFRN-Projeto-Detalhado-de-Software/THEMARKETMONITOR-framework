@@ -23,7 +23,7 @@ class VendasController extends Controller
     {
         $vendas = $this->venda->all();
 
-        return view('vendas',['vendas' => $vendas]);
+        return view('venda/vendas',['vendas' => $vendas]);
     }
 
     /**
@@ -31,7 +31,7 @@ class VendasController extends Controller
      */
     public function create()
     {
-        return view('venda_create');
+        return view('venda/venda_create');
     }
 
     /**
@@ -70,7 +70,7 @@ class VendasController extends Controller
     {
         var_dump($venda);
 
-        return view('venda_show', ['venda' => $venda]);
+        return view('venda/venda_show', ['venda' => $venda]);
     }
 
     /**
@@ -78,7 +78,7 @@ class VendasController extends Controller
      */
     public function edit(Vendas $venda)
     {
-        return view('venda_edit', ['venda' => $venda]);
+        return view('venda/venda_edit', ['venda' => $venda]);
     }
 
     /**
@@ -104,6 +104,6 @@ class VendasController extends Controller
     {
         $this->venda->where('id', $id)->delete();
 
-        return redirect()->route('vendas.index');
+        return redirect()->route('venda/vendas.index');
     }
 }

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VendasController;
+use App\Http\Controllers\TipoVendaController;
 use App\Http\Controllers\HomeController;
 
 /*
@@ -45,3 +46,4 @@ Route::get('/funcionario/deleted/{id}', [FuncionarioController::class, 'deleted'
 //Route::put("/vendas/{venda}", [VendasController::class, 'update'])->name('vendas.update');
 //Route::delete("/vendas/{venda}", [VendasController::class, 'destroy'])->name('vendas.destroy');
 Route::resource('/venda/vendas', VendasController::class);
+Route::resource('/tiposvendas/tipovenda', TipoVendaController::class);

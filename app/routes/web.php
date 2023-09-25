@@ -23,6 +23,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Rotas Funcionario
+
 Route::get('/funcionario/create', [FuncionarioController::class, 'create']);
 
 Route::get('/funcionario', [FuncionarioController::class, 'home']);
@@ -36,7 +38,6 @@ Route::get('/funcionario/edit/{id}', [FuncionarioController::class, 'edit']);
 
 Route::get('/funcionario/deleted/{id}', [FuncionarioController::class, 'deleted']);
 
-//Route::get("/", [HomeController::class, 'index'])->name('home');
 //Route::get("/", [VendasController::class, 'index'])->name('vendas');
 //Route::get("/vendas", [VendasController::class, 'index'])->name('vendas.index');
 //Route::get("/vendas/create", [VendasController::class, 'create'])->name('vendas.create');
@@ -45,5 +46,9 @@ Route::get('/funcionario/deleted/{id}', [FuncionarioController::class, 'deleted'
 //Route::get("/vendas/{venda}/edit", [VendasController::class, 'edit'])->name('vendas.edit');
 //Route::put("/vendas/{venda}", [VendasController::class, 'update'])->name('vendas.update');
 //Route::delete("/vendas/{venda}", [VendasController::class, 'destroy'])->name('vendas.destroy');
+
+// Rotas Venda
 Route::resource('/venda/vendas', VendasController::class);
+
+// Rotas Tipos Vendas
 Route::resource('/tiposvendas/tipovenda', TipoVendaController::class);

@@ -5,6 +5,7 @@
       <list>
         <option value="$PROJECT_DIR$/app/tests/Unit" />
         <option value="$PROJECT_DIR$/app/tests/Feature" />
+        <option value="$PROJECT_DIR$/app/tests" />
       </list>
     </option>
   </component>

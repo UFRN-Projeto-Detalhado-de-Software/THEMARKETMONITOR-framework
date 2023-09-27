@@ -45,12 +45,12 @@ class TipoVendaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(TipoVenda $tipoVenda)
+    public function show(TipoVenda $tipovenda)
     {
-        print($tipoVenda);
-        var_dump($tipoVenda);
+        print($tipovenda);
+        var_dump($tipovenda);
 
-        return view('tipovenda/show', ['tipovenda' => $tipoVenda]);
+        return view('tipovenda/show', ['tipovenda' => $tipovenda]);
     }
 
     /**
@@ -84,7 +84,7 @@ class TipoVendaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         $tipovenda = TipoVenda::find($id);
         $tipovenda->delete();

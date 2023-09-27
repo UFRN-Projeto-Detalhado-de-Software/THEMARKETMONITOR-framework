@@ -51,4 +51,4 @@ Route::get('/funcionario/deleted/{id}', [FuncionarioController::class, 'deleted'
 Route::resource('/venda/vendas', VendasController::class);
 
 // Rotas Tipos Vendas
-Route::resource('/tiposvendas/tipovenda', TipoVendaController::class);
+Route::resource('/tipovenda', TipoVendaController::class);

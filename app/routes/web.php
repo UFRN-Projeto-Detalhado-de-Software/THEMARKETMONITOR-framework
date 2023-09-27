@@ -24,6 +24,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/faturamento', function(){return view('Faturamento');});
+
 // Rotas Funcionario
 
 Route::get('/funcionario/create', [FuncionarioController::class, 'create']);
@@ -40,16 +42,11 @@ Route::get('/funcionario/edit/{id}', [FuncionarioController::class, 'edit']);
 Route::get('/funcionario/deleted/{id}', [FuncionarioController::class, 'deleted']);
 
 
-//Route::get("/", [VendasController::class, 'index'])->name('vendas');
-//Route::get("/vendas", [VendasController::class, 'index'])->name('vendas.index');
-//Route::get("/vendas/create", [VendasController::class, 'create'])->name('vendas.create');
-//Route::post("/vendas", [VendasController::class, 'store'])->name('vendas.store');
-//Route::get("/vendas/{venda}", [VendasController::class, 'show'])->name('vendas.show');
-//Route::get("/vendas/{venda}/edit", [VendasController::class, 'edit'])->name('vendas.edit');
-//Route::put("/vendas/{venda}", [VendasController::class, 'update'])->name('vendas.update');
-//Route::delete("/vendas/{venda}", [VendasController::class, 'destroy'])->name('vendas.destroy');
-
 // Rotas Venda
 Route::resource('/venda/vendas', VendasController::class);
 
+// Rotas Origens de Venda
+Route::resource('/origensvendas/origemvenda', OrigemVendaController::class);
+
+// Rotas Tipos de Venda
 Route::resource('/tipovenda', TipoVendaController::class);

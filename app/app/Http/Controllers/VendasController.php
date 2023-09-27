@@ -23,6 +23,7 @@ class VendasController extends Controller
     {
         $vendas = $this->venda->all();
 
+
         return view('venda/vendas',['vendas' => $vendas]);
     }
 
@@ -53,10 +54,10 @@ class VendasController extends Controller
             'deTerceiro' => $request->input('deTerceiro'),
             'obs' => $request->input('obs'),
 
-
         ]);
 
         if($created){
+            print($created);
             return redirect()->back()->with('message', 'Criado com Sucesso');
         }
 
@@ -68,6 +69,7 @@ class VendasController extends Controller
      */
     public function show(Vendas $venda)
     {
+        print($venda);
         var_dump($venda);
 
         return view('venda/venda_show', ['venda' => $venda]);
@@ -91,6 +93,7 @@ class VendasController extends Controller
 
 
         if($updated){
+            print($updated);
             return redirect()->back()->with('message', 'Atualizado com Sucesso');
         }
 
@@ -102,6 +105,7 @@ class VendasController extends Controller
      */
     public function destroy(string $id)
     {
+        print($this->venda->where('id', $id));
         $this->venda->where('id', $id)->delete();
 
         return redirect()->route('venda/vendas.index');

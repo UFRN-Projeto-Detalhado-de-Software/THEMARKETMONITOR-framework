@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VendasController;
 use App\Http\Controllers\TipoVendaController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrigemVendaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,7 @@ Route::get('/funcionario/edit/{id}', [FuncionarioController::class, 'edit']);
 
 Route::get('/funcionario/deleted/{id}', [FuncionarioController::class, 'deleted']);
 
+
 //Route::get("/", [VendasController::class, 'index'])->name('vendas');
 //Route::get("/vendas", [VendasController::class, 'index'])->name('vendas.index');
 //Route::get("/vendas/create", [VendasController::class, 'create'])->name('vendas.create');
@@ -50,5 +52,4 @@ Route::get('/funcionario/deleted/{id}', [FuncionarioController::class, 'deleted'
 // Rotas Venda
 Route::resource('/venda/vendas', VendasController::class);
 
-// Rotas Tipos Vendas
 Route::resource('/tipovenda', TipoVendaController::class);

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VendasController;
+use App\Http\Controllers\TipoVendaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrigemVendaController;
 
@@ -23,6 +24,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Rotas Funcionario
+
 Route::get('/funcionario/create', [FuncionarioController::class, 'create']);
 
 Route::get('/funcionario', [FuncionarioController::class, 'home']);
@@ -36,8 +39,7 @@ Route::get('/funcionario/edit/{id}', [FuncionarioController::class, 'edit']);
 
 Route::get('/funcionario/deleted/{id}', [FuncionarioController::class, 'deleted']);
 
-Route::get('/faturamento', function(){return view('Faturamento');});
-//Route::get("/", [HomeController::class, 'index'])->name('home');
+
 //Route::get("/", [VendasController::class, 'index'])->name('vendas');
 //Route::get("/vendas", [VendasController::class, 'index'])->name('vendas.index');
 //Route::get("/vendas/create", [VendasController::class, 'create'])->name('vendas.create');
@@ -46,8 +48,8 @@ Route::get('/faturamento', function(){return view('Faturamento');});
 //Route::get("/vendas/{venda}/edit", [VendasController::class, 'edit'])->name('vendas.edit');
 //Route::put("/vendas/{venda}", [VendasController::class, 'update'])->name('vendas.update');
 //Route::delete("/vendas/{venda}", [VendasController::class, 'destroy'])->name('vendas.destroy');
+
+// Rotas Venda
 Route::resource('/venda/vendas', VendasController::class);
 
-
-
-Route::resource('/origensvendas/origemvenda', OrigemVendaController::class);
+Route::resource('/tipovenda', TipoVendaController::class);

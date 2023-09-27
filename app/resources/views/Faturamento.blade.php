@@ -9,7 +9,7 @@
     <br>
 
     <!-- Time Period Selection -->
-    <form method="POST" action="{{ route('/*Caminho para o controller do faturamento*/') }}">
+
         @csrf <!-- Add CSRF token for security -->
 
         <!-- Date selection inputs (dataDeInicio and dataDeFinal) -->
@@ -20,12 +20,12 @@
         <input type="date" id="dataDeFinal" name="endDate">
         <br><br>
         <input type="submit" value="Calcular Faturamento" class="calculate-button">
-    </form>
+    <!--</form>-->
     <br>
 
     <!-- Display Earnings Data -->
     <div id="earningsData">
-        <p>Faturamento no período selecionado: <span id="totalEarnings">{{ $valor }}</span></p>
+        <p>Faturamento no período selecionado: </p>
     </div>
 
 </div>

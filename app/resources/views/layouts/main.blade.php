@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="../../../public/css/main.css" />
+        <link rel="stylesheet" href="/css/main.css" />
         <title>@yield('title')</title>
 
     </head>
@@ -12,7 +12,7 @@
     <nav class="navbar">
         <div class="logo_item">
             <i class="bx bx-menu" id="sidebarOpen"></i>
-            <img src="../../../public/images/logo-fi.png" alt=""></img>Futebol Interativo
+            <img src="/images/logo-fi.png" alt=""></img>Futebol Interativo
         </div>
 
         <div class="navbar_content">
@@ -97,16 +97,10 @@
         </div>
     </nav>
 
-    <!-- ... Previous code for navigation and sidebar ... -->
-
     <!-- Content Section (Not competing with the sidebar) -->
     <div class="content">
         @yield('content')
     </div>
-
-    <footer>
-        <p>Futebol Interativo &copy; 2023</p>
-    </footer>
-    <script src="../../../public/js/main.js"></script>
+    <script src="/js/main.js"></script>
     </body>
 </html>

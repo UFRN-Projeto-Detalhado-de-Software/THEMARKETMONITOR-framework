@@ -35,6 +35,7 @@ Route::get('/funcionario/edit/{id}', [FuncionarioController::class, 'edit']);
 
 Route::get('/funcionario/deleted/{id}', [FuncionarioController::class, 'deleted']);
 
+Route::get('/faturamento', function(){return view('Faturamento');});
 //Route::get("/", [HomeController::class, 'index'])->name('home');
 //Route::get("/", [VendasController::class, 'index'])->name('vendas');
 //Route::get("/vendas", [VendasController::class, 'index'])->name('vendas.index');

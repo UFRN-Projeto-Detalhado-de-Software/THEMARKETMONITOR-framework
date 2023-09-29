@@ -34,10 +34,14 @@ class ProdutoController extends Controller
         $produto_novo = new Produto();
 
         $produto_novo->id = $request->id;
+        $produto_novo->name = $request->name;
         $produto_novo->tipo = $request->tipo;
+        $produto_novo->tags = $request->tags;
+        $produto_novo->valor = $request->valor;
+        $produto_novo->sigla = $request->sigla;
 
 
-        $meiopagamento_novo->save();
+        $produto_novo->save();
 
         return redirect()->back()->with('message', 'Criado com Sucesso');
     }
@@ -47,30 +51,51 @@ class ProdutoController extends Controller
      */
     public function show(Produto $produto)
     {
-        //
+        print($produto);
+        //var_dump($meiopagamento);
+
+        return view('produto/show', ['produto' => $produto]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Produto $produto)
+    public function edit(int $id)
     {
-        //
+        $produto = Produto::find($id);
+
+        return view('produto/edit', ['produto' => $produto, 'id' => $id]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Produto $produto)
+    public function update(Request $request, int $id)
     {
-        //
+        $produto = Produto::find($id);
+
+        $produto->name = $request->name;
+        $produto->id = $request->id;
+        $produto->tipo = $request->tipo;
+        $produto->tags = $request->tags;
+        $produto->valor = $request->valor;
+        $produto->sigla = $request->sigla;
+
+        $produto->save();
+
+
+
+        return redirect()->route('produto.index')->with('message', 'Atualizado com Sucesso');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Produto $produto)
+    public function destroy(int $id)
     {
-        //
+        $produto = Produto::find($id);
+        $produto->delete();
+
+        return redirect()->route('produto.index');
     }
 }

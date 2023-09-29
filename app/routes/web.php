@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MeioPagamentoController;
+use App\Http\Controllers\ProdutoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VendasController;
 use App\Http\Controllers\TipoVendaController;
@@ -53,3 +54,6 @@ Route::resource('/tipovenda', TipoVendaController::class);
 
 // Rotas Meio de Pagamento
 Route::resource('/meiopagamento', MeioPagamentoController::class);
+
+// Rotas Produto
+Route::resource('/produto', ProdutoController::class);

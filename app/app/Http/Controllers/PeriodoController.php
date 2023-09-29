@@ -36,7 +36,6 @@ class PeriodoController extends Controller
         return view('periodo.edit', ['periodo' => $periodo, 'tipos' => $tipos]);
     }
 
-    // todo: redirecionar para alguma rota
     public function store(Request $request)
     {
         $this->periodoService->create($request);
@@ -46,7 +45,6 @@ class PeriodoController extends Controller
 
     public function edit(Request $request, Periodo $periodo)
     {
-//        dd($request);
         $this->periodoService->edit($periodo, $request);
 
         return redirect()->route('periodo.home')

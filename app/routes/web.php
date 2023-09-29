@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MeioPagamentoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VendasController;
 use App\Http\Controllers\TipoVendaController;
@@ -43,8 +44,7 @@ Route::get('/funcionario/edit/{id}', [FuncionarioController::class, 'edit']);
 
 Route::get('/funcionario/deleted/{id}', [FuncionarioController::class, 'deleted']);
 
-
-// Rotas Venda
+// Rotas Vendas
 Route::resource('/venda/vendas', VendasController::class);
 
 // Rotas Origens de Venda
@@ -52,6 +52,7 @@ Route::resource('/origensvendas/origemvenda', OrigemVendaController::class);
 
 // Rotas Tipos de Venda
 Route::resource('/tipovenda', TipoVendaController::class);
+
 
 
 // Rotas de Periodo
@@ -92,3 +93,7 @@ Route::name('periodo.')->group(function (){
         });
     });
 });
+
+// Rotas Meio de Pagamento
+Route::resource('/meiopagamento', MeioPagamentoController::class);
+

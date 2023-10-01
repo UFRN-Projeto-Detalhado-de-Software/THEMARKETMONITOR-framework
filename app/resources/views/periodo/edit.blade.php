@@ -1,7 +1,7 @@
 <html>
 <head></head>
 <body>
-<h1>Editar funcionários:</h1>
+<h1>Editar período:</h1>
 
 <form action="{{route('periodo.edit', ['periodo' => $periodo->id])}}" method="POST">
     @csrf
@@ -13,6 +13,7 @@
         </label>
     </p>
     <p>
+        Selecione um tipo de período:
         <select class="form-select" aria-label="Default select example" name="tipo">
             <option selected>Escolha o tipo do período</option>
             @foreach($tipos as $tipo)

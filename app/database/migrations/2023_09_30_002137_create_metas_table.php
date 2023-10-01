@@ -11,10 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('periodo_tipos', function (Blueprint $table) {
+        Schema::create('metas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('duracao');
-            $table->string('nome');
+            $table->unsignedBigInteger('periodo');
+//            $table->morphs('matable');
+//            $table->morphs('responsavel_meta');
+            $table->integer('valor_meta');
+            $table->integer('valor_atual');
             $table->timestamps();
         });
     }
@@ -24,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('periodo_tipos');
+        Schema::dropIfExists('metas');
     }
 };

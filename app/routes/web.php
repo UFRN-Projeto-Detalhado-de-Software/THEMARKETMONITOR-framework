@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrigemVendaController;
 use App\Http\Controllers\PeriodoController;
 use App\Http\Controllers\PeriodoTipoController;
+use App\Http\Controllers\MetaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,7 +56,7 @@ Route::resource('/tipovenda', TipoVendaController::class);
 
 
 
-// Rotas de Periodo
+// Rotas de Periodo (incluso tipo)
 Route::name('periodo.')->group(function (){
     Route::prefix('/periodo')->group(function (){
         // Get
@@ -91,6 +92,25 @@ Route::name('periodo.')->group(function (){
 
             });
         });
+    });
+});
+
+// Rotas de Meta
+Route::name('meta.')->group(function (){
+    Route::prefix('/meta')->group(function (){
+        // Get
+        Route::get('/', [MetaController::class, 'home'])->name('home');
+        Route::get('/novo', [MetaController::class, 'create'])->name('create');
+        Route::get('/editar/{meta}', [MetaController::class, 'formEdit'])->name('formEdit');
+
+        // Post
+        Route::post('/store', [MetaController::class, 'store'])->name('store');
+
+        // Put
+        Route::put('/edit/{meta}', [MetaController::class, 'edit'])->name('edit');
+
+        // Delete
+        Route::delete('/destroy/{meta}', [MetaController::class, 'destroy'])->name('destroy');
     });
 });
 

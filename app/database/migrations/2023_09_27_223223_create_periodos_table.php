@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('periodos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('tipo');
+            $table->morphs('periodable');
             $table->date('data_inicio');
             $table->date('data_fim');
             $table->timestamps();

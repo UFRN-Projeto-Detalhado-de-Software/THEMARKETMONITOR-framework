@@ -12,6 +12,7 @@
         </label>
     </p>
     <p>
+        Selecione um tipo de período:
         <select class="form-select" aria-label="Default select example" name="tipo">
             <option selected>Escolha o tipo do período</option>
             @foreach($tipos as $tipo)

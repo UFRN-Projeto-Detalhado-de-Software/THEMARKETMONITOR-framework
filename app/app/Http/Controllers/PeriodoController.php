@@ -38,14 +38,14 @@ class PeriodoController extends Controller
 
     public function store(Request $request)
     {
-        $this->periodoService->create($request);
+        $this->periodoService->create_by_Request($request);
 
         return redirect()->route('periodo.home')->with('msg', 'Período criado com sucesso!');
     }
 
     public function edit(Request $request, Periodo $periodo)
     {
-        $this->periodoService->edit($periodo, $request);
+        $this->periodoService->edit_by_Request($periodo, $request);
 
         return redirect()->route('periodo.home')
             ->with('msg', 'Período editado com sucesso!');

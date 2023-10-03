@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MeioPagamentoController;
+use App\Http\Controllers\ProdutoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VendasController;
 use App\Http\Controllers\TipoVendaController;
@@ -120,6 +121,9 @@ Route::name('meta.')->group(function (){
 // Rotas Meio de Pagamento
 Route::resource('/meiopagamento', MeioPagamentoController::class);
 
+//Rotas Produto
+Route::resource('/produto', ProdutoController::class);
+
 
 // Rotas de Periodo
 Route::name('perfil.')->group(function (){
@@ -144,10 +148,11 @@ Route::name('perfil.')->group(function (){
 
 
 
-//Route::middleware('auth')->group(function () {
-//    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-//});
-//
-//require __DIR__.'/auth.php';
+    Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
+

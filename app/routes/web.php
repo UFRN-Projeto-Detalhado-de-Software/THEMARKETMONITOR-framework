@@ -8,6 +8,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrigemVendaController;
 use App\Http\Controllers\PeriodoController;
 use App\Http\Controllers\PeriodoTipoController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FuncionarioController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\MetaController;
 
 /*
@@ -22,7 +25,7 @@ use App\Http\Controllers\MetaController;
 */
 
 
-use App\Http\Controllers\FuncionarioController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -117,3 +120,34 @@ Route::name('meta.')->group(function (){
 // Rotas Meio de Pagamento
 Route::resource('/meiopagamento', MeioPagamentoController::class);
 
+
+// Rotas de Periodo
+Route::name('perfil.')->group(function (){
+    Route::prefix('/perfil')->group(function (){
+        //Get
+        Route::get('/register', [UserController::class, 'showRegister'])->name('register');
+        Route::get('/home', [UserController::class, 'home'])->name('home');
+        Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+        Route::get('/login', [UserController::class, 'showLogin'])->name('login');
+        //Post
+        Route::post('/register/do', [UserController::class, 'getRegister'])->name('register.do');
+        Route::post('/login/do', [UserController::class, 'getLogin'])->name('login.do');
+        //Put
+
+        //Delete
+
+    });
+});
+
+
+
+
+
+
+//Route::middleware('auth')->group(function () {
+//    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+//});
+//
+//require __DIR__.'/auth.php';

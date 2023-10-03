@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('funcionarios', function (Blueprint $table) {
-            $table->id();
+        Schema::create('periodo_tipos', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('duracao');
+            $table->string('nome');
             $table->timestamps();
-            $table->text("nome");
-            $table->text("dataDeNascimento");
-            $table->text("email");
-            $table->integer("telefone");
-            $table->integer("cpf");
         });
     }
 
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('funcionarios');
+        Schema::dropIfExists('periodo_tipos');
     }
 };

@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('nome');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+        Schema::create('metas', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('periodo');
+//            $table->morphs('matable');
+//            $table->morphs('responsavel_meta');
+            $table->integer('valor_meta');
+            $table->integer('valor_atual');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('metas');
     }
 };

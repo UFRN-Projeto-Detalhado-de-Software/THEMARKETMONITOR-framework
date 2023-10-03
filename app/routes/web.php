@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\MeioPagamentoController;
 use App\Http\Controllers\ProdutoController;
 use Illuminate\Support\Facades\Route;
@@ -155,4 +156,7 @@ Route::name('perfil.')->group(function (){
 });
 
 require __DIR__.'/auth.php';
+
+//Rotas Cliente
+Route::resource('/cliente', ClienteController::class);
 

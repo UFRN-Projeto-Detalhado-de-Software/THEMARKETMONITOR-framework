@@ -100,7 +100,11 @@
         <p>
             <label>
                 Genero
-                <input type="text" name="genero"  placeholder="genero do cliente">
+                <select name="genero">
+                    <option value="F">Feminino</option>
+                    <option value="M">Masculino</option>
+                    <option value="Outro">Outro</option>
+                </select>
             </label>
         </p>
 
@@ -108,6 +112,13 @@
             <label>
                  area de formação
                 <input type="text" name="area_de_formacao"  placeholder="area de formacao  do cliente">
+            </label>
+        </p>
+
+        <p>
+            <label>
+                data de nascimento
+                <input type="date" name="data_de_nascimento"  placeholder="data de nascimento  do cliente">
             </label>
         </p>
 

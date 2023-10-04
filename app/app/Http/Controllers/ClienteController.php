@@ -47,23 +47,30 @@ class ClienteController extends Controller
      */
     public function show(Cliente $cliente)
     {
-        //
+        print($cliente);
+
+
+        return view('cliente/show', ['cliente' => $cliente]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Cliente $cliente)
+    public function edit($id)
     {
-        //
+        $cliente = Cliente::find($id);
+
+        return view("cliente/edit", ['cliente' => $cliente, 'id' => $id]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Cliente $cliente)
+    public function update(Request $request, string $id)
     {
-        //
+        $this->clienteService->update($request, $id);
+
+        return redirect()->route('cliente.index')->with('message', 'Atualizado com Sucesso');
     }
 
     /**
@@ -71,6 +78,9 @@ class ClienteController extends Controller
      */
     public function destroy(Cliente $cliente)
     {
-        //
+        $this->clienteService->delete($cliente);
+
+        return redirect()->route('cliente.index')
+            ->with('msg', 'Período destruido com sucesso!');
     }
 }

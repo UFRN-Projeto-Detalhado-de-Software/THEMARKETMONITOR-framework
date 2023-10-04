@@ -109,6 +109,6 @@ class FuncionarioService
 
     public function minhas_metas(Funcionario $funcionario)
     {
-        return $funcionario->metable()->get();
+        return $funcionario->metas()->get();
     }
 }

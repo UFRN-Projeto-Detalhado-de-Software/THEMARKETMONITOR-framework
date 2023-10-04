@@ -22,7 +22,7 @@ class Funcionario extends Model
         return $this->belongsToMany(Funcionario::class, 'funcionario_acessos', 'acessante', 'acessado');
     }
 
-    public function metable(): MorphMany
+    public function metas(): MorphMany
     {
         return $this->morphMany(Meta::class, 'metable');
     }

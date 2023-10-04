@@ -1,27 +1,35 @@
 <html>
 <head></head>
 <body>
+
+@if(session('msg'))
+    <p>
+    <h2>{{session('msg')}}</h2>
+    </p>
+@endif
+
 <h1>Editar funcionários:</h1>
 
-<form action="/funcionario/edited/{{$id}}" method="POST">
+<form action="{{route('funcionario.edited', ['funcionario' => $funcionario])}}" method="POST">
     @csrf
+    @method('PUT')
     <p>
         <label>
             Nome:
-            <input type="text" id="nome" name="nome" placeholder={{$funcionario->nome}}>
+            <input type="text" id="nome" name="nome" placeholder="{{$funcionario->nome}}" value="{{$funcionario->nome}}">
         </label>
     </p>
     <p>
         <label>
             Data de nascimento:
-            <input type="text" id="data" name="data" placeholder={{$funcionario->dataDeNascimento}}
+            <input type="date" id="data" name="data" placeholder={{$funcionario->dataDeNascimento}}
             value={{$funcionario->dataDeNascimento}}>
         </label>
     </p>
     <p>
         <label>
             Email:
-            <input type="text" id="email" name="email" placeholder={{$funcionario->email}}
+            <input type="email" id="email" name="email" placeholder={{$funcionario->email}}
             value={{$funcionario->email}}>
         </label>
     </p>

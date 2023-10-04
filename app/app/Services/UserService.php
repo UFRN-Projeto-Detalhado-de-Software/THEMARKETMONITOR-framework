@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Collection;
 
 class UserService
 {
@@ -48,8 +49,9 @@ class UserService
     public function attempt_register(string $nome, string $email,string $senha, string $confirmar_senha)
     {
         foreach ($this->nomes_reservados as $nome_reservado){
-            if($nome = $nome_reservado){}
-            return 'O nome "'.$nome.'" é um nome reservado, escolha outro!';
+            if($nome == $nome_reservado){
+                return 'O nome "'.$nome.'" é um nome reservado, escolha outro!';
+            }
         }
         $users_same_email = User::where('email', $email)->get();
         if(!$users_same_email->isEmpty()){
@@ -124,6 +126,7 @@ class UserService
         if($user->funcionario != 0){
             $oldfuncionario = Funcionario::where('usuario', $user->id)->get()->first();
             $oldfuncionario->usuario = 0;
+            $oldfuncionario->save();
         }
         $user->funcionario = $funcionario_id;
         $user->save();
@@ -133,6 +136,16 @@ class UserService
             $newfuncionario->usuario = $user->id;
             $newfuncionario->save();
         }
+    }
+
+    public function getFuncionariosAcesso()
+    {
+        $user = Auth::user();
+        if($user->funcionario == 0){
+            return collect();
+        }
+        $funcionario = Funcionario::find($user->funcionario);
+        return $funcionario->acessado()->get();
     }
 
 

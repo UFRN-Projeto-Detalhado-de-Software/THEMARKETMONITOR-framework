@@ -15,13 +15,6 @@ class UserController extends Controller
 
     }
 
-//    private function admCheck(){
-//        if(!$this->userService->isAdm()){
-//            return redirect()->route('perfil.home')->with('msg', 'Você não é administrador!');
-//        }
-//        return null;
-//    }
-
     public function showLogin()
     {
         return view('user.login');
@@ -34,7 +27,6 @@ class UserController extends Controller
 
     public function home()
     {
-        // Todo: fazer mensagem de erro
         if(!$this->userService->check_login()){
             return redirect()->route('perfil.login')->with('msg', 'Você precisa estar logado para acessar seu perfil!');
         }
@@ -104,6 +96,16 @@ class UserController extends Controller
         $this->userService->editFuncionario_by_request($request);
 
         return redirect()->route('perfil.adm');
+    }
+
+    public function acesso()
+    {
+        if(!$this->userService->check_login()){
+            return redirect()->route('perfil.login')->with('msg', 'Você precisa estar logado para acessar seu perfil!');
+        }
+        $funcionarios = $this->userService->getFuncionariosAcesso();
+
+        return view('user.acesso', ['funcionarios' => $funcionarios]);
     }
 
 }

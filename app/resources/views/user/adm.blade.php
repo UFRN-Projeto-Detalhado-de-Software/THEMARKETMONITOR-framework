@@ -32,6 +32,9 @@
     <br>
 @endforeach
 
+<br>
+<a href="{{route('perfil.home')}}">Voltar para a home</a>
+
 
 </body>
 </html>

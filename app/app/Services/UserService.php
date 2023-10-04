@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Funcionario;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,6 +11,20 @@ use Illuminate\Support\Facades\Hash;
 
 class UserService
 {
+    protected $nomes_reservados = [
+        'nenhum'
+    ];
+
+    public function all()
+    {
+        return User::all();
+    }
+
+    public function available_funcionarios()
+    {
+        return Funcionario::where('usuario', 0)->get();
+    }
+
     public function attempt_login_by_request(Request $request)
     {
         $credentials = [
@@ -32,6 +47,10 @@ class UserService
 
     public function attempt_register(string $nome, string $email,string $senha, string $confirmar_senha)
     {
+        foreach ($this->nomes_reservados as $nome_reservado){
+            if($nome = $nome_reservado){}
+            return 'O nome "'.$nome.'" é um nome reservado, escolha outro!';
+        }
         $users_same_email = User::where('email', $email)->get();
         if(!$users_same_email->isEmpty()){
             return 'Email já cadastrado!';
@@ -74,6 +93,46 @@ class UserService
     public function logout()
     {
         Auth::logout();
+    }
+
+    public function isAdm()
+    {
+        if(!$this->check_login()){
+            return false;
+        }
+        $user = Auth::user();
+        return $user->isAdm;
+    }
+
+    public function destroy(User $user)
+    {
+        if($user->funcionario != 0){
+            $funcionario = Funcionario::where('usuario', $user->id)->get()->first();
+            $funcionario->usuario = 0;
+        }
+        $user->delete();
+    }
+
+    public function editFuncionario_by_request(Request $request)
+    {
+        $user = User::find($request->usuario);
+        $this->editFuncionario($user, $request->funcionario);
+    }
+
+    public function editFuncionario(User $user, int $funcionario_id)
+    {
+        if($user->funcionario != 0){
+            $oldfuncionario = Funcionario::where('usuario', $user->id)->get()->first();
+            $oldfuncionario->usuario = 0;
+        }
+        $user->funcionario = $funcionario_id;
+        $user->save();
+
+        if($funcionario_id != 0){
+            $newfuncionario = Funcionario::find($funcionario_id);
+            $newfuncionario->usuario = $user->id;
+            $newfuncionario->save();
+        }
     }
 
 

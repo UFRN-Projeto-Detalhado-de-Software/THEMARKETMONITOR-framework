@@ -125,7 +125,7 @@ Route::resource('/meiopagamento', MeioPagamentoController::class);
 Route::resource('/produto', ProdutoController::class);
 
 
-// Rotas de Periodo
+// Rotas de Perfil
 Route::name('perfil.')->group(function (){
     Route::prefix('/perfil')->group(function (){
         //Get
@@ -133,12 +133,15 @@ Route::name('perfil.')->group(function (){
         Route::get('/home', [UserController::class, 'home'])->name('home');
         Route::get('/logout', [UserController::class, 'logout'])->name('logout');
         Route::get('/login', [UserController::class, 'showLogin'])->name('login');
+        Route::get('/adm', [UserController::class, 'showAdm'])->name('adm');
+        Route::get('/edit_funcionario/{user}', [UserController::class, 'showEdit_funcionario'])->name('edit_funcionario');
         //Post
         Route::post('/register/do', [UserController::class, 'getRegister'])->name('register.do');
         Route::post('/login/do', [UserController::class, 'getLogin'])->name('login.do');
         //Put
-
+        Route::put('/edit_funcionario/do', [UserController::class, 'getEdit_funcionario'])->name('edit_funcionario.do');
         //Delete
+        Route::delete('destroy/{user}', [UserController::class, 'destroy'])->name('destroy');
 
     });
 });

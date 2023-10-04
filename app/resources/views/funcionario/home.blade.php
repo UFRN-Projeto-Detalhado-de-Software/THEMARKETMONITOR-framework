@@ -17,6 +17,8 @@
     <p>Telefone: {{$funcionario->telefone}}</p>
     <p>CPF: {{$funcionario->cpf}}</p>
 
+    <a href="{{route('funcionario.verMetas', ['funcionario' => $funcionario->id])}}">Ver metas do funcionário</a>
+
     <a href="{{route('funcionario.edit', ['funcionario' => $funcionario->id])}}">Editar funcionário</a>
 
     <form action="{{route('funcionario.destroy', ['funcionario' => $funcionario->id])}}" method="POST">

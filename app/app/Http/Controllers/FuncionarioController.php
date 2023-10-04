@@ -56,4 +56,10 @@ class FuncionarioController extends Controller
         return redirect()->route('funcionario.home')->with('msg', 'Funcionário removido com sucesso!');
     }
 
+    public function verMetas(Funcionario $funcionario)
+    {
+        $metas = $this->funcionarioService->minhas_metas($funcionario);
+        return view('funcionario.ver_metas', ['metas' => $metas]);
+    }
+
 }

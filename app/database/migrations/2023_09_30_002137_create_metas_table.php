@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('metas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('periodo');
-//            $table->morphs('matable');
+            $table->unsignedBigInteger('metable_id')->default(0);
+            $table->string('metable_type')->default('-');
+//            $table->morphs('matable')->defalt(0);
 //            $table->morphs('responsavel_meta');
             $table->integer('valor_meta');
             $table->integer('valor_atual');

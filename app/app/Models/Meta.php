@@ -18,10 +18,10 @@ class Meta extends Model
         return $this->morphOne(Periodo::class, 'periodable');
     }
 
-//    public function metable() : MorphTo
-//    {
-//        return $this->morphTo();
-//    }
+    public function metable() : MorphTo
+    {
+        return $this->morphTo();
+    }
 
 //    public function responsavel_meta() : MorphTo
 //    {

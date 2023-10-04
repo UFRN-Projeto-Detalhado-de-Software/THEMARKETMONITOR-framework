@@ -106,4 +106,9 @@ class FuncionarioService
         }
         $funcionario->delete();
     }
+
+    public function minhas_metas(Funcionario $funcionario)
+    {
+        return $funcionario->metable()->get();
+    }
 }

@@ -43,6 +43,7 @@ Route::name('funcionario.')->group(function (){
         Route::get('/create', [FuncionarioController::class, 'create'])->name('create');
         Route::get('/', [FuncionarioController::class, 'home'])->name('home');
         Route::get('/edit/{funcionario}', [FuncionarioController::class, 'edit'])->name('edit');
+        Route::get('/verMetas/{funcionario}', [FuncionarioController::class, 'verMetas'])->name('verMetas');
         //Post
         Route::post('/store', [FuncionarioController::class, 'store'])->name('store');
         //Put

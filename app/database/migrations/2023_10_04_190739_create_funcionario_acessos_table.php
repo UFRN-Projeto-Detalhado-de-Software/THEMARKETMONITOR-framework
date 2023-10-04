@@ -11,15 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('funcionarios', function (Blueprint $table) {
+        Schema::create('funcionario_acessos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('usuario')->default(0);
+            $table->unsignedBigInteger('acessante');
+            $table->unsignedBigInteger('acessado');
             $table->timestamps();
-            $table->text("nome")->unique();
-            $table->text("dataDeNascimento");
-            $table->text("email")->unique();
-            $table->text("telefone");
-            $table->text("cpf")->unique();
         });
     }
 
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('funcionarios');
+        Schema::dropIfExists('funcionario_acessos');
     }
 };

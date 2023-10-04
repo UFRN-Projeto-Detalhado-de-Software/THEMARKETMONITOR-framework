@@ -25,7 +25,8 @@
     <input type="submit" value="Entrar">
 </form>
 
-{{-- todo: redirecionar para signIn--}}
+Não tem cadastro?
+<a href="{{route('perfil.register')}}"> Registre-se</a>
 
 </body>
 </html>

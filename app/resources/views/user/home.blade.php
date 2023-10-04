@@ -10,6 +10,12 @@
 
 <a href="{{route('perfil.logout')}}"> Logout</a>
 
+<p>
+    Veja as informações dos funcionários que você tem acesso
+    <a href="{{route('perfil.acesso')}}"> ir</a>
+</p>
+
+
 @if($isAdm)
     <a href="{{route('perfil.adm')}}"> Página do adm</a>
 @endif

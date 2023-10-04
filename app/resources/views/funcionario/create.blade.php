@@ -1,9 +1,16 @@
 <html>
 <head></head>
 <body>
+
+@if(session('msg'))
+    <p>
+    <h2>{{session('msg')}}</h2>
+    </p>
+@endif
+
 <h1>Crie um funcionário</h1>
 
-<form action="/funcionario/recebido" method="POST">
+<form action="{{route('funcionario.store')}}" method="POST">
     @csrf
     <p>
         <label>
@@ -14,13 +21,13 @@
     <p>
         <label>
             Data de nascimento:
-            <input type="text" id="data" name="data" placeholder="Data de nascimento do funcionário">
+            <input type="date" id="data" name="data" placeholder="Data de nascimento do funcionário">
         </label>
     </p>
     <p>
         <label>
             Email:
-            <input type="text" id="email" name="email" placeholder="Email do funcionário">
+            <input type="email" id="email" name="email" placeholder="Email do funcionário">
         </label>
     </p>
     <p>

@@ -36,18 +36,21 @@ Route::get('/faturamento', function(){return view('Faturamento');});
 
 // Rotas Funcionario
 
-Route::get('/funcionario/create', [FuncionarioController::class, 'create']);
+Route::name('funcionario.')->group(function (){
+    Route::prefix('/funcionario')->group(function (){
+        //Get
+        Route::get('/create', [FuncionarioController::class, 'create'])->name('create');
+        Route::get('/', [FuncionarioController::class, 'home'])->name('home');
+        Route::get('/edit/{funcionario}', [FuncionarioController::class, 'edit'])->name('edit');
+        //Post
+        Route::post('/store', [FuncionarioController::class, 'store'])->name('store');
+        //Put
+        Route::put('/edited/{funcionario}', [FuncionarioController::class, 'edited'])->name('edited');
+        //Delete
+        Route::delete('/deleted/{funcionario}', [FuncionarioController::class, 'deleted'])->name('destroy');
+    });
+});
 
-Route::get('/funcionario', [FuncionarioController::class, 'home']);
-
-Route::post('/funcionario/recebido', [FuncionarioController::class, 'store']);
-
-Route::get('/funcionario/edit/{id}', [FuncionarioController::class, 'edit']);
-Route::post('/funcionario/edited/{id}', [FuncionarioController::class, 'edited']);
-
-Route::get('/funcionario/edit/{id}', [FuncionarioController::class, 'edit']);
-
-Route::get('/funcionario/deleted/{id}', [FuncionarioController::class, 'deleted']);
 
 // Rotas Vendas
 Route::resource('/venda/vendas', VendasController::class);
@@ -135,6 +138,7 @@ Route::name('perfil.')->group(function (){
         Route::get('/login', [UserController::class, 'showLogin'])->name('login');
         Route::get('/adm', [UserController::class, 'showAdm'])->name('adm');
         Route::get('/edit_funcionario/{user}', [UserController::class, 'showEdit_funcionario'])->name('edit_funcionario');
+        Route::get('/acesso', [UserController::class, 'acesso'])->name('acesso');
         //Post
         Route::post('/register/do', [UserController::class, 'getRegister'])->name('register.do');
         Route::post('/login/do', [UserController::class, 'getLogin'])->name('login.do');

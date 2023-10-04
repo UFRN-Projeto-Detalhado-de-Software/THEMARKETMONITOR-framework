@@ -6,7 +6,7 @@
     <p>{{session('msg')}}</p>
 @endif
 
-<h1>Sign in:</h1>
+<h1>Register:</h1>
 
 <form action="{{route('perfil.register.do')}}" method="POST">
     @csrf

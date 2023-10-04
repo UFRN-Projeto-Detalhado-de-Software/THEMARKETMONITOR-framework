@@ -14,6 +14,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FuncionarioController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MetaController;
+use App\Http\Controllers\HistoricoFuncionarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -157,14 +158,18 @@ Route::name('perfil.')->group(function (){
 
 
 
-    Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+//Route::middleware('auth')->group(function () {
+//    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+//});
 
-require __DIR__.'/auth.php';
+//require __DIR__.'/auth.php';
 
 //Rotas Cliente
 Route::resource('/cliente', ClienteController::class);
+
+//Rotas HistóricoFuncionário
+Route::get('historico/funcionario/{funcionario}', [HistoricoFuncionarioController::class, 'show'])->name('historico.funcionario.show');
+
 

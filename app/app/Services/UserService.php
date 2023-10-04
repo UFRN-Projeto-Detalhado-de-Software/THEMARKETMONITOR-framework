@@ -36,6 +36,13 @@ class UserService
         if(!$users_same_email->isEmpty()){
             return 'Email já cadastrado!';
         }
+        $users_same_name = User::where('nome', $nome)->get();
+        if(!$users_same_name->isEmpty()){
+            return 'Nome já utilizado, escolha outro!';
+        }
+        if(!$this->senha_ok($senha)){
+            return 'A senha não atende aos padrões!';
+        }
         if($senha !== $confirmar_senha){
             return 'Senhas diferentes!';
         }
@@ -51,6 +58,11 @@ class UserService
         Auth::login($user);
 
         return  'ok';
+    }
+
+    public function senha_ok(string $senha)
+    {
+        return true;
     }
 
 

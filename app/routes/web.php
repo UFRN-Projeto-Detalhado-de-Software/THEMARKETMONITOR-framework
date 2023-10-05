@@ -6,7 +6,7 @@ use App\Http\Controllers\ProdutoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VendasController;
 use App\Http\Controllers\TipoVendaController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RankingController;
 use App\Http\Controllers\OrigemVendaController;
 use App\Http\Controllers\PeriodoController;
 use App\Http\Controllers\PeriodoTipoController;
@@ -34,7 +34,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/ranking', [RankingController::class, 'show']);
+
+
 Route::get('/faturamento', function(){return view('Faturamento');});
+
 
 // Rotas Funcionario
 
@@ -171,5 +176,3 @@ Route::resource('/cliente', ClienteController::class);
 
 //Rotas HistóricoFuncionário
 Route::get('historico/funcionario/{funcionario}', [HistoricoFuncionarioController::class, 'show'])->name('historico.funcionario.show');
-
-

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VendasController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RankingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/ranking', [RankingController::class, 'show']);
+
 Route::get('/funcionario/create', [FuncionarioController::class, 'create']);
 
 Route::get('/funcionario', [FuncionarioController::class, 'home']);
@@ -39,7 +42,7 @@ Route::get('/faturamento', function(){return view('Faturamento');});
 //Route::get("/", [HomeController::class, 'index'])->name('home');
 //Route::get("/", [VendasController::class, 'index'])->name('vendas');
 //Route::get("/vendas", [VendasController::class, 'index'])->name('vendas.index');
-//Route::get("/vendas/create", [VendasController::class, 'create'])->name('vendas.create');
+Route::get("/vendas/create", [VendasController::class, 'create'])->name('vendas.create');
 //Route::post("/vendas", [VendasController::class, 'store'])->name('vendas.store');
 //Route::get("/vendas/{venda}", [VendasController::class, 'show'])->name('vendas.show');
 //Route::get("/vendas/{venda}/edit", [VendasController::class, 'edit'])->name('vendas.edit');

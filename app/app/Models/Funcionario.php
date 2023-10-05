@@ -12,6 +12,16 @@ class Funcionario extends Model
     protected $table = 'funcionarios';
     use HasFactory;
 
+
+    protected $fillable = [
+        'nome',
+        'dataDeNascimento',
+        'email',
+        'telefone',
+        'cpf',
+    ];
+
+
     public function acessante(): BelongsToMany
     {
         return $this->belongsToMany(Funcionario::class, 'funcionario_acessos', 'acessado', 'acessante');

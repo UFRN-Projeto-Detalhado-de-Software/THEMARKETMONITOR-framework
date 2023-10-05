@@ -13,7 +13,7 @@ class RankingService
     }
     private function rank(){
         $funcionarios = Funcionario::all()->toArray();
-        $vendas = DB::table('sales')->get()->toArray();
+        $vendas = DB::table('vendas')->get()->toArray();
 
         $vendasAcumuladas = [];
 

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="97323a15-119e-4e09-a4fb-2fdedca6a377" name="XAMPP APACHE" url="http://localhost">
+        <fileTransfer mountedRoot="C:\Users\FutebolInterativo\THEMARKETMONITOR" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>

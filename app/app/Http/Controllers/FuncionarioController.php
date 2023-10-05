@@ -3,59 +3,63 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Services\FuncionarioService;
 use Illuminate\Http\Request;
 use App\Models\Funcionario;
 
 class FuncionarioController extends Controller
 {
+    public function __construct(private readonly FuncionarioService $funcionarioService)
+    {
+
+    }
+
     public function create(){
         return view('funcionario.create');
     }
 
     public function store(Request $request){
-        $funcionario_novo = new Funcionario();
+        $message = $this->funcionarioService->create_by_request($request);
+        if($message != 'ok'){
+           return redirect()->back()->with('msg', $message);
+        }
 
-        $funcionario_novo->nome = $request->nome;
-        $funcionario_novo->dataDeNascimento = $request->data;
-        $funcionario_novo->email = $request->email;
-        $funcionario_novo->telefone = $request->telefone;
-        $funcionario_novo->cpf = $request->cpf;
-
-        $funcionario_novo->save();
-
-        return view('funcionario/recebido');
+        return redirect()->route('funcionario.home')->with('msg', 'Funcionário criado com sucesso!');
     }
 
     public function home(){
-        $funcionarios = Funcionario::all();
+        $funcionarios = $this->funcionarioService->all();
 
         return view('funcionario/home', ['funcionarios' => $funcionarios]);
     }
 
-    public function edit($id){
-        $funcionario = Funcionario::find($id);
-        return view('funcionario/edit', ['funcionario' => $funcionario, 'id' => $id]);
+    public function edit(Funcionario $funcionario){
+        return view('funcionario/edit', ['funcionario' => $funcionario, 'id' => $funcionario->id]);
     }
 
-    public function edited(Request $request, $id){
-        $funcionario = Funcionario::find($id);
+    public function edited(Funcionario $funcionario, Request $request){
+        $message = $this->funcionarioService->edit_by_request($funcionario, $request);
+        if($message != 'ok'){
+            return redirect()->back()->with('msg', $message);
+        }
 
-        $funcionario->nome = $request->nome;
-        $funcionario->dataDeNascimento = $request->data;
-        $funcionario->email = $request->email;
-        $funcionario->telefone = $request->telefone;
-        $funcionario->cpf = $request->cpf;
-
-        $funcionario->save();
-
-        return view('funcionario/edited');
+        return redirect()->route('funcionario.home')->with('msg', 'Funcionário modificado com sucesso!');
     }
 
-    public function deleted($id){
-        $funcionario = Funcionario::find($id);
-        $funcionario->delete();
+    public function deleted(Funcionario $funcionario){
+        $message = $this->funcionarioService->destroy($funcionario);
 
-        return view('funcionario/deleted');
+        if($message != 'ok'){
+            return redirect()->back()->with('msg', $message);
+        }
+
+        return redirect()->route('funcionario.home')->with('msg', 'Funcionário removido com sucesso!');
+    }
+
+    public function verMetas(Funcionario $funcionario)
+    {
+        $metas = $this->funcionarioService->minhas_metas($funcionario);
+        return view('funcionario.ver_metas', ['metas' => $metas]);
     }
 
 }

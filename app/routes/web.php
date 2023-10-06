@@ -7,7 +7,7 @@ use App\Http\Controllers\ProdutoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VendasController;
 use App\Http\Controllers\TipoVendaController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RankingController;
 use App\Http\Controllers\OrigemVendaController;
 use App\Http\Controllers\PeriodoController;
 use App\Http\Controllers\PeriodoTipoController;
@@ -36,7 +36,9 @@ Route::get('/', function () {
 });
 
 Route::get('/faturamento',[FaturamentoController::class, 'get_faturamento'])->name('calcularfaturamento');
-Route::get('/faturamentocalculado', [FaturamentoController::class, 'show_faturamento'])->name('mostrarfaturamento');
+
+Route::get('/ranking', [RankingController::class, 'show']);
+
 // Rotas Funcionario
 
 Route::name('funcionario.')->group(function (){
@@ -172,5 +174,3 @@ Route::resource('/cliente', ClienteController::class);
 
 //Rotas HistóricoFuncionário
 Route::get('historico/funcionario/{funcionario}', [HistoricoFuncionarioController::class, 'show'])->name('historico.funcionario.show');
-
-

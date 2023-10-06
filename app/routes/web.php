@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\FaturamentoController;
 use App\Http\Controllers\MeioPagamentoController;
 use App\Http\Controllers\ProdutoController;
 use Illuminate\Support\Facades\Route;
@@ -34,8 +35,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/faturamento', function(){return view('Faturamento');});
-
+Route::get('/faturamento',[FaturamentoController::class, 'get_faturamento'])->name('calcularfaturamento');
+Route::get('/faturamentocalculado', [FaturamentoController::class, 'show_faturamento'])->name('mostrarfaturamento');
 // Rotas Funcionario
 
 Route::name('funcionario.')->group(function (){

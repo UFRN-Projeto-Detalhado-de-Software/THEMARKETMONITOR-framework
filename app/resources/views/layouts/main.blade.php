@@ -12,7 +12,7 @@
     <nav class="navbar">
         <div class="logo_item">
             <i class="bx bx-menu" id="sidebarOpen"></i>
-            <img src="/images/logo-fi.png" alt=""></img>Futebol Interativo
+            TheMarketMonitor
         </div>
 
         <div class="navbar_content">

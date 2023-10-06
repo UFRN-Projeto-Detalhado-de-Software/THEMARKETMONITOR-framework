@@ -12,7 +12,7 @@
 
 @foreach($funcionarios as $funcionario)
     <p>Nome: {{$funcionario->nome}}</p>
-    <p>Data de nascomento: {{$funcionario->dataDeNascimento}}</p>
+    <p>Data de nascimento: {{$funcionario->dataDeNascimento}}</p>
     <p>Email: {{$funcionario->email}}</p>
     <p>Telefone: {{$funcionario->telefone}}</p>
     <p>CPF: {{$funcionario->cpf}}</p>

@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\DTOS\VendaDTO;
 use App\Http\Controllers\Controller;
 use App\Models\Vendas;
+use App\Services\VendasService;
 use Illuminate\Http\Request;
+use App\Repositories\VendasRepositoryInterface;
 
 
 class VendasController extends Controller
 {
-    public readonly Vendas $venda;
-    public function __construct()
+    public function __construct(private readonly VendasService $vendaService)
     {
-        $this->venda = new Vendas();
+
     }
-
-
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $vendas = $this->venda->all();
+        $vendas = $this->vendaService->all();
 
 
         return view('venda/vendas',['vendas' => $vendas]);
@@ -40,24 +40,24 @@ class VendasController extends Controller
      */
     public function store(Request $request)
     {
-        $created = $this->venda->create([
-            'id' => $request->input('id'),
-            'data' => $request->input('data'),
-            'valor' => $request->input('valor'),
-            'meioDePagamento' => $request->input('meioDePagamento'),
-            'cliente' => $request->input('cliente'),
-            'produto' => $request->input('produto'),
-            'closer' => $request->input('closer'),
-            'sdr' => $request->input('sdr'),
-            'tipo' => $request->input('tipo'),
-            'origem' => $request->input('origem'),
-            'deTerceiro' => $request->input('deTerceiro'),
-            'obs' => $request->input('obs'),
 
-        ]);
+        $dto = new VendaDTO(
+            $request->input('cliente'),
+            $request->input('sdr'),
+            $request->input('closer'),
+            $request->input('produto'),
+            $request->input('data'),
+            $request->input('valor'),
+            $request->input('tipo'),
+            $request->input('origem'),
+            $request->input('meioDePagamento'),
+            $request->input('deTerceiro'),
+            $request->input('obs'),
+            );
 
-        if($created){
-            print($created);
+        $venda = $this->vendaService->create($dto);
+
+        if($venda){
             return redirect()->back()->with('message', 'Criado com Sucesso');
         }
 
@@ -69,8 +69,6 @@ class VendasController extends Controller
      */
     public function show(Vendas $venda)
     {
-        print($venda);
-        var_dump($venda);
 
         return view('venda/venda_show', ['venda' => $venda]);
     }
@@ -89,11 +87,24 @@ class VendasController extends Controller
     public function update(Request $request, string $id)
     {
 
-        $updated = $this->venda->where('id', $id)->update($request->except('_token', '_method'));
+        $dto = new VendaDTO(
+            $request->input('cliente'),
+            $request->input('sdr'),
+            $request->input('closer'),
+            $request->input('produto'),
+            $request->input('data'),
+            $request->input('valor'),
+            $request->input('tipo'),
+            $request->input('origem'),
+            $request->input('meioDePagamento'),
+            $request->input('deTerceiro'),
+            $request->input('obs'),
+        );
+
+        $updated = $this->vendaService->update($dto, $id);
 
 
         if($updated){
-            print($updated);
             return redirect()->back()->with('message', 'Atualizado com Sucesso');
         }
 
@@ -105,9 +116,8 @@ class VendasController extends Controller
      */
     public function destroy(string $id)
     {
-        print($this->venda->where('id', $id));
-        $this->venda->where('id', $id)->delete();
+        $this->vendaService->delete($id);
 
-        return redirect()->route('venda/vendas.index');
+        return redirect()->route('vendas.index');
     }
 }

@@ -5,6 +5,7 @@
       <tool tool_name="PHPUnit">
         <cache>
           <versions>
+            <info id="LocalC:\THEMARKETMONITOR\app\vendor\autoload.php" version="10.3.4" />
             <info id="LocalC:\Users\FutebolInterativo\THEMARKETMONITOR\app\vendor\autoload.php" version="10.3.4" />
           </versions>
         </cache>

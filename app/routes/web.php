@@ -36,11 +36,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('home', [HomeController::class, 'index'])->name('home');
+Route::middleware(['auth'])->group(function () {
+    // Suas rotas protegidas vão aqui
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/ranking', [RankingController::class, 'show'])->name('ranking');
+    Route::get('/faturamento',[FaturamentoController::class, 'get_faturamento'])->name('calcularfaturamento');
+});
 
-Route::get('/faturamento',[FaturamentoController::class, 'get_faturamento'])->name('calcularfaturamento');
 
-Route::get('/ranking', [RankingController::class, 'show'])->name('ranking');
+//Route::get('home', [HomeController::class, 'index'])->name('home');
+
+
+
+
 
 // Rotas Funcionario
 

@@ -13,9 +13,15 @@
         <a class="btn btn-primary" href="{{route('vendas.index')}}"> Vendas</a>
         <a class="btn btn-primary" href="{{route('funcionario.home')}}"> Funcionarios</a>
         <a class="btn btn-primary" href="{{route('produto.index')}}"> Produtos</a>
-
+        <a href="{{route('perfil.logout')}}"> Logout</a>
 
     </div>
+
+
+
+
+
+
 
 
 @endsection

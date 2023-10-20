@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\FaturamentoController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MeioPagamentoController;
 use App\Http\Controllers\ProdutoController;
 use Illuminate\Support\Facades\Route;
@@ -35,9 +36,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('home', [HomeController::class, 'index'])->name('home');
+
 Route::get('/faturamento',[FaturamentoController::class, 'get_faturamento'])->name('calcularfaturamento');
 
-Route::get('/ranking', [RankingController::class, 'show']);
+Route::get('/ranking', [RankingController::class, 'show'])->name('ranking');
 
 // Rotas Funcionario
 

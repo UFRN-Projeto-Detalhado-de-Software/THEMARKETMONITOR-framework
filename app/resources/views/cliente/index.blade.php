@@ -2,9 +2,15 @@
 
 @section('content')
 
-    <a href="{{route('cliente.create')}}">Create</a>
+    <a href="{{route('home')}}">
+        <button>HOME</button>
+    </a>
 
     <h2> Clientes </h2>
+
+    <a href="{{route('cliente.create')}}">
+        <button>Crie um Cliente!</button>
+    </a>
 
     <ul>
         @foreach( $cliente as $client)

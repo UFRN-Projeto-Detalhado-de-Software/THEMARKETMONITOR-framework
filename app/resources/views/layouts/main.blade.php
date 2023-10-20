@@ -5,8 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="/css/main.css" />
-        <title>@yield('title')</title>
-
     </head>
     <body>
     <nav class="navbar">
@@ -23,18 +21,18 @@
 
     <!-- sidebar -->
     <nav class="sidebar">
-        <div class="menu_content">
+        <a class="menu_content">
             <ul class="menu_items">
                 <div class="menu_title"></div>
                 <!-- duplicate or remove this li tag if you want to add or remove navlink with submenu -->
                 <!-- start -->
                 <li class="item">
-                    <div href="#" class="nav_link submenu_item">
+                    <a href="{{route('home')}}" class="nav_link">
                         <span class="navlink_icon">
                             <i class="bx bx-home-alt"></i>
                         </span>
                         <span class="navlink">Home</span>
-                    </div>
+                    </a>
                 </li>
                 <!-- end -->
 
@@ -63,7 +61,7 @@
                 <!-- duplicate these li tag if you want to add or remove navlink only -->
                 <!-- Start -->
                 <li class="item">
-                    <a href="#" class="nav_link">
+                    <a href="{{route('ranking')}}" class="nav_link">
                         <span class="navlink_icon">
                             <i class="bx bx-loader-circle"></i>
                         </span>
@@ -73,7 +71,7 @@
                 <!-- End -->
 
                 <li class="item">
-                    <a href="#" class="nav_link">
+                    <a href="{{route("calcularfaturamento")}}" class="nav_link">
                         <span class="navlink_icon">
                             <i class="bx bx-loader-circle"></i>
                         </span>
@@ -94,7 +92,7 @@
                     </div>
                 </div>
             </ul>
-        </div>
+        </a>
     </nav>
 
     <!-- Content Section (Not competing with the sidebar) -->

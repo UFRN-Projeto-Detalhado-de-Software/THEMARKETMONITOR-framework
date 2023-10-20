@@ -40,7 +40,7 @@ class UserController extends Controller
         if(!$this->userService->check_login()){
             return redirect()->back()->with('msg', 'Dados inválidos!');
         }
-        return redirect()->route('perfil.home');
+        return redirect()->route('home');
     }
 
     public function getRegister(Request $request)

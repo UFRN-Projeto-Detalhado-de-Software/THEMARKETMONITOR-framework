@@ -17,11 +17,11 @@
     <p>Telefone: {{$funcionario->telefone}}</p>
     <p>CPF: {{$funcionario->cpf}}</p>
 
-    <a href="{{route('funcionario.verMetas', ['funcionario' => $funcionario->id])}}">Ver metas do funcionário</a>
+    <a href="{{route('funcionario.verMetas', ['id' => $funcionario->id])}}">Ver metas do funcionário</a>
 
-    <a href="{{route('funcionario.edit', ['funcionario' => $funcionario->id])}}">Editar funcionário</a>
+    <a href="{{route('funcionario.edit', ['id' => $funcionario->id])}}">Editar funcionário</a>
 
-    <form action="{{route('funcionario.destroy', ['funcionario' => $funcionario->id])}}" method="POST">
+    <form action="{{route('funcionario.destroy', ['id' => $funcionario->id])}}" method="POST">
         @csrf
         @method('DELETE')
         <input type="hidden" name="id" value="{{$funcionario->id}}">

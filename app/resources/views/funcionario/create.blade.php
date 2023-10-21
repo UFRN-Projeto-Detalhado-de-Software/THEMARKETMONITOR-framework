@@ -21,7 +21,7 @@
     <p>
         <label>
             Data de nascimento:
-            <input type="date" id="data" name="data" placeholder="Data de nascimento do funcionário">
+            <input type="date" id="dataDeNascimento" name="dataDeNascimento" placeholder="Data de nascimento do funcionário">
         </label>
     </p>
     <p>

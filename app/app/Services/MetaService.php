@@ -7,6 +7,7 @@ use App\Models\Meta;
 use App\Models\Periodo;
 use App\Models\PeriodoTipo;
 use App\Repositories\MetasRepositoryInterface;
+use App\Repositories\PeriodoRepository;
 use Carbon\Carbon;
 use Dflydev\DotAccessData\Data;
 use Illuminate\Database\Eloquent\Collection;
@@ -33,35 +34,32 @@ MetaService
         return $this->metasRepository->find($id);
     }
 
-    public function tipos_periodo(): Collection
+    public function tipos_periodo()
     {
-        return PeriodoTipo::all();
-        // todo: arrumar qui quando fizer o dto de PeriodoTipo
+        return $this->metasRepository->all_periodo_tipo();
     }
 
 
-    public function create(MetaDTO $metaDTO, $periodo_tipo, $data_inicio)
+    public function create(MetaDTO $metaDTO)
     {
-        $servicePeriodo = new PeriodoService();
-        $periodo = $servicePeriodo->create($periodo_tipo, $data_inicio);
-        // todo: arrumar aqui quando tiver o DTO de Periodo
-
         $metaDTO->valor_atual = 0;
 
-        $this->metasRepository->store($metaDTO, $periodo);
+        $servicePeriodo = new PeriodoService(new PeriodoRepository());
+        $servicePeriodo->validate($metaDTO->periodo);
+
+        $this->metasRepository->store($metaDTO);
     }
 
-    public function edit($id, MetaDTO $metaDTO, $periodo_tipo, $data_inicio)
+    public function edit(MetaDTO $metaDTO)
     {
-        $servicePeriodo = new PeriodoService();
-        $servicePeriodo->edit($metaDTO->periodo, $periodo_tipo, $data_inicio);
-        // todo: arrumar aqui quando tiver o DTO de Periodo
+        $servicePeriodo = new PeriodoService(new PeriodoRepository());
+        $servicePeriodo->validate($metaDTO->periodo);
 
-        $this->metasRepository->update($metaDTO, $id);
+        $this->metasRepository->update($metaDTO);
     }
 
-    public function delete($id)
+    public function delete(MetaDTO $metaDTO)
     {
-        $this->metasRepository->destroy($id);
+        $this->metasRepository->destroy($metaDTO);
     }
 }

@@ -2,79 +2,69 @@
 
 namespace App\Services;
 
+use App\DTOS\PeriodoDTO;
 use App\Models\Meta;
 use App\Models\Periodo;
 use App\Models\PeriodoTipo;
+use App\Repositories\PeriodoRepository;
 use Carbon\Carbon;
 use Dflydev\DotAccessData\Data;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
+use function Symfony\Component\Translation\t;
 
 class PeriodoService
 {
-    public function all(): Collection
+    private $periodosRepository;
+
+    public function __construct(PeriodoRepository $periodosRepository)
     {
-        return Periodo::all();
+        $this->periodosRepository = $periodosRepository;
     }
+
+    public function all()
+    {
+        return $this->periodosRepository->all();
+    }
+
+    public function find($id)
+    {
+        return $this->periodosRepository->find($id);
+    }
+
+//    public function find_tipo($id)
+//    {
+//        return $this->periodosRepository->find_tipo($id);
+//    }
+
     public function tipos()
     {
-        return PeriodoTipo::all();
+        return $this->periodosRepository->tipos();
     }
 
-    public function create_by_Request(Request $request): Periodo
+    public function validate(PeriodoDTO $periodoDTO)
     {
-//        todo: arrumap periodable
-        return $this->create($request->tipo, $request->data_inicio);
+        $periodoDTO->tipo = $this->periodosRepository->find_tipo($periodoDTO->tipo->id);
+
+        $periodoDTO->data_inicio = Carbon::parse($periodoDTO->data_inicio);
+        $periodoDTO->data_fim = Carbon::parse($periodoDTO->data_inicio)->addDay($periodoDTO->tipo->duracao);
     }
 
-    public function create($tipo_id, string $data_inicio): Periodo
+    public function create(PeriodoDTO $periodoDTO)
     {
-        $periodo = new Periodo();
-        $tipo = PeriodoTipo::find($tipo_id);
-
-//        $periodo->data_inicio = $data_inicio;
-        $periodo->data_inicio = Carbon::parse($data_inicio);
-        $periodo->tipo = $tipo_id;
-        $periodo->data_fim = Carbon::parse($periodo->data_inicio)->addDay($tipo->duracao);
-
-
-        $periodo->periodable_id = 0;
-        $periodo->periodable_type = "-";
-
-        $periodo->save();
-
-        return $periodo;
+        $this->validate($periodoDTO);
+        $this->periodosRepository->store($periodoDTO);
     }
 
-    public function edit_by_Request(Periodo $periodo, Request $request): Periodo
+    public function edit(PeriodoDTO $periodoDTO)
     {
-        return $this->edit($periodo, $request->tipo, $request->data_inicio);
+        $this->validate($periodoDTO);
+        $this->periodosRepository->update($periodoDTO);
     }
 
-    public function edit(Periodo $periodo, $tipo_id, string $data_inicio): Periodo
+    public function delete(PeriodoDTO $periodoDTO)
     {
-        $tipo = PeriodoTipo::find($tipo_id);
-
-        $periodo->data_inicio = $data_inicio;
-        $periodo->tipo = $tipo_id;
-        $periodo->data_fim = Carbon::parse($periodo->data_inicio)->addDay($tipo->duracao);
-
-        $periodo->save();
-
-        return $periodo;
-    }
-
-    public function set_periodable(Periodo $periodo ,int $perdiodable_id, string $periodable_type)
-    {
-        $periodo->periodable_id = $perdiodable_id;
-        $periodo->periodable_type = $periodable_type;
-
-        $periodo->save();
-    }
-
-    public function delete(Periodo $periodo)
-    {
-        $periodo->delete();
+        $this->periodosRepository->destroy($periodoDTO);
     }
 }

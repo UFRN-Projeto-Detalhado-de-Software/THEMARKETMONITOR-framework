@@ -10,14 +10,15 @@ interface MetasRepositoryInterface
 
     public function all();
 
+    public function all_periodo_tipo();
+
     public function find($id);
 
-    public function store(MetaDTO $dto, Periodo $periodo);
-    //todo: arrumar aqui quando o DTO de Periodo estiver pronto
+    public function store(MetaDTO $dto);
 
-    public function update(MetaDTO $dto, $id);
+    public function update(MetaDTO $dto);
 
-    public function destroy($id);
+    public function destroy(MetaDTO $dto);
 
 
 }

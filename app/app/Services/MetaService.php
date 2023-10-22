@@ -2,9 +2,11 @@
 
 namespace App\Services;
 
+use App\DTOS\MetaDTO;
 use App\Models\Meta;
 use App\Models\Periodo;
 use App\Models\PeriodoTipo;
+use App\Repositories\MetasRepositoryInterface;
 use Carbon\Carbon;
 use Dflydev\DotAccessData\Data;
 use Illuminate\Database\Eloquent\Collection;
@@ -14,58 +16,52 @@ class
 
 MetaService
 {
-    public function all(): Collection
+
+    private $metasRepository;
+
+    public function __construct(MetasRepositoryInterface $metasRepository)
     {
-        return Meta::all();
+        $this->metasRepository = $metasRepository;
     }
+
+    public function all()
+    {
+        return $this->metasRepository->all();
+    }
+
+    public function find($id){
+        return $this->metasRepository->find($id);
+    }
+
     public function tipos_periodo(): Collection
     {
         return PeriodoTipo::all();
+        // todo: arrumar qui quando fizer o dto de PeriodoTipo
     }
 
-    public function create_by_request(Request $request): Meta
-    {
-        return $this->create($request->tipo_periodo, $request->data_inicio, $request->valor_meta);
-    }
 
-    public function create($periodo_tipo, string $data_inicio, int $valor_meta): Meta
+    public function create(MetaDTO $metaDTO, $periodo_tipo, $data_inicio)
     {
         $servicePeriodo = new PeriodoService();
-        $meta = new Meta();
         $periodo = $servicePeriodo->create($periodo_tipo, $data_inicio);
+        // todo: arrumar aqui quando tiver o DTO de Periodo
 
+        $metaDTO->valor_atual = 0;
 
-        $meta->valor_meta = $valor_meta;
-        $meta->valor_atual = 0;
-        $meta->periodo = $periodo->id;
-
-        $meta->save();
-
-        $servicePeriodo->set_periodable($periodo ,$meta->id, Meta::class);
-
-        return $meta;
+        $this->metasRepository->store($metaDTO, $periodo);
     }
 
-    public function edit_by_request(Meta $meta, Request $request): Meta
-    {
-        return $this->edit($meta, $request->tipo_periodo, $request->data_inicio, $request->valor_meta);
-    }
-
-    public function edit(Meta $meta, $periodo_tipo, string $data_inicio, int $valor_meta): Meta
+    public function edit($id, MetaDTO $metaDTO, $periodo_tipo, $data_inicio)
     {
         $servicePeriodo = new PeriodoService();
-        $periodo = Periodo::find($meta->periodo);
-        $servicePeriodo->edit($periodo ,$periodo->tipo, $data_inicio);
+        $servicePeriodo->edit($metaDTO->periodo, $periodo_tipo, $data_inicio);
+        // todo: arrumar aqui quando tiver o DTO de Periodo
 
-        $meta->valor_meta = $valor_meta;
-
-        $meta->save();
-
-        return $meta;
+        $this->metasRepository->update($metaDTO, $id);
     }
 
-    public function delete(Meta $meta)
+    public function delete($id)
     {
-        $meta->delete();
+        $this->metasRepository->destroy($id);
     }
 }

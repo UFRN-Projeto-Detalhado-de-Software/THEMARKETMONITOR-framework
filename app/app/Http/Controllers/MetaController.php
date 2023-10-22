@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\DTOS\FuncionarioDTO;
+use App\DTOS\MetaDTO;
 use App\Http\Controllers\Controller;
 use App\Models\Meta;
 use App\Services\PeriodoService;
 use Illuminate\Http\Request;
 use App\Services\MetaService;
+use function Webmozart\Assert\Tests\StaticAnalysis\null;
 
 class MetaController extends Controller
 {
@@ -29,28 +32,38 @@ class MetaController extends Controller
         return view('meta.create', ['tipos_periodo' => $tipos_periodo]);
     }
 
-    public function formEdit(Meta $meta)
+    public function formEdit($id)
     {
         $tipos_periodo = $this->metaService->tipos_periodo();
+        $meta = $this->metaService->find($id);
         return view('meta.edit', ['meta' => $meta, 'tipos_periodo' => $tipos_periodo]);
     }
 
     public function store(Request $request)
     {
-        $this->metaService->create_by_request($request);
+        $this->metaService->create(new MetaDTO(
+            null,
+            null,
+            $request->valor_meta,
+            $request->valor_atual,
+            null
+        ), $request->tipo_periodo, $request->data_inicio);
         return redirect()->route('meta.home')->with('msg', 'Meta criada com sucesso!');
     }
 
-    public function edit(Request $request, Meta $meta)
+    public function edit(Request $request, $id)
     {
-        $this->metaService->edit_by_request($meta, $request);
+        $meta = $this->metaService->find($id);
+        $meta->valor_meta = $request->valor_meta;
+
+        $this->metaService->edit($id, $meta, (int) $request->tipo_periodo, $request->data_inicio);
         return redirect()->route('meta.home')
             ->with('msg', 'Meta editada com sucesso!');
     }
 
-    public function destroy(Meta $meta)
+    public function destroy($id)
     {
-        $this->metaService->delete($meta);
+        $this->metaService->delete($id);
 
         return redirect()->route('meta.home')
             ->with('msg', 'Meta destruida com sucesso!');

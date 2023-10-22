@@ -46,14 +46,14 @@ Route::name('funcionario.')->group(function (){
         //Get
         Route::get('/create', [FuncionarioController::class, 'create'])->name('create');
         Route::get('/', [FuncionarioController::class, 'home'])->name('home');
-        Route::get('/edit/{funcionario}', [FuncionarioController::class, 'edit'])->name('edit');
-        Route::get('/verMetas/{funcionario}', [FuncionarioController::class, 'verMetas'])->name('verMetas');
+        Route::get('/edit/{id}', [FuncionarioController::class, 'edit'])->name('edit');
+        Route::get('/verMetas/{id}', [FuncionarioController::class, 'verMetas'])->name('verMetas');
         //Post
         Route::post('/store', [FuncionarioController::class, 'store'])->name('store');
         //Put
-        Route::put('/edited/{funcionario}', [FuncionarioController::class, 'edited'])->name('edited');
+        Route::put('/edited/{id}', [FuncionarioController::class, 'edited'])->name('edited');
         //Delete
-        Route::delete('/deleted/{funcionario}', [FuncionarioController::class, 'deleted'])->name('destroy');
+        Route::delete('/deleted/{id}', [FuncionarioController::class, 'deleted'])->name('destroy');
     });
 });
 

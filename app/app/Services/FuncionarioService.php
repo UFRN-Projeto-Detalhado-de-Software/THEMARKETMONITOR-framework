@@ -2,8 +2,11 @@
 
 namespace App\Services;
 
+use App\DTOS\FuncionarioDTO;
 use App\Models\Funcionario;
 use App\Models\User;
+use App\Repositories\FuncionariosRepositoryInterface;
+use App\Repositories\VendasRepositoryInterface;
 use Illuminate\Http\Request;
 
 class FuncionarioService
@@ -12,103 +15,90 @@ class FuncionarioService
         'nenhum'
     ];
 
+    private $funcionariosRepository;
+
+    public function __construct(FuncionariosRepositoryInterface $funcionariosRepository)
+    {
+        $this->funcionariosRepository = $funcionariosRepository;
+    }
+
     public function all()
     {
-        return Funcionario::all();
+        return $this->funcionariosRepository->all();
     }
-    public function create_by_request(Request $request)
+
+    public function find($id)
     {
-        return $this->create($request->nome, $request->data, $request->email, $request->telefone, $request->cpf);
+        return $this->funcionariosRepository->find($id);
     }
-    public function create(string $nome, string $data, string $email, int $telefone, int $cpf)
+
+    public function create(FuncionarioDTO $funcionarioDTO)
     {
         foreach ($this->nomes_reservados as $nome_reservado){
-            if($nome == $nome_reservado){
-                return 'O nome "'.$nome.'" é um nome reservado, escolha outro!';
+            if($funcionarioDTO->nome == $nome_reservado){
+                return 'O nome "'.$nome_reservado.'" é um nome reservado, escolha outro!';
+                // todo: tratar exeçcão aqui
             }
         }
-        $funcionarios_same_email = Funcionario::where('email', $email)->get();
-        if(!$funcionarios_same_email->isEmpty()){
+        if($this->funcionariosRepository->email_ja_cadastrado($funcionarioDTO->email)){
+            return 'Email já cadastrado!';
+            // todo: tratar exeçcão aqui
+        }
+        if($this->funcionariosRepository->nome_ja_cadastrado($funcionarioDTO->nome)){
+            return 'Nome já utilizado, escolha outro!';
+            // todo: tratar exeçcão aqui
+        }
+        if($this->funcionariosRepository->cpf_ja_cadastrado($funcionarioDTO->cpf)){
+            return 'Cpf já utilizado! O CPF é um número de identificação único!';
+            // todo: tratar exeçcão aqui
+        }
+
+        $id_novo = $this->funcionariosRepository->store($funcionarioDTO);
+
+        $this->funcionariosRepository->permitir_acesso($id_novo, $id_novo);
+
+        return 'ok';
+    }
+
+    public function edit($id, FuncionarioDTO $funcionarioDTO)
+    {
+        foreach ($this->nomes_reservados as $nome_reservado){
+            if($funcionarioDTO->nome == $nome_reservado){
+                return 'O nome "'.$nome_reservado.'" é um nome reservado, escolha outro!';
+            }
+        }
+
+        if( !$this->funcionariosRepository->email_eh($id, $funcionarioDTO->email) &&
+            $this->funcionariosRepository->email_ja_cadastrado($funcionarioDTO->email) )
+        {
             return 'Email já cadastrado!';
         }
-        $funcionarios_same_name = Funcionario::where('nome', $nome)->get();
-        if(!$funcionarios_same_name->isEmpty()){
+
+        if( !$this->funcionariosRepository->nome_eh($id, $funcionarioDTO->nome) &&
+            $this->funcionariosRepository->nome_ja_cadastrado($funcionarioDTO->nome) )
+        {
             return 'Nome já utilizado, escolha outro!';
         }
-        $funcionarios_same_cpf = Funcionario::where('cpf', $cpf)->get();
-        if(!$funcionarios_same_cpf->isEmpty()){
+
+        if( !$this->funcionariosRepository->cpf_eh($id, $funcionarioDTO->cpf) &&
+            $this->funcionariosRepository->cpf_ja_cadastrado($funcionarioDTO->cpf) )
+        {
             return 'Cpf já utilizado! O CPF é um número de identificação único!';
         }
-        $funcionario_novo = new Funcionario();
 
-        $funcionario_novo->nome = $nome;
-        $funcionario_novo->dataDeNascimento = $data;
-        $funcionario_novo->email = $email;
-        $funcionario_novo->telefone = $telefone;
-        $funcionario_novo->cpf = $cpf;
-
-        $funcionario_novo->save();
-
-        $funcionario_novo->acessado()->attach($funcionario_novo->id);
-
-        return 'ok';
-    }
-    public function edit_by_request(Funcionario $funcionario, Request $request)
-    {
-        return $this->edit($funcionario, $request->nome, $request->data, $request->email, $request->telefone, $request->cpf);
-    }
-    public function edit(Funcionario $funcionario, string $nome, string $data, string $email, int $telefone, int $cpf)
-    {
-        foreach ($this->nomes_reservados as $nome_reservado){
-            if($nome == $nome_reservado){
-                return 'O nome "'.$nome.'" é um nome reservado, escolha outro!';
-            }
-        }
-
-        if($email != $funcionario->email){
-            $funcionarios_same_email = Funcionario::where('email', $email)->get();
-            if(!$funcionarios_same_email->isEmpty()){
-                return 'Email já cadastrado!';
-            }
-        }
-
-        if($nome != $funcionario->nome){
-            $funcionarios_same_name = Funcionario::where('nome', $nome)->get();
-            if(!$funcionarios_same_name->isEmpty()){
-                return 'Nome já utilizado, escolha outro!';
-            }
-        }
-
-        if($cpf != $funcionario->cpf){
-            $funcionarios_same_cpf = Funcionario::where('cpf', $cpf)->get();
-            if(!$funcionarios_same_cpf->isEmpty()){
-                return 'Cpf já utilizado! O CPF é um número de identificação único!';
-            }
-        }
-
-        $funcionario->nome = $nome;
-        $funcionario->dataDeNascimento = $data;
-        $funcionario->email = $email;
-        $funcionario->telefone = $telefone;
-        $funcionario->cpf = $cpf;
-
-        $funcionario->save();
+        $this->funcionariosRepository->update($funcionarioDTO, $id);
 
         return 'ok';
     }
 
-    public function destroy(Funcionario $funcionario)
+    public function destroy($id)
     {
-        if($funcionario->usuario != 0){
-            $usario = User::find($funcionario->usuario);
-            $usario->funcionario = 0;
-            $usario->save();
-        }
-        $funcionario->delete();
+        $this->funcionariosRepository->desvincular_usuario($id);
+        $this->funcionariosRepository->destroy($id);
     }
 
-    public function minhas_metas(Funcionario $funcionario)
+    public function minhas_metas($id)
     {
-        return $funcionario->metas()->get();
+        return $this->funcionariosRepository->get_metas($id);
     }
 }

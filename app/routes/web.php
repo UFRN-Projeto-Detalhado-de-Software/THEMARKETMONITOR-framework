@@ -75,16 +75,16 @@ Route::name('periodo.')->group(function (){
         // Get
         Route::get('/', [PeriodoController::class, 'home'])->name('home');
         Route::get('/novo', [PeriodoController::class, 'create'])->name('create');
-        Route::get('/editar/{periodo}', [PeriodoController::class, 'formEdit'])->name('formEdit');
+        Route::get('/editar/{id}', [PeriodoController::class, 'formEdit'])->name('formEdit');
 
         // Post
         Route::post('/store', [PeriodoController::class, 'store'])->name('store');
 
         // Put
-        Route::put('/edit/{periodo}', [PeriodoController::class, 'edit'])->name('edit');
+        Route::put('/edit/{id}', [PeriodoController::class, 'edit'])->name('edit');
 
         // Delete
-        Route::delete('/destroy/{periodo}', [PeriodoController::class, 'destroy'])->name('destroy');
+        Route::delete('/destroy/{id}', [PeriodoController::class, 'destroy'])->name('destroy');
 
         // Rotas de periodoTipo
         Route::name('tipo.')->group(function (){
@@ -92,16 +92,16 @@ Route::name('periodo.')->group(function (){
                 // Get
                 Route::get('/', [PeriodoTipoController::class, 'home'])->name('home');
                 Route::get('/novo', [PeriodoTipoController::class, 'create'])->name('create');
-                Route::get('/editar/{periodoTipo}', [PeriodoTipoController::class, 'formEdit'])->name('formEdit');
+                Route::get('/editar/{id}', [PeriodoTipoController::class, 'formEdit'])->name('formEdit');
 
                 // Post
                 Route::post('/store', [PeriodoTipoController::class, 'store'])->name('store');
 
                 // Put
-                Route::put('/edit/{periodoTipo}', [PeriodoTipoController::class, 'edit'])->name('edit');
+                Route::put('/edit/{id}', [PeriodoTipoController::class, 'edit'])->name('edit');
 
                 // Delete
-                Route::delete('/destroy/{periodoTipo}', [PeriodoTipoController::class, 'destroy'])->name('destroy');
+                Route::delete('/destroy/{id}', [PeriodoTipoController::class, 'destroy'])->name('destroy');
 
             });
         });

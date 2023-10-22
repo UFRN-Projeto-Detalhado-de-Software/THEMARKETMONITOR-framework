@@ -19,7 +19,7 @@
         <p>
             <label>
                 Início:
-                <input type="date" id="data_inicio" name="data_inicio" placeholder="data de início da meta" value="{{now()}}">
+                <input type="date" id="data_inicio" name="data_inicio">
             </label>
         </p>
     </div>

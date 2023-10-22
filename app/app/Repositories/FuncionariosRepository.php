@@ -3,7 +3,10 @@
 namespace App\Repositories;
 
 use App\DTOS\FuncionarioDTO;
+use App\DTOS\MetaDTO;
+use App\DTOS\PeriodoDTO;
 use App\Models\Funcionario;
+use App\Models\Periodo;
 use App\Models\User;
 use App\Repositories\FuncionariosRepositoryInterface;
 
@@ -114,8 +117,52 @@ class FuncionariosRepository implements FuncionariosRepositoryInterface
     public function get_metas($id)
     {
         $funcionario = Funcionario::find($id);
-        return $funcionario->metas()->get();
-        // todo: retornar metas como DTO
+        $all_model = $funcionario->metas()->get();
+        $all_dto = [];
+
+        foreach ($all_model as $model){
+            $periodo = Periodo::find($model->periodo);
+
+            $dono = null;
+            if($periodo->periodable_id != 0){
+                $dono = $periodo->periodable();
+            }
+
+            $repositoryPeriodoTipo = new PeriodoTipoRepository();
+            $periodoTipo = $repositoryPeriodoTipo->find($periodo->tipo);
+
+            $periodoDTO = new PeriodoDTO(
+                $periodo->id,
+                $periodoTipo,
+                $dono,
+                $periodo->data_inicio,
+                $periodo->data_fim
+            );
+
+
+            $responsavel = null;
+            if($model->metable_id != 0){
+                $responsavel = $model->metable()->get()->first();
+            }
+            array_push($all_dto, new MetaDTO(
+                $model->id,
+                $periodoDTO,
+                $model->valor_meta,
+                $model->valor_atual,
+                $responsavel
+            ));
+        }
+
+        return $all_dto;
+
+
+
+
+
+
+
+
+
     }
 
     public function email_ja_cadastrado(string $email): bool

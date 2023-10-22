@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\DTOS\FuncionarioDTO;
 use App\DTOS\MetaDTO;
+use App\DTOS\PeriodoDTO;
+use App\DTOS\PeriodoTipoDTO;
 use App\Http\Controllers\Controller;
 use App\Models\Meta;
 use App\Services\PeriodoService;
@@ -23,7 +25,8 @@ class MetaController extends Controller
     public function home()
     {
         $metas = $this->metaService->all();
-        return view('meta.home', ['metas' => $metas]);
+        return view('meta.home', ['metas' => $metas]
+        );
     }
 
     public function create()
@@ -43,11 +46,20 @@ class MetaController extends Controller
     {
         $this->metaService->create(new MetaDTO(
             null,
-            null,
+            new PeriodoDTO(
+                null,
+                new PeriodoTipoDTO(
+                    $request->tipo_periodo,
+                    null,
+                    null
+                ),
+                $request->data_inicio,
+                $request->data_fim
+            ),
             $request->valor_meta,
             $request->valor_atual,
             null
-        ), $request->tipo_periodo, $request->data_inicio);
+        ));
         return redirect()->route('meta.home')->with('msg', 'Meta criada com sucesso!');
     }
 
@@ -55,15 +67,22 @@ class MetaController extends Controller
     {
         $meta = $this->metaService->find($id);
         $meta->valor_meta = $request->valor_meta;
+        $meta->periodo->data_inicio = $request->data_inicio;
 
-        $this->metaService->edit($id, $meta, (int) $request->tipo_periodo, $request->data_inicio);
+        $this->metaService->edit($meta);
         return redirect()->route('meta.home')
             ->with('msg', 'Meta editada com sucesso!');
     }
 
     public function destroy($id)
     {
-        $this->metaService->delete($id);
+        $this->metaService->delete(new MetaDTO(
+            $id,
+            null,
+            null,
+            null,
+            null
+        ));
 
         return redirect()->route('meta.home')
             ->with('msg', 'Meta destruida com sucesso!');

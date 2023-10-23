@@ -4,55 +4,55 @@ namespace App\Services;
 
 use App\Models\Produto;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class AnaliseProdutoService
 {
-    public function padraoCliente(Produto $produto): array{
+    public function padraoCliente($produto): array{
 
 
-        $query =  DB::table('venda')
+        $clients =  DB::table('vendas')
             ->select(DB::raw('cliente'))
-            ->where('produto', $produto->nome);
+            ->where('produto', '=', $produto)
+            ->pluck('cliente')
+            ->toArray();;
+
+
 
         $padrao = array(
-            'mediaIdade' => $this->media($query, 'data_de_nascimento'),
-            'genero' => $this->moda($query, 'genero'),
-            'estado' => $this->moda($query, 'estado')
+            'mediaIdade' => $this->media($clients),
+            'genero' => $this->moda($clients, 'genero'),
+            'estado' => $this->moda($clients, 'estado')
         );
         return $padrao;
     }
 
-    private function media($query, $parameter){
-        $somaDeIdades = 0.0;
-        $numeroDeVendas = 0;
+    private function media($query){
+        $somaDeIdades = 0;
+        $numeroDeVendas = 0.0;
 
         foreach ($query as $cliente){
-            $somaDeIdades += $cliente[$parameter];
+            $idade = DB::table('cliente')
+                ->select(DB::raw('TIMESTAMPDIFF(YEAR, data_de_nascimento, CURDATE()) AS idade'))
+                ->where('id', '=', $cliente)
+                ->pluck('idade')
+                ->first();
+            $somaDeIdades += (integer)($idade);
             $numeroDeVendas += 1;
         }
         return $somaDeIdades / $numeroDeVendas;
     }
 
-    private function moda($query, $parameter){
-        //sort by parameter
-        sort($query[$parameter], SORT_STRING);
 
-        $maisFrequente = $query[0][$parameter];
-        $emAnalise = $query[0][$parameter];
-        $maiorFrequencia = 0;
-        $frequenciaAtual = 0;
-        foreach ($query as $resultado){
-            if($resultado[$parameter] == $emAnalise){
-                $frequenciaAtual += 1;
-            } else {
-                if($frequenciaAtual > $maiorFrequencia) {
-                    $maiorFrequencia = $frequenciaAtual;
-                    $maisFrequente = $emAnalise;
-                }
-                $emAnalise = $resultado[$parameter];
-                $frequenciaAtual = 1;
-            }
-        }
-        return $maisFrequente;
-    }
+    private function moda($clientIds, $parameter) {
+        return DB::table('cliente')
+            ->whereIn('id', $clientIds)
+            ->select($parameter, DB::raw('COUNT(*) as count'))
+            ->groupBy($parameter)
+            ->orderByDesc('count')
+            ->limit(1)
+            ->pluck($parameter)
+            ->first();
+}
+
 }

@@ -4,7 +4,9 @@
 
     <h2> ANÁLISE </h2>
 
-    <p>Média de datas de nascimento: {{$analise['mediaIdade']}}</p>
+    <p>Média de idades: {{$analise['mediaIdade']}}</p>
+    <p>Estado que mais comprou: {{$analise['estado']}}</p>
+    <p>Gênero que mais comprou: {{$analise['genero']}}</p>
 
 
 @endsection

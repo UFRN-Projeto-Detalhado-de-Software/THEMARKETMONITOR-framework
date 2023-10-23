@@ -36,4 +36,15 @@ class Funcionario extends Model
     {
         return $this->morphMany(Meta::class, 'metable');
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($funcionario) {
+            // Remover a relação de permição de acesso
+            $funcionario->acessante()->detach();
+            $funcionario->acessado()->detach();
+        });
+    }
 }

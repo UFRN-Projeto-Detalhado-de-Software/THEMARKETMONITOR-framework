@@ -8,15 +8,15 @@
     </p>
 @endif
 
-<h1>Lista de períodos:</h1>
+<h1>Lista de tipos de período:</h1>
 
 @foreach($periodoTipos as $periodoTipo)
     <p>Nome: {{$periodoTipo->nome}}</p>
     <p>Duração: {{$periodoTipo->duracao}} dias</p>
 
-    <a href="{{route('periodo.tipo.formEdit', ['periodoTipo' => $periodoTipo->id])}}">Editar período</a>
+    <a href="{{route('periodo.tipo.formEdit', ['id' => $periodoTipo->id])}}">Editar tipo</a>
 
-    <form action="{{route('periodo.tipo.destroy', ['periodoTipo' => $periodoTipo->id])}}" method="POST">
+    <form action="{{route('periodo.tipo.destroy', ['id' => $periodoTipo->id])}}" method="POST">
         @csrf
         @method('DELETE')
         <input type="hidden" name="id" value="{{$periodoTipo->id}}">

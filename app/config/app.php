@@ -169,6 +169,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\VendasRepositoryServiceProvider::class,
+        App\Providers\FuncionariosRepositoryServiceProvider::class,
+        App\Providers\MetasRepositoryServiceProvider::class,
+        App\Providers\PeriodoTipoRepositoryServiceProvider::class,
+        App\Providers\PeriodoRepositoryServiceProvider::class,
     ])->toArray(),
 
     /*

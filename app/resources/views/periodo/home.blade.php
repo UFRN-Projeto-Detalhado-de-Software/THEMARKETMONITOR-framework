@@ -11,13 +11,13 @@
 <h1>Lista de períodos:</h1>
 
 @foreach($periodos as $periodo)
-    <p>Tipo: {{$periodo->tipo()->first()->nome}}</p>
+    <p>Tipo: {{$periodo->tipo->nome}}</p>
     <p>Data de início: {{ date('d/m/y', strtotime($periodo->data_inicio))}}</p>
     <p>Data de termino: {{ date('d/m/y', strtotime($periodo->data_fim))}}</p>
 
-    <a href="{{route('periodo.formEdit', ['periodo' => $periodo->id])}}">Editar período</a>
+    <a href="{{route('periodo.formEdit', ['id' => $periodo->id])}}">Editar período</a>
 
-    <form action="{{route('periodo.destroy', ['periodo' => $periodo->id])}}" method="POST">
+    <form action="{{route('periodo.destroy', ['id' => $periodo->id])}}" method="POST">
         @csrf
         @method('DELETE')
         <input type="hidden" name="id" value="{{$periodo->id}}">

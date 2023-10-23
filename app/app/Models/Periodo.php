@@ -19,8 +19,4 @@ class Periodo extends Model
         return $this->belongsTo(PeriodoTipo::class, 'tipo', 'id');
     }
 
-    public function periodable() : MorphTo
-    {
-        return $this->morphTo();
-    }
 }

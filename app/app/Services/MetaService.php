@@ -2,9 +2,12 @@
 
 namespace App\Services;
 
+use App\DTOS\MetaDTO;
 use App\Models\Meta;
 use App\Models\Periodo;
 use App\Models\PeriodoTipo;
+use App\Repositories\MetasRepositoryInterface;
+use App\Repositories\PeriodoRepository;
 use Carbon\Carbon;
 use Dflydev\DotAccessData\Data;
 use Illuminate\Database\Eloquent\Collection;
@@ -14,58 +17,49 @@ class
 
 MetaService
 {
-    public function all(): Collection
-    {
-        return Meta::all();
-    }
-    public function tipos_periodo(): Collection
-    {
-        return PeriodoTipo::all();
-    }
 
-    public function create_by_request(Request $request): Meta
+    private $metasRepository;
+
+    public function __construct(MetasRepositoryInterface $metasRepository)
     {
-        return $this->create($request->tipo_periodo, $request->data_inicio, $request->valor_meta);
+        $this->metasRepository = $metasRepository;
     }
 
-    public function create($periodo_tipo, string $data_inicio, int $valor_meta): Meta
+    public function all()
     {
-        $servicePeriodo = new PeriodoService();
-        $meta = new Meta();
-        $periodo = $servicePeriodo->create($periodo_tipo, $data_inicio);
-
-
-        $meta->valor_meta = $valor_meta;
-        $meta->valor_atual = 0;
-        $meta->periodo = $periodo->id;
-
-        $meta->save();
-
-        $servicePeriodo->set_periodable($periodo ,$meta->id, Meta::class);
-
-        return $meta;
+        return $this->metasRepository->all();
     }
 
-    public function edit_by_request(Meta $meta, Request $request): Meta
-    {
-        return $this->edit($meta, $request->tipo_periodo, $request->data_inicio, $request->valor_meta);
+    public function find($id){
+        return $this->metasRepository->find($id);
     }
 
-    public function edit(Meta $meta, $periodo_tipo, string $data_inicio, int $valor_meta): Meta
+    public function tipos_periodo()
     {
-        $servicePeriodo = new PeriodoService();
-        $periodo = Periodo::find($meta->periodo);
-        $servicePeriodo->edit($periodo ,$periodo->tipo, $data_inicio);
-
-        $meta->valor_meta = $valor_meta;
-
-        $meta->save();
-
-        return $meta;
+        return $this->metasRepository->all_periodo_tipo();
     }
 
-    public function delete(Meta $meta)
+
+    public function create(MetaDTO $metaDTO)
     {
-        $meta->delete();
+        $metaDTO->valor_atual = 0;
+
+        $servicePeriodo = new PeriodoService(new PeriodoRepository());
+        $servicePeriodo->validate($metaDTO->periodo);
+
+        $this->metasRepository->store($metaDTO);
+    }
+
+    public function edit(MetaDTO $metaDTO)
+    {
+        $servicePeriodo = new PeriodoService(new PeriodoRepository());
+        $servicePeriodo->validate($metaDTO->periodo);
+
+        $this->metasRepository->update($metaDTO);
+    }
+
+    public function delete(MetaDTO $metaDTO)
+    {
+        $this->metasRepository->destroy($metaDTO);
     }
 }

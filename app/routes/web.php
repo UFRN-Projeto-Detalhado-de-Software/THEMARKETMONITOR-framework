@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnaliseProdutoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\FaturamentoController;
 use App\Http\Controllers\MeioPagamentoController;
@@ -174,3 +175,10 @@ Route::resource('/cliente', ClienteController::class);
 
 //Rotas HistóricoFuncionário
 Route::get('historico/funcionario/{funcionario}', [HistoricoFuncionarioController::class, 'show'])->name('historico.funcionario.show');
+
+Route::name('/analise')->group(function (){
+    Route::prefix('/analise')->group(function (){
+        Route::get('/list', [AnaliseProdutoController::class, 'list']);
+        Route::get('/{produto}', [AnaliseProdutoController::class, 'show']);
+    });
+});

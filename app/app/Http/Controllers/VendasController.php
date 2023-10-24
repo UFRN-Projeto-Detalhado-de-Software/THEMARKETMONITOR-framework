@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\DTOS\VendaDTO;
 use App\Http\Controllers\Controller;
+use App\Models\MeioPagamento;
+use App\Models\OrigemVenda;
+use App\Models\Produto;
+use App\Models\TipoVenda;
 use App\Models\Vendas;
 use App\Services\VendasService;
 use Illuminate\Http\Request;
@@ -32,7 +36,12 @@ class VendasController extends Controller
      */
     public function create()
     {
-        return view('venda/venda_create');
+        $origensvendas = OrigemVenda::all();
+        $produto = Produto::all();
+        $meiopagamento = MeioPagamento::all();
+        $tipovenda = TipoVenda::all();
+
+        return view('venda/venda_create', ['origemdavenda'=>$origensvendas, 'produto'=>$produto, 'meiopagamento'=>$meiopagamento, 'tipovenda'=>$tipovenda]);
     }
 
     /**

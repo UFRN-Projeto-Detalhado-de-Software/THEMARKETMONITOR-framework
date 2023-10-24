@@ -79,6 +79,24 @@
                     </a>
                 </li>
 
+                <li class="item">
+                    <a href="{{route('produto.index')}}" class="nav_link">
+                        <span class="navlink_icon">
+                            <i class="bx bx-loader-circle"></i>
+                        </span>
+                        <span class="navlink">Produtos</span>
+                    </a>
+                </li>
+
+                <li class="item">
+                    <a href="{{route('vendas.index')}}" class="nav_link">
+                        <span class="navlink_icon">
+                            <i class="bx bx-loader-circle"></i>
+                        </span>
+                        <span class="navlink">Vendas</span>
+                    </a>
+                </li>
+
 
                 <!-- Sidebar Open / Close -->
                 <div class="bottom_content">

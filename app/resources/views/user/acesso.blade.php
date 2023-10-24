@@ -1,6 +1,8 @@
-<html>
-<head></head>
-<body>
+@extends('layouts.main')
+
+@section('title', 'HOME')
+
+@section('content')
 
 @if(session('msg'))
     <p>
@@ -8,20 +10,23 @@
     </p>
 @endif
 
-<h1>Lista de funcionários que você tem acesso:</h1>
+<div class="content">
+    <h1>Lista de funcionários que você tem acesso:</h1>
 
-@foreach($funcionarios as $funcionario)
-    <p>Nome: {{$funcionario->nome}}</p>
-    <p>Data de nascimento: {{date('d/m/y', strtotime($funcionario->dataDeNascimento))}}</p>
-    <p>Email: {{$funcionario->email}}</p>
-    <p>Telefone: {{$funcionario->telefone}}</p>
-    <p>CPF: {{$funcionario->cpf}}</p>
+    @foreach($funcionarios as $funcionario)
+        <p>Nome: {{$funcionario->nome}}</p>
+        <p>Data de nascimento: {{date('d/m/y', strtotime($funcionario->dataDeNascimento))}}</p>
+        <p>Email: {{$funcionario->email}}</p>
+        <p>Telefone: {{$funcionario->telefone}}</p>
+        <p>CPF: {{$funcionario->cpf}}</p>
+
+        <br>
+    @endforeach
 
     <br>
-@endforeach
+    <a href="{{route('perfil.home')}}">Voltar para a home</a>
+</div>
 
-<br>
-<a href="{{route('perfil.home')}}">Voltar para a home</a>
+    @endsection
 
-</body>
-</html>
+

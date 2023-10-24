@@ -1,28 +1,62 @@
-@extends('master')
+@extends('layouts.main')
+
+@section('title', 'Vendas')
+
 @section('content')
 
-    <h2> Criar a Venda </h2>
 
-    @if (session()->has('message'))
-        {{ session()->get('message') }}
-    @endif
+    <div class="content">
+        <h2> Criar a Venda </h2>
 
-    <form action="{{route('vendas.store')}}" method="post">
-        @csrf
-        <input type="number" name="id" placeholder="id da venda">
-        <input type="date" name="data" placeholder="data da venda">
-        <input type="number" name="valor" placeholder="valor da venda">
-        <input type="number" name="meioDePagamento" placeholder="método de pagamento">
-        <input type="number" name="cliente" placeholder="id cliente">
-        <input type="number" name="produto" placeholder="id produto">
-        <input type="number" name="closer" placeholder="id vendedor">
-        <input type="number" name="sdr" placeholder="id assistente de venda">
-        <input type="number" name="tipo" placeholder="tipo da venda">
-        <input type="number" name="origem" placeholder="origem da venda">
-        <input type="number" name="deTerceiro" placeholder="É de terceiro?">
-        <input type="text" name="obs" placeholder="observação">
-        <button type="submit">Criar a Venda</button>
-    </form>
+        @if (session()->has('message'))
+            {{ session()->get('message') }}
+        @endif
+
+        <form action="{{route('vendas.store')}}" method="post">
+            @csrf
+            <input type="date" name="data" placeholder="data da venda">
+            <input type="number" name="valor" placeholder="valor da venda">
+            <select name="meioDePagamento" id="id" >
+                <option value="" selected>Escolha um meio de pagamento</option>
+                @foreach($meiopagamento as $meio)
+                    <option value="{{ $meio->id }}">{{ $meio->nome_meiopagamento}}</option>
+                @endforeach
+            </select>
+            <input type="number" name="cliente" placeholder="cpf cliente">
+            <select name="produto" id="id" >
+                <option value="" selected>Escolha um produto</option>
+                @foreach($produto as $prod)
+                    <option value="{{ $prod->id }}">{{ $prod->name}}</option>
+                @endforeach
+            </select>
+            <input type="number" name="closer" placeholder="id vendedor">
+            <input type="number" name="sdr" placeholder="id assistente de venda">
+            <select name="tipo" id="id" >
+                <option value="" selected>Escolha o tipo da venda</option>
+                @foreach($tipovenda as $tipo)
+                    <option value="{{ $tipo->id }}">{{ $tipo->nome_tipo}}</option>
+                @endforeach
+            </select>
+            <select name="origem" id="id" >
+                <option value="" selected>Escolha uma origem de venda</option>
+                @foreach($origemdavenda as $origem)
+                    <option value="{{ $origem->id }}">{{ $origem->nome_origem}}</option>
+                @endforeach
+            </select>
+            <input type="number" name="deTerceiro" placeholder="É de terceiro?">
+            <select name="deTerceiro"  >
+                <option value="" selected>É DE TERCEIRO</option>
+
+                    <option value="0">Não</option>
+                <option value="1">Sim</option>
+
+            </select>
+            <input type="text" name="obs" placeholder="observação">
+            <button type="submit">Criar a Venda</button>
+        </form>
+    </div>
+
+
 
 
 @endsection

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnaliseProdutoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\FaturamentoController;
 use App\Http\Controllers\HomeController;
@@ -17,6 +18,7 @@ use App\Http\Controllers\FuncionarioController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MetaController;
 use App\Http\Controllers\HistoricoFuncionarioController;
+use App\Http\Controllers\CargoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,14 +59,14 @@ Route::name('funcionario.')->group(function (){
         //Get
         Route::get('/create', [FuncionarioController::class, 'create'])->name('create');
         Route::get('/', [FuncionarioController::class, 'home'])->name('home');
-        Route::get('/edit/{funcionario}', [FuncionarioController::class, 'edit'])->name('edit');
-        Route::get('/verMetas/{funcionario}', [FuncionarioController::class, 'verMetas'])->name('verMetas');
+        Route::get('/edit/{id}', [FuncionarioController::class, 'edit'])->name('edit');
+        Route::get('/verMetas/{id}', [FuncionarioController::class, 'verMetas'])->name('verMetas');
         //Post
         Route::post('/store', [FuncionarioController::class, 'store'])->name('store');
         //Put
-        Route::put('/edited/{funcionario}', [FuncionarioController::class, 'edited'])->name('edited');
+        Route::put('/edited/{id}', [FuncionarioController::class, 'edited'])->name('edited');
         //Delete
-        Route::delete('/deleted/{funcionario}', [FuncionarioController::class, 'deleted'])->name('destroy');
+        Route::delete('/deleted/{id}', [FuncionarioController::class, 'deleted'])->name('destroy');
     });
 });
 
@@ -86,16 +88,16 @@ Route::name('periodo.')->group(function (){
         // Get
         Route::get('/', [PeriodoController::class, 'home'])->name('home');
         Route::get('/novo', [PeriodoController::class, 'create'])->name('create');
-        Route::get('/editar/{periodo}', [PeriodoController::class, 'formEdit'])->name('formEdit');
+        Route::get('/editar/{id}', [PeriodoController::class, 'formEdit'])->name('formEdit');
 
         // Post
         Route::post('/store', [PeriodoController::class, 'store'])->name('store');
 
         // Put
-        Route::put('/edit/{periodo}', [PeriodoController::class, 'edit'])->name('edit');
+        Route::put('/edit/{id}', [PeriodoController::class, 'edit'])->name('edit');
 
         // Delete
-        Route::delete('/destroy/{periodo}', [PeriodoController::class, 'destroy'])->name('destroy');
+        Route::delete('/destroy/{id}', [PeriodoController::class, 'destroy'])->name('destroy');
 
         // Rotas de periodoTipo
         Route::name('tipo.')->group(function (){
@@ -103,16 +105,16 @@ Route::name('periodo.')->group(function (){
                 // Get
                 Route::get('/', [PeriodoTipoController::class, 'home'])->name('home');
                 Route::get('/novo', [PeriodoTipoController::class, 'create'])->name('create');
-                Route::get('/editar/{periodoTipo}', [PeriodoTipoController::class, 'formEdit'])->name('formEdit');
+                Route::get('/editar/{id}', [PeriodoTipoController::class, 'formEdit'])->name('formEdit');
 
                 // Post
                 Route::post('/store', [PeriodoTipoController::class, 'store'])->name('store');
 
                 // Put
-                Route::put('/edit/{periodoTipo}', [PeriodoTipoController::class, 'edit'])->name('edit');
+                Route::put('/edit/{id}', [PeriodoTipoController::class, 'edit'])->name('edit');
 
                 // Delete
-                Route::delete('/destroy/{periodoTipo}', [PeriodoTipoController::class, 'destroy'])->name('destroy');
+                Route::delete('/destroy/{id}', [PeriodoTipoController::class, 'destroy'])->name('destroy');
 
             });
         });
@@ -125,16 +127,16 @@ Route::name('meta.')->group(function (){
         // Get
         Route::get('/', [MetaController::class, 'home'])->name('home');
         Route::get('/novo', [MetaController::class, 'create'])->name('create');
-        Route::get('/editar/{meta}', [MetaController::class, 'formEdit'])->name('formEdit');
+        Route::get('/editar/{id}', [MetaController::class, 'formEdit'])->name('formEdit');
 
         // Post
         Route::post('/store', [MetaController::class, 'store'])->name('store');
 
         // Put
-        Route::put('/edit/{meta}', [MetaController::class, 'edit'])->name('edit');
+        Route::put('/edit/{id}', [MetaController::class, 'edit'])->name('edit');
 
         // Delete
-        Route::delete('/destroy/{meta}', [MetaController::class, 'destroy'])->name('destroy');
+        Route::delete('/destroy/{id}', [MetaController::class, 'destroy'])->name('destroy');
     });
 });
 
@@ -185,3 +187,31 @@ Route::resource('/cliente', ClienteController::class);
 
 //Rotas HistóricoFuncionário
 Route::get('historico/funcionario/{funcionario}', [HistoricoFuncionarioController::class, 'show'])->name('historico.funcionario.show');
+
+
+Route::name('/analise')->group(function (){
+    Route::prefix('/analise')->group(function (){
+        Route::get('/list', [AnaliseProdutoController::class, 'list']);
+        Route::get('/{produto}', [AnaliseProdutoController::class, 'show']);
+    });
+});
+
+// Rotas de Cargos
+Route::name('cargo.')->group(function (){
+    Route::prefix('/cargo')->group(function (){
+        // Get
+        Route::get('/', [CargoController::class, 'home'])->name('home');
+        Route::get('/novo', [CargoController::class, 'create'])->name('create');
+        Route::get('/editar/{id}', [CargoController::class, 'formEdit'])->name('formEdit');
+
+        // Post
+        Route::post('/store', [CargoController::class, 'store'])->name('store');
+
+        // Put
+        Route::put('/edit/{id}', [CargoController::class, 'edit'])->name('edit');
+
+        // Delete
+        Route::delete('/destroy/{id}', [CargoController::class, 'destroy'])->name('destroy');
+    });
+});
+

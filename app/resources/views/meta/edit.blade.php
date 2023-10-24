@@ -3,12 +3,13 @@
 <body>
 <h1>Editar período:</h1>
 
-<form action="{{route('meta.edit', ['meta' => $meta->id])}}" method="POST">
+<form action="{{route('meta.edit', ['id' => $meta->id])}}" method="POST">
     @csrf
     @method('PUT')
 
     @php
-        $periodo = \App\Models\Periodo::find($meta->periodo);
+        $periodo = $meta->periodo;
+        //todo: quando tiver o DTO de Periodo, corrigir aqui
     @endphp
 
     <div>

@@ -3,7 +3,7 @@
 <body>
 <h1>Editar período:</h1>
 
-<form action="{{route('periodo.edit', ['periodo' => $periodo->id])}}" method="POST">
+<form action="{{route('periodo.edit', ['id' => $periodo->id])}}" method="POST">
     @csrf
     @method('PUT')
     <p>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\DTOS\PeriodoDTO;
+use App\DTOS\PeriodoTipoDTO;
 use App\Http\Controllers\Controller;
 use App\Models\Periodo;
 use App\Models\PeriodoTipo;
@@ -30,29 +32,44 @@ class PeriodoController extends Controller
         return view('periodo.create', ['tipos' => $tipos]);
     }
 
-    public function formEdit(Periodo $periodo)
+    public function formEdit($id)
     {
-        $tipos = PeriodoTipo::all();
+        $periodo = $this->periodoService->find($id);
+        $tipos = $this->periodoService->tipos();
         return view('periodo.edit', ['periodo' => $periodo, 'tipos' => $tipos]);
     }
 
     public function store(Request $request)
     {
-        $this->periodoService->create_by_Request($request);
+        $this->periodoService->create(new PeriodoDTO(
+            null,
+            new PeriodoTipoDTO(
+                $request->tipo,
+                null,
+                null
+            ),
+            $request->data_inicio,
+            $request->data_fim
+        ));
 
         return redirect()->route('periodo.home')->with('msg', 'Período criado com sucesso!');
     }
 
-    public function edit(Request $request, Periodo $periodo)
+    public function edit($id, Request $request)
     {
-        $this->periodoService->edit_by_Request($periodo, $request);
+        $periodo = $this->periodoService->find($id);
+        $periodo->tipo->id = $request->tipo;
+        $periodo->data_inicio = $request->data_inicio;
+
+        $this->periodoService->edit($periodo);
 
         return redirect()->route('periodo.home')
             ->with('msg', 'Período editado com sucesso!');
     }
 
-    public function destroy(Periodo $periodo)
+    public function destroy($id)
     {
+        $periodo = $this->periodoService->find($id);
         $this->periodoService->delete($periodo);
 
         return redirect()->route('periodo.home')

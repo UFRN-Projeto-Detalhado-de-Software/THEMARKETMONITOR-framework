@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('periodos', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('tipo');
-            $table->date('data_inicio');
-            $table->date('data_fim');
+        Schema::create('cargos', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome');
             $table->timestamps();
         });
     }
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('periodos');
+        Schema::dropIfExists('cargos');
     }
 };

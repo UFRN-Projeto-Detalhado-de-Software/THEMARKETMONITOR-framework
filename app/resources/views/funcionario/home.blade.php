@@ -24,17 +24,16 @@
 
         <a href="{{route('funcionario.verMetas', ['funcionario' => $funcionario->id])}}">Ver metas do funcionário</a>
 
-        <a href="{{route('funcionario.edit', ['funcionario' => $funcionario->id])}}">Editar funcionário</a>
 
-        <form action="{{route('funcionario.destroy', ['funcionario' => $funcionario->id])}}" method="POST">
-            @csrf
-            @method('DELETE')
-            <input type="hidden" name="id" value="{{$funcionario->id}}">
-            <input type="submit" value="Deletar funcionário">
-        </form>
+    <a href="{{route('funcionario.edit', ['id' => $funcionario->id])}}">Editar funcionário</a>
 
-        <br>
-    @endforeach
+    <form action="{{route('funcionario.destroy', ['id' => $funcionario->id])}}" method="POST">
+        @csrf
+        @method('DELETE')
+        <input type="hidden" name="id" value="{{$funcionario->id}}">
+        <input type="submit" value="Deletar funcionário">
+    </form>
+
 
     <br>
     <a href="{{route('funcionario.create')}}">Criar funcionário</a>

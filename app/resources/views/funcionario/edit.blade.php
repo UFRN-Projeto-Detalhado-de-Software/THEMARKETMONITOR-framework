@@ -15,19 +15,19 @@
 <div class="content">
     <h1>Editar funcionários:</h1>
 
-    <form action="{{route('funcionario.edited', ['funcionario' => $funcionario])}}" method="POST">
-        @csrf
-        @method('PUT')
-        <p>
-            <label>
-                Nome:
-                <input type="text" id="nome" name="nome" placeholder="{{$funcionario->nome}}" value="{{$funcionario->nome}}">
-            </label>
-        </p>
-        <p>
-            <label>
-                Data de nascimento:
-                <input type="date" id="data" name="data" placeholder={{$funcionario->dataDeNascimento}}
+<form action="{{route('funcionario.edited', ['id' => $funcionario->id])}}" method="POST">
+    @csrf
+    @method('PUT')
+    <p>
+        <label>
+            Nome:
+            <input type="text" id="nome" name="nome" placeholder="{{$funcionario->nome}}" value="{{$funcionario->nome}}">
+        </label>
+    </p>
+    <p>
+        <label>
+            Data de nascimento:
+            <input type="date" id="dataDeNascimento" name="dataDeNascimento" placeholder={{$funcionario->dataDeNascimento}}
             value={{$funcionario->dataDeNascimento}}>
             </label>
         </p>

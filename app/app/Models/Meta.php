@@ -28,4 +28,14 @@ class Meta extends Model
 //        return $this->morphTo();
 //    }
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($meta) {
+            $periodo = Periodo::find($meta->periodo);
+            $periodo->delete();
+        });
+    }
+
 }

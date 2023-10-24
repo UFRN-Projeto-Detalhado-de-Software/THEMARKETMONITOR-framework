@@ -3,6 +3,7 @@
 use App\Http\Controllers\AnaliseProdutoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\FaturamentoController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MeioPagamentoController;
 use App\Http\Controllers\ProdutoController;
 use Illuminate\Support\Facades\Route;
@@ -37,9 +38,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/faturamento',[FaturamentoController::class, 'get_faturamento'])->name('calcularfaturamento');
+Route::middleware(['auth'])->group(function () {
+    // Suas rotas protegidas vão aqui
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/ranking', [RankingController::class, 'show'])->name('ranking');
+    Route::get('/faturamento',[FaturamentoController::class, 'get_faturamento'])->name('calcularfaturamento');
+});
 
-Route::get('/ranking', [RankingController::class, 'show']);
+
+//Route::get('home', [HomeController::class, 'index'])->name('home');
+
+
+
+
 
 // Rotas Funcionario
 

@@ -25,6 +25,7 @@ class OrigemVendaController extends Controller
      */
     public function create()
     {
+
         return view('origensvendas/origemvenda_create');
     }
 

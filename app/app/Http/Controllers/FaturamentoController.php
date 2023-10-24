@@ -22,8 +22,6 @@ class FaturamentoController extends Controller
 
     public function show_faturamento(){
 
-
-
         return view('faturamentocalculado', );
     }
 

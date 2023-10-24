@@ -1,24 +1,29 @@
-<html>
-<head></head>
-<body>
+@extends('layouts.main')
+
+@section('title', 'HOME')
+
+@section('content')
 
 @if(session('msg'))
     <p>{{session('msg')}}</p>
 @endif
 
-<h1>Home do usuário</h1>
+<div class="content">
+    <h1>Home do usuário</h1>
 
-<a href="{{route('perfil.logout')}}"> Logout</a>
+    <a href="{{route('perfil.logout')}}"> Logout</a>
 
-<p>
-    Veja as informações dos funcionários que você tem acesso
-    <a href="{{route('perfil.acesso')}}"> ir</a>
-</p>
+    <p>
+        Veja as informações dos funcionários que você tem acesso
+        <a href="{{route('perfil.acesso')}}"> ir</a>
+    </p>
 
 
-@if($isAdm)
-    <a href="{{route('perfil.adm')}}"> Página do adm</a>
-@endif
+    @if($isAdm)
+        <a href="{{route('perfil.adm')}}"> Página do adm</a>
+    @endif
+</div>
 
-</body>
-</html>
+    @endsection
+
+

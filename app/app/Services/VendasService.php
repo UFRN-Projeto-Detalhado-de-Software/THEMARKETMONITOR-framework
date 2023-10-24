@@ -44,5 +44,12 @@ class VendasService
         return $this->vendasRepository->destroy($id);
     }
 
+    public function get_closer(){
+        return $this->vendasRepository->get_closer();
+    }
+
+    public function get_sdr(){
+        return $this->vendasRepository->get_sdr();
+    }
 
 }

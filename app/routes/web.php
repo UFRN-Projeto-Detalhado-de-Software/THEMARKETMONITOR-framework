@@ -193,7 +193,7 @@ Route::get('historico/funcionario/{funcionario}', [HistoricoFuncionarioControlle
 
 Route::name('/analise')->group(function (){
     Route::prefix('/analise')->group(function (){
-        Route::get('/list', [AnaliseProdutoController::class, 'list']);
+        Route::get('/list', [AnaliseProdutoController::class, 'list'])->name('analise.list');
         Route::get('/{produto}', [AnaliseProdutoController::class, 'show']);
     });
 });

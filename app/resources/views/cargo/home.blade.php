@@ -1,6 +1,8 @@
-<html>
-<head></head>
-<body>
+@extends('layouts.main')
+
+@section('title', 'Funcionarios HOME')
+
+@section('content')
 
 @if(session('msg'))
     <p>
@@ -8,25 +10,28 @@
     </p>
 @endif
 
-<h1>Lista de cargos:</h1>
 
-@foreach($cargos as $cargo)
-    <p>Nome: {{$cargo->nome}}</p>
+<div class="content">
+    <h1>Lista de cargos:</h1>
 
-    <a href="{{route('cargo.formEdit', ['id' => $cargo->id])}}">Editar cargo</a>
+    @foreach($cargos as $cargo)
+        <p>Nome: {{$cargo->nome}}</p>
 
-    <form action="{{route('cargo.destroy', ['id' => $cargo->id])}}" method="POST">
-        @csrf
-        @method('DELETE')
-        <input type="hidden" name="id" value="{{$cargo->id}}">
-        <input type="submit" value="Deletar cargo">
-    </form>
+        <a href="{{route('cargo.formEdit', ['id' => $cargo->id])}}">Editar cargo</a>
+
+        <form action="{{route('cargo.destroy', ['id' => $cargo->id])}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <input type="hidden" name="id" value="{{$cargo->id}}">
+            <input type="submit" value="Deletar cargo">
+        </form>
+
+        <br>
+    @endforeach
 
     <br>
-@endforeach
+    <a href="{{route('cargo.create')}}">Criar cargo</a>
 
-<br>
-<a href="{{route('cargo.create')}}">Criar cargo</a>
+</div>
 
-</body>
-</html>
+    @endsection

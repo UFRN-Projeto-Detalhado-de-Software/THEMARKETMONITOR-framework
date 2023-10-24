@@ -29,8 +29,18 @@
                     <option value="{{ $prod->id }}">{{ $prod->name}}</option>
                 @endforeach
             </select>
-            <input type="number" name="closer" placeholder="id vendedor">
-            <input type="number" name="sdr" placeholder="id assistente de venda">
+            <select name="closer" id="id" >
+                <option value="" selected>Escolha um Closer</option>
+                @foreach($closer as $id => $nome)
+                    <option value="{{ $id }}">{{ $nome }}</option>
+                @endforeach
+            </select>
+            <select name="sdr" id="id" >
+                <option value="" selected>Escolha um SDR</option>
+                @foreach($sdr as $id => $nome)
+                    <option value="{{ $id }}">{{ $nome }}</option>
+                @endforeach
+            </select>
             <select name="tipo" id="id" >
                 <option value="" selected>Escolha o tipo da venda</option>
                 @foreach($tipovenda as $tipo)
@@ -43,7 +53,6 @@
                     <option value="{{ $origem->id }}">{{ $origem->nome_origem}}</option>
                 @endforeach
             </select>
-            <input type="number" name="deTerceiro" placeholder="É de terceiro?">
             <select name="deTerceiro"  >
                 <option value="" selected>É DE TERCEIRO</option>
 

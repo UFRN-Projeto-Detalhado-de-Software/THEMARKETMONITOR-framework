@@ -29,10 +29,18 @@ class CargosRepository implements CargosRepositoryInterface
     {
         $model = Cargo::find($id);
 
-        return new CargosDTO(
-            $model->id,
-            $model->nome
-        );
+        if ($model !== null) {
+            return new CargosDTO(
+                $model->id,
+                $model->nome
+            );
+        } else {
+
+            // ou
+             return new CargosDTO(0, 'Nome Padrão');
+            // ou qualquer outra lógica apropriada
+        }
+
     }
 
     public function store(CargosDTO $dto)

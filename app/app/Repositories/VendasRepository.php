@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\DTOS\VendaDTO;
 use App\Models\Vendas;
 use App\Repositories\VendasRepositoryInterface;
+use Illuminate\Support\Facades\DB;
 
 class VendasRepository implements VendasRepositoryInterface
 {
@@ -55,4 +56,40 @@ class VendasRepository implements VendasRepositoryInterface
     }
 
 
+    public function get_sdr()
+    {
+        // TODO: Implement get_sdr() method.
+
+        $query =  DB::table('funcionarios')
+            ->select('nome', 'id')
+            ->where('cargo', "=", 1)
+            ->get();
+
+        $sdr = [];
+
+        foreach ($query as $funcionario) {
+            $sdr[$funcionario->id] = $funcionario->nome;
+        }
+
+        return $sdr;
+    }
+
+    public function get_closer()
+    {
+        // TODO: Implement get_closer() method.
+        $query =  DB::table('funcionarios')
+            ->select('nome', 'id')
+            ->where('cargo', "=", 2)
+            ->get();
+
+        $closers = [];
+
+        foreach ($query as $funcionario) {
+            $closers[$funcionario->id] = $funcionario->nome;
+        }
+
+
+        return $closers;
+
+    }
 }

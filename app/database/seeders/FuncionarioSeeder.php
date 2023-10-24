@@ -17,6 +17,7 @@ class FuncionarioSeeder extends Seeder
     {
         Funcionario::create([
             "nome"=> Str::random(16),
+            "cargo"=>"1",
             "dataDeNascimento" => "1996-07-23",
             "email"=> Str::random(12)."@gmail.com",
             "telefone"=> random_int(900000000, 999999999),

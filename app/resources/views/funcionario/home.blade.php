@@ -21,8 +21,11 @@
         <p>Email: {{$funcionario->email}}</p>
         <p>Telefone: {{$funcionario->telefone}}</p>
         <p>CPF: {{$funcionario->cpf}}</p>
+        <p>CARGO: {{$funcionario->cargo->nome}}</p>
+        <br>
+    @endforeach
 
-        <a href="{{route('funcionario.verMetas', ['funcionario' => $funcionario->id])}}">Ver metas do funcionário</a>
+    <a href="{{route('funcionario.verMetas', ['id' => $funcionario->id])}}">Ver metas do funcionário</a>
 
 
     <a href="{{route('funcionario.edit', ['id' => $funcionario->id])}}">Editar funcionário</a>

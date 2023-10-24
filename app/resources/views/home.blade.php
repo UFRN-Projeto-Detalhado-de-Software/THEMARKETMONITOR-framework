@@ -57,6 +57,27 @@
                     <button type="button" class="button button1"> Página do Usuário</button>
                 </a>
             </li>
+
+            <li>
+
+                <a class="btn btn-primary" href="{{route('/analiseanalise.list')}}">
+                    <button type="button" class="button button1">ANALISES</button>
+                </a>
+            </li>
+
+            <li>
+
+                <a class="btn btn-primary" href="{{route('meta.home')}}">
+                    <button type="button" class="button button1">METAS</button>
+                </a>
+            </li>
+
+            <li>
+
+                <a class="btn btn-primary" href="{{route('cargo.home')}}">
+                    <button type="button" class="button button1">CARGOS</button>
+                </a>
+            </li>
         </ul>
 
 

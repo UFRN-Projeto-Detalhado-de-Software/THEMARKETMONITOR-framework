@@ -40,8 +40,10 @@ class VendasController extends Controller
         $produto = Produto::all();
         $meiopagamento = MeioPagamento::all();
         $tipovenda = TipoVenda::all();
+        $closer = $this->vendaService->get_closer();
+        $sdr = $this->vendaService->get_sdr();
 
-        return view('venda/venda_create', ['origemdavenda'=>$origensvendas, 'produto'=>$produto, 'meiopagamento'=>$meiopagamento, 'tipovenda'=>$tipovenda]);
+        return view('venda/venda_create', ['origemdavenda'=>$origensvendas, 'produto'=>$produto, 'meiopagamento'=>$meiopagamento, 'tipovenda'=>$tipovenda, 'closer' => $closer, 'sdr' => $sdr]);
     }
 
     /**

@@ -6,6 +6,7 @@ use App\DTOS\FuncionarioDTO;
 use App\DTOS\MetaDTO;
 use App\DTOS\PeriodoDTO;
 use App\DTOS\PeriodoTipoDTO;
+use App\Models\Funcionario;
 use App\Models\Meta;
 use App\Models\Periodo;
 use App\Repositories\MetasRepositoryInterface;
@@ -71,6 +72,10 @@ class MetasRepository implements MetasRepositoryInterface
         $meta->valor_meta = $dto->valor_meta;
         $meta->valor_atual = $dto->valor_atual;
         $meta->periodo = $periodo->id;
+        if($dto->responsavel){
+            $meta->metable_id = $dto->responsavel->id;
+            $meta->metable_type = Funcionario::class;
+        }
 
         $meta->save();
     }

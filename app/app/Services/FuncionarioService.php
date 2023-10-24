@@ -101,4 +101,9 @@ class FuncionarioService
     {
         return $this->funcionariosRepository->get_metas($id);
     }
+
+    public function cargos()
+    {
+        return $this->funcionariosRepository->get_cargos();
+    }
 }

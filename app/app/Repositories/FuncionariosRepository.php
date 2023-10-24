@@ -63,6 +63,7 @@ class FuncionariosRepository implements FuncionariosRepositoryInterface
         $funcionario->email = $dto->email;
         $funcionario->telefone = $dto->telefone;
         $funcionario->cpf = $dto->cpf;
+        $funcionario->cargo = $dto->cargo->id;
 
         $funcionario->save();
 
@@ -80,6 +81,7 @@ class FuncionariosRepository implements FuncionariosRepositoryInterface
         $funcionario->email = $dto->email;
         $funcionario->telefone = $dto->telefone;
         $funcionario->cpf = $dto->cpf;
+        $funcionario->cargo = $dto->cargo->id;
 
         $funcionario->save();
 
@@ -209,6 +211,12 @@ class FuncionariosRepository implements FuncionariosRepositoryInterface
         // todo: tratar exceção aqui
 
         return $funcionario->cpf = $cpf;
+    }
+
+    public function get_cargos()
+    {
+        $repositoryCargo = new CargosRepository();
+        return $repositoryCargo->all();
     }
 
 

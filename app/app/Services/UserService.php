@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Funcionario;
+use App\Models\PeriodoTipo;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -146,6 +147,11 @@ class UserService
         }
         $funcionario = Funcionario::find($user->funcionario);
         return $funcionario->acessado()->get();
+    }
+
+    public function tipos_periodo()
+    {
+        return PeriodoTipo::all();
     }
 
 

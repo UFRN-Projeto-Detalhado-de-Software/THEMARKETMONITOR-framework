@@ -42,6 +42,17 @@
             <input type="number" id="cpf" name="cpf" placeholder="CPF do funcionário">
         </label>
     </p>
+
+    Selecione um cargo:
+    <select class="form-select" aria-label="Default select example" name="cargo">
+        <option selected>Escolha o cargo</option>
+        @foreach($cargos as $cargo)
+            <option value="{{$cargo->id}}"> {{$cargo->nome}} </option>
+        @endforeach
+    </select>
+
+    <br>
+
     <input type="submit" value="Enviar">
 </form>
 

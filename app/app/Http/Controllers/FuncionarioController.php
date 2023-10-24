@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DTOS\CargosDTO;
 use App\DTOS\FuncionarioDTO;
 use App\Http\Controllers\Controller;
 use App\Services\FuncionarioService;
@@ -15,12 +16,17 @@ class FuncionarioController extends Controller
     {}
 
     public function create(){
-        return view('funcionario.create');
+        $cargos = $this->funcionarioService->cargos();
+        return view('funcionario.create', ['cargos' => $cargos]);
     }
 
     public function store(Request $request){
         $message = $this->funcionarioService->create(new FuncionarioDTO(
             null,
+            new CargosDTO(
+                $request->cargo,
+                null
+            ),
             [],
             $request->nome,
             $request->dataDeNascimento,
@@ -42,19 +48,24 @@ class FuncionarioController extends Controller
     }
 
     public function edit($id){
+        $cargos = $this->funcionarioService->cargos();
         $funcionario = $this->funcionarioService->find($id);
-        return view('funcionario/edit', ['funcionario' => $funcionario, 'id' => $id]);
+        return view('funcionario/edit', ['funcionario' => $funcionario, 'id' => $id, 'cargos' => $cargos]);
     }
 
     public function edited($id, Request $request){
         $message = $this->funcionarioService->edit($id, new FuncionarioDTO(
             null,
-            [],
+            new CargosDTO(
+                $request->cargo,
+                null
+            ),
             $request->nome,
             $request->dataDeNascimento,
             $request->email,
             $request->telefone,
-            $request->cpf
+            $request->cpf,
+            null
         ));
         if($message != 'ok'){
             return redirect()->back()->with('msg', $message);
@@ -64,11 +75,7 @@ class FuncionarioController extends Controller
     }
 
     public function deleted($id){
-        $message = $this->funcionarioService->destroy($id);
-
-        if($message != 'ok'){
-            return redirect()->back()->with('msg', $message);
-        }
+        $this->funcionarioService->destroy($id);
 
         return redirect()->route('funcionario.home')->with('msg', 'Funcionário removido com sucesso!');
     }

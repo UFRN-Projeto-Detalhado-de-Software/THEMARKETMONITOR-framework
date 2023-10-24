@@ -146,10 +146,12 @@ Route::name('perfil.')->group(function (){
         Route::get('/login', [UserController::class, 'showLogin'])->name('login');
         Route::get('/adm', [UserController::class, 'showAdm'])->name('adm');
         Route::get('/edit_funcionario/{user}', [UserController::class, 'showEdit_funcionario'])->name('edit_funcionario');
+        Route::get('/create_meta/{funcionario}', [UserController::class, 'create_meta'])->name('create_meta');
         Route::get('/acesso', [UserController::class, 'acesso'])->name('acesso');
         //Post
         Route::post('/register/do', [UserController::class, 'getRegister'])->name('register.do');
         Route::post('/login/do', [UserController::class, 'getLogin'])->name('login.do');
+        Route::post('/store_meta/{funcionario}', [UserController::class, 'store_meta'])->name('store_meta');
         //Put
         Route::put('/edit_funcionario/do', [UserController::class, 'getEdit_funcionario'])->name('edit_funcionario.do');
         //Delete

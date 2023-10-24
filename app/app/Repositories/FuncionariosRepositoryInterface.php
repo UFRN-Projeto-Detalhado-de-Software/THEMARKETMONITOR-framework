@@ -38,4 +38,6 @@ interface FuncionariosRepositoryInterface
 
     public function cpf_eh($id, string $cpf):bool;
 
+    public function get_cargos();
+
 }

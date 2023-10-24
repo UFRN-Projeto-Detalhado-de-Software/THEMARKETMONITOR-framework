@@ -2,7 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\DTOS\FuncionarioDTO;
+use App\DTOS\MetaDTO;
+use App\DTOS\PeriodoDTO;
+use App\DTOS\PeriodoTipoDTO;
+use App\Models\Funcionario;
 use App\Models\User;
+use App\Repositories\MetasRepository;
+use App\Services\MetaService;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -107,5 +114,48 @@ class UserController extends Controller
 
         return view('user.acesso', ['funcionarios' => $funcionarios]);
     }
+
+
+    public function create_meta(Funcionario $funcionario)
+    {
+        if(!$this->userService->isAdm()){
+            return redirect()->route('perfil.home')->with('msg', 'Você não é administrador!');
+        }
+        $tipos_periodo = $this->userService->tipos_periodo();
+        return view('user.create_meta', ['tipos_periodo' => $tipos_periodo, 'funcionario' => $funcionario]);
+    }
+
+    public function store_meta(Request $request, Funcionario $funcionario)
+    {
+        $metaService = new MetaService(new  MetasRepository());
+
+        $metaService->create(new MetaDTO(
+            null,
+            new PeriodoDTO(
+                null,
+                new PeriodoTipoDTO(
+                    $request->tipo_periodo,
+                    null,
+                    null
+                ),
+                $request->data_inicio,
+                $request->data_fim
+            ),
+            $request->valor_meta,
+            $request->valor_atual,
+            new FuncionarioDTO(
+                $funcionario->id,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            )
+        ));
+        return redirect()->route('perfil.adm')->with('msg', 'Meta criada com sucesso!'); //todo
+    }
+
 
 }

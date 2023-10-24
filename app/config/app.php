@@ -173,6 +173,7 @@ return [
         App\Providers\MetasRepositoryServiceProvider::class,
         App\Providers\PeriodoTipoRepositoryServiceProvider::class,
         App\Providers\PeriodoRepositoryServiceProvider::class,
+        App\Providers\CargosServiceProvider::class,
     ])->toArray(),
 
     /*

@@ -1,9 +1,9 @@
 <html>
 <head></head>
 <body>
-<h1>Editar funcionários:</h1>
+<h1>Editar cargo:</h1>
 
-<form action="{{route('periodo.tipo.edit', ['id' => $cargo->id])}}" method="POST">
+<form action="{{route('cargo.edit', ['id' => $cargo->id])}}" method="POST">
     @csrf
     @method('PUT')
     <p>

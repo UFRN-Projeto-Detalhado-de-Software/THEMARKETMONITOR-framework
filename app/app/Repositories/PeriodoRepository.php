@@ -12,9 +12,6 @@ class PeriodoRepository implements PeriodoRepositoryInterface
     public function all()
     {
         $all_model = Periodo::all();
-
-//        dd($all_model);
-
         $all_dto = [];
 
         $repositoryPeriodoTipo = new PeriodoTipoRepository();

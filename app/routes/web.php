@@ -17,6 +17,7 @@ use App\Http\Controllers\FuncionarioController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MetaController;
 use App\Http\Controllers\HistoricoFuncionarioController;
+use App\Http\Controllers\CargoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -181,6 +182,25 @@ Route::name('/analise')->group(function (){
     Route::prefix('/analise')->group(function (){
         Route::get('/list', [AnaliseProdutoController::class, 'list']);
         Route::get('/{produto}', [AnaliseProdutoController::class, 'show']);
+    });
+});
+
+// Rotas de Cargos
+Route::name('cargo.')->group(function (){
+    Route::prefix('/cargo')->group(function (){
+        // Get
+        Route::get('/', [CargoController::class, 'home'])->name('home');
+        Route::get('/novo', [CargoController::class, 'create'])->name('create');
+        Route::get('/editar/{id}', [CargoController::class, 'formEdit'])->name('formEdit');
+
+        // Post
+        Route::post('/store', [CargoController::class, 'store'])->name('store');
+
+        // Put
+        Route::put('/edit/{id}', [CargoController::class, 'edit'])->name('edit');
+
+        // Delete
+        Route::delete('/destroy/{id}', [CargoController::class, 'destroy'])->name('destroy');
     });
 });
 

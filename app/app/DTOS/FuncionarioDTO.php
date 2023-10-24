@@ -9,6 +9,7 @@ class FuncionarioDTO
     public function __construct(
 //    public ? UsuarioDTO $usuarioDTO,
     public ? int $id,
+    public ? CargosDTO $cargo,
     public ? array $funcionarios_acessaveis,
     public ? string $nome,
     public ? string $dataDeNascimento,

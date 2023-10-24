@@ -17,9 +17,13 @@ class FuncionariosRepository implements FuncionariosRepositoryInterface
     {
         $all_model = Funcionario::all();
         $all_dto = [];
+
+        $repositoryCargo = new CargosRepository();
+
         foreach ($all_model as $model){
             array_push($all_dto, new FuncionarioDTO(
                 $model->id,
+                $repositoryCargo->find($model->cargo),
                 [],
                 $model->nome,
                 $model->dataDeNascimento,
@@ -36,8 +40,11 @@ class FuncionariosRepository implements FuncionariosRepositoryInterface
         $model = Funcionario::find($id);
         // todo: tratar exceção aqui
 
+        $repositoryCargo = new CargosRepository();
+
         return new FuncionarioDTO(
             $model->id,
+            $repositoryCargo->find($model->cargo),
             [],
             $model->nome,
             $model->dataDeNascimento,

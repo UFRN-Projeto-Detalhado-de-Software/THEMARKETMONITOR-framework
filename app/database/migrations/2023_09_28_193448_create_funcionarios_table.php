@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('funcionarios', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('usuario')->default(0);
+            $table->unsignedBigInteger('cargo');
             $table->timestamps();
             $table->text("nome")->unique();
             $table->text("dataDeNascimento");

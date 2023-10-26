@@ -15,7 +15,7 @@ class AnaliseProdutoService
             ->select(DB::raw('cliente'))
             ->where('produto', '=', $produto)
             ->pluck('cliente')
-            ->toArray();;
+            ->toArray();
 
 
 

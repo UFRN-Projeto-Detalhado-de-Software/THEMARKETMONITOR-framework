@@ -22,20 +22,23 @@
         <p>Telefone: {{$funcionario->telefone}}</p>
         <p>CPF: {{$funcionario->cpf}}</p>
         <p>CARGO: {{$funcionario->cargo->nome}}</p>
+        <a href="{{route('funcionario.verMetas', ['id' => $funcionario->id])}}">Ver metas do funcionário</a>
+        <a href="{{route('funcionario.edit', ['id' => $funcionario->id])}}">Editar funcionário</a>
+        <form action="{{route('funcionario.destroy', ['id' => $funcionario->id])}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <input type="hidden" name="id" value="{{$funcionario->id}}">
+            <input type="submit" value="Deletar funcionário">
+        </form>
         <br>
     @endforeach
 
-    <a href="{{route('funcionario.verMetas', ['id' => $funcionario->id])}}">Ver metas do funcionário</a>
 
 
-    <a href="{{route('funcionario.edit', ['id' => $funcionario->id])}}">Editar funcionário</a>
 
-    <form action="{{route('funcionario.destroy', ['id' => $funcionario->id])}}" method="POST">
-        @csrf
-        @method('DELETE')
-        <input type="hidden" name="id" value="{{$funcionario->id}}">
-        <input type="submit" value="Deletar funcionário">
-    </form>
+
+
+
 
 
     <br>

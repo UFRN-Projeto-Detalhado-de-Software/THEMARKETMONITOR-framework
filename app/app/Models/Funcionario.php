@@ -19,6 +19,7 @@ class Funcionario extends Model
         'email',
         'telefone',
         'cpf',
+        'cargo'
     ];
 
 

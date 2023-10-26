@@ -24,7 +24,7 @@ class FuncionariosRepository implements FuncionariosRepositoryInterface
             array_push($all_dto, new FuncionarioDTO(
                 $model->id,
                 $repositoryCargo->find($model->cargo),
-                [],
+                null,
                 $model->nome,
                 $model->dataDeNascimento,
                 $model->email,
@@ -45,7 +45,7 @@ class FuncionariosRepository implements FuncionariosRepositoryInterface
         return new FuncionarioDTO(
             $model->id,
             $repositoryCargo->find($model->cargo),
-            [],
+            $model->funcionarios_acessaveis,
             $model->nome,
             $model->dataDeNascimento,
             $model->email,

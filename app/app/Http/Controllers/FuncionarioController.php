@@ -27,7 +27,7 @@ class FuncionarioController extends Controller
                 $request->cargo,
                 null
             ),
-            [],
+            null,
             $request->nome,
             $request->dataDeNascimento,
             $request->email,
@@ -54,12 +54,16 @@ class FuncionarioController extends Controller
     }
 
     public function edited($id, Request $request){
+
+        $cargoId = is_numeric($request->cargo) ? (int)$request->cargo : 0;
+
         $message = $this->funcionarioService->edit($id, new FuncionarioDTO(
             null,
             new CargosDTO(
-                $request->cargo,
+                $cargoId,
                 null
             ),
+            null,
             $request->nome,
             $request->dataDeNascimento,
             $request->email,
@@ -83,7 +87,7 @@ class FuncionarioController extends Controller
     public function verMetas($id)
     {
         $metas = $this->funcionarioService->minhas_metas($id);
-        return view('funcionario.ver_metas', ['metas' => $metas]);
+        return view('funcionario.ver_metas', ['metas' => $metas, 'funcionario'=>$id]);
     }
 
 }

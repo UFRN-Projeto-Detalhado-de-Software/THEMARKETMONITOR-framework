@@ -22,7 +22,6 @@ class VendasService
 
     public function create(VendaDTO $dados)
     {
-        // Lógica de validação e processamento de dados, se necessário
         return $this->vendasRepository->store($dados);
     }
 

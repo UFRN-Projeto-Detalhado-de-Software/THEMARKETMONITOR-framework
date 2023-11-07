@@ -51,6 +51,37 @@ class VendasController extends Controller
      */
     public function store(Request $request)
     {
+        info($request->all());
+
+        $validationRules = [
+            'cliente' => 'required',
+            'produto' => 'required',
+            'tipo' => 'required',
+            'origem' => 'required',
+            'sdr' => 'required',
+            'closer' => 'required',
+            'data' => 'required',
+            'meioDePagamento' => 'required',
+            'deTerceiro' => 'required',
+            'valor' => 'required',
+            'obs' => 'nullable|string',
+        ];
+
+        $request->validate($validationRules);
+
+        // Crie um array para armazenar mensagens sobre campos ausentes
+        $missingFields = [];
+        foreach ($validationRules as $field => $rule) {
+            if (!$request->has($field)) {
+                $missingFields[] = $field;
+            }
+        }
+
+        // Se algum campo obrigatório estiver faltando, redirecione com uma mensagem de erro
+        if (!empty($missingFields)) {
+            return redirect()->back()->withErrors(['message' => 'Por favor, preencha todos os campos obrigatórios. Campos em falta: ' . implode(', ', $missingFields)]);
+        }
+
 
         $dto = new VendaDTO(
             $request->input('cliente'),
@@ -63,7 +94,7 @@ class VendasController extends Controller
             $request->input('origem'),
             $request->input('meioDePagamento'),
             $request->input('deTerceiro'),
-            $request->input('obs'),
+            $request->input('obs') ?? null
             );
 
         $venda = $this->vendaService->create($dto);

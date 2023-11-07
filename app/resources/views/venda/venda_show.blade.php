@@ -9,7 +9,6 @@
         <h2> O ID da Venda é : {{$venda->id}} </h2>
         <h2> O Closer da Venda é : {{$venda->closer}}</h2>
         <h2> O SDR da Venda é : {{$venda->sdr}}</h2>
-        <h2> O Tipo da Venda é : {{$venda->}}</h2>
 
 
 

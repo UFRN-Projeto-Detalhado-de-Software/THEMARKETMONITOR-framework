@@ -22,8 +22,15 @@ class VendasRepository implements VendasRepositoryInterface
     public function store(VendaDTO $dto){
 
         try {
+            // Converta o DTO para um array associativo
+            $dadosVenda = (array) $dto;
+
+            if (!array_key_exists('obs', $dadosVenda)) {
+                $dadosVenda['obs'] = null;
+            }
+
             // Valide e sanitize os dados do DTO conforme necessário
-            $venda = Vendas::create((array) $dto);
+            $venda = Vendas::create($dadosVenda);
 
             return ['success' => true, 'data' => $venda];
         } catch (\Exception $e) {

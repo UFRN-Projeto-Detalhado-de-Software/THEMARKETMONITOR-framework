@@ -17,7 +17,7 @@ class VendaDTO
             public ? string $origem,
             public ? string $meioDePagamento,
             public ? bool   $deTerceiro,
-            public ? string $obs
+            public ?string $obs = null
 
     ){}
 

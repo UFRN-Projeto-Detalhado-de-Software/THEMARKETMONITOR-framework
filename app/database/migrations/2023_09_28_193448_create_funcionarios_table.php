@@ -16,11 +16,11 @@ return new class extends Migration
             $table->unsignedBigInteger('usuario')->default(0);
             $table->unsignedBigInteger('cargo')->default(0);
             $table->timestamps();
-            $table->text("nome")->unique();
+            $table->text("nome");
             $table->text("dataDeNascimento");
-            $table->text("email")->unique();
+            $table->text("email");
             $table->text("telefone");
-            $table->text("cpf")->unique();
+            $table->text("cpf");
         });
     }
 

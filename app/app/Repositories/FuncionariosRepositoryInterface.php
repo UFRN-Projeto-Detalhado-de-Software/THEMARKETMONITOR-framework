@@ -22,7 +22,11 @@ interface FuncionariosRepositoryInterface
 
     public function remover_acesso($id_acessante, $id_acessado);
 
+    public function get_acessos($id_acessante);
+
     public function desvincular_usuario($id);
+
+    public function vincular_usuario($id_usuario, $id_funcionario);
 
     public function get_metas($id);
 
@@ -39,5 +43,7 @@ interface FuncionariosRepositoryInterface
     public function cpf_eh($id, string $cpf):bool;
 
     public function get_cargos();
+
+    public function get_funcionarios_unlinked();
 
 }

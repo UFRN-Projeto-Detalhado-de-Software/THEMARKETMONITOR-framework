@@ -111,6 +111,14 @@ class FuncionariosRepository implements FuncionariosRepositoryInterface
         // todo: tratar exceção aqui
     }
 
+    public function get_acessos($id_acessante)
+    {
+        if($id_acessante = 0) return;
+
+        $funcionario_acessante = Funcionario::find($id_acessante);
+        return $funcionario_acessante->acessado()->get();
+    }
+
     public function desvincular_usuario($id)
     {
         $funcionario = Funcionario::find($id);
@@ -120,6 +128,22 @@ class FuncionariosRepository implements FuncionariosRepositoryInterface
             // todo: tratar exceção aqui
             $usario->funcionario = 0;
             $usario->save();
+            $funcionario->usuario = 0;
+            $funcionario->save();
+        }
+    }
+
+    public function vincular_usuario($id_usuario, $id_funcionario)
+    {
+        $this->desvincular_usuario($id_usuario);
+
+        $usuario = User::find($id_usuario);
+        $usuario->funcionario = $id_funcionario;
+        $usuario->save();
+        if($id_funcionario != 0){
+            $funcionario = Funcionario::find($id_funcionario);
+            $funcionario->usuario = $id_usuario;
+            $funcionario->save();
         }
     }
 
@@ -217,6 +241,11 @@ class FuncionariosRepository implements FuncionariosRepositoryInterface
     {
         $repositoryCargo = new CargosRepository();
         return $repositoryCargo->all();
+    }
+
+    public function get_funcionarios_unlinked()
+    {
+        return Funcionario::where('usuario', 0)->get();
     }
 
 

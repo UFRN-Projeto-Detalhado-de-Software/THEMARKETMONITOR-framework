@@ -2,9 +2,11 @@
 
 namespace App\Services;
 
+use App\DTOS\UserDTO;
 use App\Models\Funcionario;
 use App\Models\PeriodoTipo;
 use App\Models\User;
+use App\Repositories\UserRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
@@ -17,67 +19,104 @@ class UserService
         'nenhum'
     ];
 
+    private $userRepository;
+
+    public function __construct(UserRepositoryInterface $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
+
     public function all()
     {
-        return User::all();
+        return $this->userRepository->all();
     }
 
     public function available_funcionarios()
     {
-        return Funcionario::where('usuario', 0)->get();
+        return $this->userRepository->availbleFuncionarios();
     }
 
-    public function attempt_login_by_request(Request $request)
+//    public function attempt_login_by_request(Request $request)
+//    {
+//        $credentials = [
+//            'email' => $request->email,
+//            'password' => $request->senha
+//        ];
+//        return $this->attempt_login($credentials);
+//    }
+//
+//    public function attempt_login($credentials)
+//    {
+//        return Auth::attempt($credentials);
+//    }
+
+    public function attempt_login(UserDTO $dto)
     {
-        $credentials = [
-            'email' => $request->email,
-            'password' => $request->senha
-        ];
-        return $this->attempt_login($credentials);
+        return $this->userRepository->atemptLogin($dto);
     }
 
-    public function attempt_login($credentials)
-    {
-        return Auth::attempt($credentials);
-    }
-
-    public function attempt_register_by_request(Request $request)
-    {
-        return $this->attempt_register($request->nome, $request->email,
-            $request->senha, $request->confirmar_senha);
-    }
-
-    public function attempt_register(string $nome, string $email,string $senha, string $confirmar_senha)
+//    public function attempt_register_by_request(Request $request)
+//    {
+//        return $this->attempt_register($request->nome, $request->email,
+//            $request->senha, $request->confirmar_senha);
+//    }
+//
+//    public function attempt_register(string $nome, string $email,string $senha, string $confirmar_senha)
+//    {
+//        foreach ($this->nomes_reservados as $nome_reservado){
+//            if($nome == $nome_reservado){
+//                return 'O nome "'.$nome.'" é um nome reservado, escolha outro!';
+//            }
+//        }
+//        $users_same_email = User::where('email', $email)->get();
+//        if(!$users_same_email->isEmpty()){
+//            return 'Email já cadastrado!';
+//        }
+//        $users_same_name = User::where('nome', $nome)->get();
+//        if(!$users_same_name->isEmpty()){
+//            return 'Nome já utilizado, escolha outro!';
+//        }
+//        if(!$this->senha_ok($senha)){
+//            return 'A senha não atende aos padrões!';
+//        }
+//        if($senha !== $confirmar_senha){
+//            return 'Senhas diferentes!';
+//        }
+//        $user = new User();
+//        $user->nome = $nome;
+//        $user->email = $email;
+//        $user->password = Hash::make($senha);
+//
+//        $user->save();
+//
+//        event(new Registered($user));
+//
+//        Auth::login($user);
+//
+//        return  'ok';
+//    }
+    public function attempt_register(UserDTO $userDTO)
     {
         foreach ($this->nomes_reservados as $nome_reservado){
-            if($nome == $nome_reservado){
-                return 'O nome "'.$nome.'" é um nome reservado, escolha outro!';
+            if($userDTO->nome == $nome_reservado){
+                return 'O nome "'.$userDTO->nome.'" é um nome reservado, escolha outro!';
             }
         }
-        $users_same_email = User::where('email', $email)->get();
+        $users_same_email = User::where('email', $userDTO->email)->get();
         if(!$users_same_email->isEmpty()){
             return 'Email já cadastrado!';
         }
-        $users_same_name = User::where('nome', $nome)->get();
+        $users_same_name = User::where('nome', $userDTO->nome)->get();
         if(!$users_same_name->isEmpty()){
             return 'Nome já utilizado, escolha outro!';
         }
-        if(!$this->senha_ok($senha)){
+        if(!$this->senha_ok($userDTO->password)){
             return 'A senha não atende aos padrões!';
         }
-        if($senha !== $confirmar_senha){
+        if($userDTO->password !== $userDTO->confirmPassword){
             return 'Senhas diferentes!';
         }
-        $user = new User();
-        $user->nome = $nome;
-        $user->email = $email;
-        $user->password = Hash::make($senha);
-
-        $user->save();
-
-        event(new Registered($user));
-
-        Auth::login($user);
+        $this->userRepository->register($userDTO);
 
         return  'ok';
     }
@@ -100,58 +139,33 @@ class UserService
 
     public function isAdm()
     {
-        if(!$this->check_login()){
-            return false;
-        }
-        $user = Auth::user();
-        return $user->isAdm;
+        return $this->userRepository->isAdm();
     }
 
-    public function destroy(User $user)
+    public function destroy(UserDTO $userDTO)
     {
-        if($user->funcionario != 0){
-            $funcionario = Funcionario::where('usuario', $user->id)->get()->first();
-            $funcionario->usuario = 0;
-        }
-        $user->delete();
+        $this->userRepository->destroy($userDTO);
     }
 
-    public function editFuncionario_by_request(Request $request)
-    {
-        $user = User::find($request->usuario);
-        $this->editFuncionario($user, $request->funcionario);
-    }
+//    public function editFuncionario_by_request(Request $request)
+//    {
+//        $user = User::find($request->usuario);
+//        $this->editFuncionario($user, $request->funcionario);
+//    }
 
-    public function editFuncionario(User $user, int $funcionario_id)
+    public function editFuncionario(UserDTO $userDTO)
     {
-        if($user->funcionario != 0){
-            $oldfuncionario = Funcionario::where('usuario', $user->id)->get()->first();
-            $oldfuncionario->usuario = 0;
-            $oldfuncionario->save();
-        }
-        $user->funcionario = $funcionario_id;
-        $user->save();
-
-        if($funcionario_id != 0){
-            $newfuncionario = Funcionario::find($funcionario_id);
-            $newfuncionario->usuario = $user->id;
-            $newfuncionario->save();
-        }
+        $this->userRepository->editFuncionario($userDTO);
     }
 
     public function getFuncionariosAcesso()
     {
-        $user = Auth::user();
-        if($user->funcionario == 0){
-            return collect();
-        }
-        $funcionario = Funcionario::find($user->funcionario);
-        return $funcionario->acessado()->get();
+        return $this->userRepository->getFuncionariosAcesso();
     }
 
     public function tipos_periodo()
     {
-        return PeriodoTipo::all();
+        return $this->userRepository->getTiposPeriodo();
     }
 
 

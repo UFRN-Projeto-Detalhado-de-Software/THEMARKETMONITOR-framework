@@ -18,5 +18,9 @@ interface UserRepositoryInterface
 
     public function getFuncionariosAcesso();
 
+    public function isAdm();
 
+    public function getTiposPeriodo();
+
+    public function atemptLogin(UserDTO $dto);
 }

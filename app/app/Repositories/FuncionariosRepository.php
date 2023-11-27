@@ -40,6 +40,10 @@ class FuncionariosRepository implements FuncionariosRepositoryInterface
         $model = Funcionario::find($id);
         // todo: tratar exceção aqui
 
+        if($model === null){
+            return null;
+        }
+
         $repositoryCargo = new CargosRepository();
 
         return new FuncionarioDTO(
@@ -122,6 +126,7 @@ class FuncionariosRepository implements FuncionariosRepositoryInterface
     public function desvincular_usuario($id)
     {
         $funcionario = Funcionario::find($id);
+        if($funcionario === null) return;
         // todo: tratar exceção aqui
         if($funcionario->usuario != 0){
             $usario = User::find($funcionario->usuario);
@@ -138,6 +143,7 @@ class FuncionariosRepository implements FuncionariosRepositoryInterface
         $this->desvincular_usuario($id_usuario);
 
         $usuario = User::find($id_usuario);
+        if($usuario === null) return;
         $usuario->funcionario = $id_funcionario;
         $usuario->save();
         if($id_funcionario != 0){
@@ -175,7 +181,17 @@ class FuncionariosRepository implements FuncionariosRepositoryInterface
 
             $responsavel = null;
             if($model->metable_id != 0){
-                $responsavel = $model->metable()->get()->first();
+                $responsavel_model = $model->metable()->get()->first();
+                $responsavel = new FuncionarioDTO(
+                    $responsavel_model->id,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                );
             }
             array_push($all_dto, new MetaDTO(
                 $model->id,

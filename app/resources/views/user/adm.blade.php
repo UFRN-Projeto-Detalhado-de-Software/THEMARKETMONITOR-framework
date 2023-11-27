@@ -15,7 +15,7 @@
 
         <p>Nome do usuário: {{$usuario->nome}}</p>
         @php
-            $funcionario = \App\Models\Funcionario::find($usuario->funcionario);
+            $funcionario = $usuario->funcionario;
         @endphp
         @if($funcionario)
             <p>Nome do funcionário relacionado: {{$funcionario->nome}}</p>
@@ -37,12 +37,11 @@
         <input type="submit" value="Deletar usuário">
     </form>
 
+    @endforeach
 
     <br>
     <a href="{{route('perfil.home')}}">Voltar para a home</a>
 </div>
-
-    @endsection
 
 
 

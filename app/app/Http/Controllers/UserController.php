@@ -6,6 +6,7 @@ use App\DTOS\FuncionarioDTO;
 use App\DTOS\MetaDTO;
 use App\DTOS\PeriodoDTO;
 use App\DTOS\PeriodoTipoDTO;
+use App\DTOS\UserDTO;
 use App\Models\Funcionario;
 use App\Models\User;
 use App\Repositories\MetasRepository;
@@ -43,8 +44,16 @@ class UserController extends Controller
 
     public function getLogin(Request $request)
     {
-        $this->userService->attempt_login_by_request($request);
-        if(!$this->userService->check_login()){
+        $attempt = $this->userService->attempt_login(new UserDTO(
+            null,
+            null,
+            null,
+            $request->senha,
+            null,
+            $request->email,
+            null
+        ));
+        if(!$attempt){
             return redirect()->back()->with('msg', 'Dados inválidos!');
         }
         return redirect()->route('home');
@@ -52,7 +61,15 @@ class UserController extends Controller
 
     public function getRegister(Request $request)
     {
-        $message = $this->userService->attempt_register_by_request($request);
+        $message = $this->userService->attempt_register(new UserDTO(
+            null,
+            null,
+            $request->nome,
+            $request->senha,
+            $request->confirmar_senha,
+            $request->email,
+            null,
+        ));
         if($message !== "ok"){
             // Todo: fazer mensagem de erro
             return redirect()->back()->with('msg', $message);
@@ -100,7 +117,24 @@ class UserController extends Controller
         if(!$this->userService->isAdm()){
             return redirect()->route('perfil.home')->with('msg', 'Você não é administrador!');
         }
-        $this->userService->editFuncionario_by_request($request);
+        $this->userService->editFuncionario(new UserDTO(
+            $request->usuario,
+            new FuncionarioDTO(
+                $request->funcionario,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ),
+            null,
+            null,
+            null,
+            null,
+            null
+        ));
 
         return redirect()->route('perfil.adm');
     }

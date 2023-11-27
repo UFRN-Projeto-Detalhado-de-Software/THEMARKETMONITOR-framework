@@ -26,6 +26,8 @@ class UserRepository implements UserRepositoryInterface
                 $model->id,
                 $funcionario_repository->find($model->funcionario),
                 $model->nome,
+                null,
+                null,
                 $model->email,
                 $model->isAdm
             ));
@@ -51,7 +53,7 @@ class UserRepository implements UserRepositoryInterface
         $user->nome = $dto->nome;
         $user->email = $dto->email;
         $user->funcionario = 0;
-        $user->password = Hash::make($dto->senha);
+        $user->password = Hash::make($dto->password);
 
         $user->save();
 
@@ -82,4 +84,29 @@ class UserRepository implements UserRepositoryInterface
         $funcionario_repository = new FuncionariosRepository();
         return $funcionario_repository->get_acessos($current_user->funcionario);
     }
+
+    public function isAdm()
+    {
+        if(!Auth::check()){
+            return false;
+        }
+        $user = Auth::user();
+        return $user->isAdm;
+    }
+
+    public function getTiposPeriodo()
+    {
+        $periodoTipoRepository = new PeriodoTipoRepository();
+        return $periodoTipoRepository->all();
+    }
+
+    public function atemptLogin(UserDTO $dto)
+    {
+        $credentials = [
+            'email' => $dto->email,
+            'password' => $dto->password
+        ];
+        return Auth::attempt($credentials);
+    }
+
 }

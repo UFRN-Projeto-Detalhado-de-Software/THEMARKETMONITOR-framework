@@ -4,10 +4,11 @@ namespace App\Repositories;
 
 use App\Models\Vendas;
 use App\Repositories\VendaRepositoryStrategy;
+use App\Repositories\VendasRepository;
 use App\Transformers\VendaTransformer;
 use League\Fractal\Manager;
 
-class VendaRepositoryCorretora implements VendaRepositoryStrategy
+class VendaRepositoryCorretora extends VendasRepository implements VendaRepositoryStrategy
 {
 
     public function convert_model_to_dto($vendaId)

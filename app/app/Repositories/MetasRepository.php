@@ -10,10 +10,18 @@ use App\Models\Funcionario;
 use App\Models\Meta;
 use App\Models\Periodo;
 use App\Repositories\MetasRepositoryInterface;
+use App\Repositories\strategy\MetaRepositoryStrategy;
 use function Webmozart\Assert\Tests\StaticAnalysis\null;
 
 class MetasRepository implements MetasRepositoryInterface
 {
+
+    private $strategy;
+
+    public function __construct(MetaRepositoryStrategy $metaRepositoryStrategy)
+    {
+        $this->strategy = $metaRepositoryStrategy;
+    }
 
     public function all()
     {
@@ -21,20 +29,26 @@ class MetasRepository implements MetasRepositoryInterface
 
         $all_dto = [];
 
-        $periodo_repository = new PeriodoRepository();
-//        $repositoryFuncionario = new FuncionariosRepository();
 
         foreach ($all_model as $model){
 
-            array_push($all_dto, new MetaDTO(
-                $model->id,
-                $periodo_repository->find($model->periodo),
-                $model->valor_meta,
-                $model->valor_atual,
-                null //$repositoryFuncionario->find($model->metable_id)
-            ));
+            array_push($all_dto, $this->strategy->convert_model_to_dto($model));
         }
+        return $all_dto;
+    }
 
+    public function metas_funcionario($id_funcionario)
+    {
+        $all_model = Meta::where('metable_id', $id_funcionario)->get();
+
+
+        $all_dto = [];
+
+
+        foreach ($all_model as $model){
+
+            array_push($all_dto, $this->strategy->convert_model_to_dto($model));
+        }
         return $all_dto;
     }
 
@@ -49,56 +63,33 @@ class MetasRepository implements MetasRepositoryInterface
         $model = Meta::find($id);
         // todo: tratar exceção aqui
 
-        $periodo_repository = new PeriodoRepository();
-//        $repositoryFuncionario = new FuncionariosRepository();
 
-        return new MetaDTO(
-            $model->id,
-            $periodo_repository->find($model->periodo),
-            $model->valor_meta,
-            $model->valor_atual,
-            null //$repositoryFuncionario->find($model->metable_id)
-        );
+        return $this->strategy->convert_model_to_dto($model);
+    }
+
+    public function find_periodo($id)
+    {
+        $repository_periodo= new PeriodoRepository();
+        return $repository_periodo->find($id);
     }
 
     public function store(MetaDTO $dto)
     {
-        $periodo_repository = new PeriodoRepository();
-        $periodo = Periodo::find($periodo_repository->store($dto->periodo));
-        // todo: tratar exceção aqui
-
-
-        $meta = new Meta();
-        $meta->valor_meta = $dto->valor_meta;
-        $meta->valor_atual = $dto->valor_atual;
-        $meta->periodo = $periodo->id;
-        if($dto->responsavel){
-            $meta->metable_id = $dto->responsavel->id;
-            $meta->metable_type = Funcionario::class;
-        }
+        $meta = $this->strategy->convert_dto_to_model($dto);
 
         $meta->save();
     }
 
     public function update(MetaDTO $dto)
     {
-        $periodo_repository = new PeriodoRepository();
-        $periodo_repository->update($dto->periodo);
-        // todo: tratar exceção aqui
-
-        $meta = Meta::find($dto->id);
-        // todo: tratar exceção aqui
-
-        $meta->valor_meta = $dto->valor_meta;
-        $meta->valor_atual = $dto->valor_atual;
+        $meta = $this->strategy->convert_dto_to_model($dto);
 
         $meta->save();
     }
 
     public function destroy(MetaDTO $dto)
     {
-        $meta = Meta::find($dto->id);
-        // todo: tratar exceção aqui
+        $meta = $this->strategy->convert_dto_to_model($dto);
         $meta->delete();
     }
 }

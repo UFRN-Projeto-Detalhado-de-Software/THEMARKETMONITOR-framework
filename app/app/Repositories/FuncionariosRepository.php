@@ -9,6 +9,8 @@ use App\Models\Funcionario;
 use App\Models\Periodo;
 use App\Models\User;
 use App\Repositories\FuncionariosRepositoryInterface;
+use App\Repositories\strategy\MetaRepositoryStrategy;
+use App\Repositories\strategy\MetaRepositoryStrategyOriginal;
 
 class FuncionariosRepository implements FuncionariosRepositoryInterface
 {
@@ -38,6 +40,7 @@ class FuncionariosRepository implements FuncionariosRepositoryInterface
     public function find($id)
     {
         $model = Funcionario::find($id);
+//        dd($model);
         // todo: tratar exceção aqui
 
         $repositoryCargo = new CargosRepository();
@@ -149,53 +152,9 @@ class FuncionariosRepository implements FuncionariosRepositoryInterface
 
     public function get_metas($id)
     {
-        $funcionario = Funcionario::find($id);
-        $all_model = $funcionario->metas()->get();
-        $all_dto = [];
-
-        foreach ($all_model as $model){
-            $periodo = Periodo::find($model->periodo);
-
-            $dono = null;
-            if($periodo->periodable_id != 0){
-                $dono = $periodo->periodable();
-            }
-
-            $repositoryPeriodoTipo = new PeriodoTipoRepository();
-            $periodoTipo = $repositoryPeriodoTipo->find($periodo->tipo);
-
-            $periodoDTO = new PeriodoDTO(
-                $periodo->id,
-                $periodoTipo,
-                $dono,
-                $periodo->data_inicio,
-                $periodo->data_fim
-            );
-
-
-            $responsavel = null;
-            if($model->metable_id != 0){
-                $responsavel = $model->metable()->get()->first();
-            }
-            array_push($all_dto, new MetaDTO(
-                $model->id,
-                $periodoDTO,
-                $model->valor_meta,
-                $model->valor_atual,
-                $responsavel
-            ));
-        }
-
-        return $all_dto;
-
-
-
-
-
-
-
-
-
+        $metaStrategy = new MetaRepositoryStrategyOriginal(); //todo: arrumar aqui
+        $metasRepository = new MetasRepository($metaStrategy);
+        return $metasRepository->metas_funcionario($id);
     }
 
     public function email_ja_cadastrado(string $email): bool

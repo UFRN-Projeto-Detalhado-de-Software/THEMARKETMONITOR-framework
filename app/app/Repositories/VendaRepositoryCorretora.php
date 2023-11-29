@@ -7,7 +7,7 @@ use App\Repositories\VendaRepositoryStrategy;
 use App\Transformers\VendaTransformer;
 use League\Fractal\Manager;
 
-class VendaRepositoryCorretora implements VendaRepositoryStrategy
+class VendaRepositoryCorretora  implements VendaRepositoryStrategy
 {
 
     public function convert_model_to_dto($vendaId)

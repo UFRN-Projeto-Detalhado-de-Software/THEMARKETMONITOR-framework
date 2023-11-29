@@ -7,11 +7,13 @@ use App\Repositories\VendasRepositoryInterface;
 
 class VendasService
 {
-    private $vendasRepository;
+    private VendasRepositoryInterface $vendasRepository;
+    protected VendaServiceStrategy $strategy;
 
-    public function __construct(VendasRepositoryInterface $vendasRepository)
+    public function __construct(VendasRepositoryInterface $vendasRepository, VendaServiceStrategy $strategy)
     {
         $this->vendasRepository = $vendasRepository;
+        $this->strategy = $strategy;
     }
 
 
@@ -27,19 +29,19 @@ class VendasService
 
     public function update(VendaDTO $vendaDTO, $id)
     {
-        // Lógica de validação e processamento de dados, se necessário
+
         return $this->vendasRepository->update($vendaDTO, $id);
     }
 
     public function find($id)
     {
-        // Lógica para obter uma venda por ID, se necessário
+
         return $this->vendasRepository->find($id);
     }
 
     public function delete($id)
     {
-        // Lógica para excluir uma venda por ID, se necessário
+
         return $this->vendasRepository->destroy($id);
     }
 

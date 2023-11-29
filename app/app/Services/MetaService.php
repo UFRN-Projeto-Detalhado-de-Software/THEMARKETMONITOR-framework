@@ -60,6 +60,7 @@ MetaService
 
     public function delete(MetaDTO $metaDTO)
     {
+        $metaDTO = $this->metasRepository->find($metaDTO->id);
         $this->metasRepository->destroy($metaDTO);
     }
 }

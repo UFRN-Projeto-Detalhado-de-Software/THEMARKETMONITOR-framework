@@ -1,27 +1,26 @@
 <?php
-
 namespace App\Providers;
 
-use App\Repositories\VendaRepositoryBanco;
-use App\Repositories\VendaRepositoryCorretora;
+use App\Repositories\VendasRepositoryInterface;
+use App\Repositories\VendasRepository;
+use App\Http\Controllers\VendasController;
+use App\Repositories\VendaRepositoryStrategy;
 use App\Repositories\VendaRepositoryLoja;
 use Illuminate\Support\ServiceProvider;
 
 class VendasRepositoryServiceProvider extends ServiceProvider
 {
-
     public function register()
     {
-        $this->app->bind(
-            'App\Repositories\VendasRepositoryInterface',
-            'App\Repositories\VendasRepository'
-        );
-        $this->app->bind(VendaRepositoryStrategy::class, VendaRepositoryLoja::class);
-        $this->app->bind(VendaRepositoryStrategy::class, VendaRepositoryBanco::class);
-        $this->app->bind(VendaRepositoryStrategy::class, VendaRepositoryCorretora::class);
+        $this->app->bind(VendasRepositoryInterface::class, VendasRepository::class);
+        //$this->app->bind(VendaRepositoryStrategy::class, VendaRepositoryLoja::class);
 
+    //$this->app->when(VendasController::class)
+         //->needs(VendasRepositoryInterface::class)
+         //->give(VendasRepository::class);
+
+    //$this->app->when(VendasController::class)
+        //->needs(VendaRepositoryStrategy::class)
+        //->give(VendaRepositoryLoja::class);
     }
-
-
-
 }

@@ -9,6 +9,7 @@ use App\DTOS\PeriodoTipoDTO;
 use App\Models\Funcionario;
 use App\Models\User;
 use App\Repositories\MetasRepository;
+use App\Repositories\strategy\MetaRepositoryStrategyOriginal;
 use App\Services\MetaService;
 use App\Services\UserService;
 use Illuminate\Http\Request;
@@ -127,7 +128,8 @@ class UserController extends Controller
 
     public function store_meta(Request $request, Funcionario $funcionario)
     {
-        $metaService = new MetaService(new  MetasRepository());
+        $metaStrategy = new MetaRepositoryStrategyOriginal(); //todo: arrumar aqui
+        $metaService = new MetaService(new  MetasRepository($metaStrategy));
 
         $metaService->create(new MetaDTO(
             null,

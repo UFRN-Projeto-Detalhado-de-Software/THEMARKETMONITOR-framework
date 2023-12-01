@@ -174,7 +174,8 @@ return [
         App\Providers\PeriodoTipoRepositoryServiceProvider::class,
         App\Providers\PeriodoRepositoryServiceProvider::class,
         App\Providers\CargosServiceProvider::class,
-        App\Providers\LojaServiceProvider::class
+        App\Providers\LojaServiceProvider::class,
+        App\Providers\FrameworkServiceProvider::class
     ])->toArray(),
 
     /*

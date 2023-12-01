@@ -121,22 +121,25 @@ Route::name('periodo.')->group(function (){
     });
 });
 
+// Aliasing do controller de meta usado:
+use App\Http\Controllers\MetaControllerLoja  as myMetaController;
+
 // Rotas de Meta
 Route::name('meta.')->group(function (){
     Route::prefix('/meta')->group(function (){
         // Get
-        Route::get('/', [MetaController::class, 'home'])->name('home');
-        Route::get('/novo', [MetaController::class, 'create'])->name('create');
-        Route::get('/editar/{id}', [MetaController::class, 'formEdit'])->name('formEdit');
+        Route::get('/', [myMetaController::class, 'home'])->name('home');
+        Route::get('/novo', [myMetaController::class, 'create'])->name('create');
+        Route::get('/editar/{id}', [myMetaController::class, 'formEdit'])->name('formEdit');
 
         // Post
-        Route::post('/store', [MetaController::class, 'store'])->name('store');
+        Route::post('/store', [myMetaController::class, 'store'])->name('store');
 
         // Put
-        Route::put('/edit/{id}', [MetaController::class, 'edit'])->name('edit');
+        Route::put('/edit/{id}', [myMetaController::class, 'edit'])->name('edit');
 
         // Delete
-        Route::delete('/destroy/{id}', [MetaController::class, 'destroy'])->name('destroy');
+        Route::delete('/destroy/{id}', [myMetaController::class, 'destroy'])->name('destroy');
     });
 });
 

@@ -12,7 +12,7 @@ use App\Repositories\FuncionariosRepositoryInterface;
 
 class FuncionarioController extends Controller
 {
-    public function __construct(private readonly FuncionarioService $funcionarioService)
+    public function __construct(protected readonly FuncionarioService $funcionarioService)
     {}
 
     public function create(){

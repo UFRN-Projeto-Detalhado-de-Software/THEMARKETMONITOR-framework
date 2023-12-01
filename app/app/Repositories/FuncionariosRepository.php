@@ -10,6 +10,7 @@ use App\Models\Periodo;
 use App\Models\User;
 use App\Repositories\FuncionariosRepositoryInterface;
 use App\Repositories\strategy\MetaRepositoryStrategy;
+use App\Repositories\strategy\MetaRepositoryStrategyLoja;
 use App\Repositories\strategy\MetaRepositoryStrategyOriginal;
 
 class FuncionariosRepository implements FuncionariosRepositoryInterface
@@ -152,7 +153,7 @@ class FuncionariosRepository implements FuncionariosRepositoryInterface
 
     public function get_metas($id)
     {
-        $metaStrategy = new MetaRepositoryStrategyOriginal(); //todo: arrumar aqui
+        $metaStrategy = new MetaRepositoryStrategyLoja(); //todo: arrumar aqui
         $metasRepository = new MetasRepository($metaStrategy);
         return $metasRepository->metas_funcionario($id);
     }

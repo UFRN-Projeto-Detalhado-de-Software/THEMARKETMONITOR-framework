@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('metable_type')->default('-');
 //            $table->morphs('matable')->defalt(0);
 //            $table->morphs('responsavel_meta');
-            $table->integer('valor_meta');
-            $table->integer('valor_atual');
+            $table->integer('vendas_meta');
+            $table->integer('vendas_atual');
             $table->timestamps();
         });
     }

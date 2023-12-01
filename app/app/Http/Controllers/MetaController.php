@@ -17,7 +17,7 @@ class MetaController extends Controller
 {
     //
 
-    public function __construct(private readonly MetaService $metaService)
+    public function __construct(protected readonly MetaService $metaService)
     {
 
     }

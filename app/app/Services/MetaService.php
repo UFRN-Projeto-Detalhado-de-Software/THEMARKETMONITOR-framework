@@ -48,6 +48,7 @@ MetaService
     {
         $this->strategy->validate_create($metaDTO);
 
+
         $servicePeriodo = new PeriodoService(new PeriodoRepository());
         $servicePeriodo->validate($metaDTO->periodo);
 

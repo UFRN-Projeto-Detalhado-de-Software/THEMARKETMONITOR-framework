@@ -50,23 +50,23 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-
+// Aliasing do controller de funcionario usado:
+use App\Http\Controllers\FuncionarioControllerLoja  as myFuncionarioController;
 
 // Rotas Funcionario
-
 Route::name('funcionario.')->group(function (){
     Route::prefix('/funcionario')->group(function (){
         //Get
-        Route::get('/create', [FuncionarioController::class, 'create'])->name('create');
-        Route::get('/', [FuncionarioController::class, 'home'])->name('home');
-        Route::get('/edit/{id}', [FuncionarioController::class, 'edit'])->name('edit');
-        Route::get('/verMetas/{id}', [FuncionarioController::class, 'verMetas'])->name('verMetas');
+        Route::get('/create', [myFuncionarioController::class, 'create'])->name('create');
+        Route::get('/', [myFuncionarioController::class, 'home'])->name('home');
+        Route::get('/edit/{id}', [myFuncionarioController::class, 'edit'])->name('edit');
+        Route::get('/verMetas/{id}', [myFuncionarioController::class, 'verMetas'])->name('verMetas');
         //Post
-        Route::post('/store', [FuncionarioController::class, 'store'])->name('store');
+        Route::post('/store', [myFuncionarioController::class, 'store'])->name('store');
         //Put
-        Route::put('/edited/{id}', [FuncionarioController::class, 'edited'])->name('edited');
+        Route::put('/edited/{id}', [myFuncionarioController::class, 'edited'])->name('edited');
         //Delete
-        Route::delete('/deleted/{id}', [FuncionarioController::class, 'deleted'])->name('destroy');
+        Route::delete('/deleted/{id}', [myFuncionarioController::class, 'deleted'])->name('destroy');
     });
 });
 
@@ -150,26 +150,29 @@ Route::resource('/meiopagamento', MeioPagamentoController::class);
 Route::resource('/produto', ProdutoController::class);
 
 
+// Aliasing do controller de funcionario usado:
+use App\Http\Controllers\UserControllerLoja  as myUserController;
+
 // Rotas de Perfil
 Route::name('perfil.')->group(function (){
     Route::prefix('/perfil')->group(function (){
         //Get
-        Route::get('/register', [UserController::class, 'showRegister'])->name('register');
-        Route::get('/home', [UserController::class, 'home'])->name('home');
-        Route::get('/logout', [UserController::class, 'logout'])->name('logout');
-        Route::get('/login', [UserController::class, 'showLogin'])->name('login');
-        Route::get('/adm', [UserController::class, 'showAdm'])->name('adm');
-        Route::get('/edit_funcionario/{user}', [UserController::class, 'showEdit_funcionario'])->name('edit_funcionario');
-        Route::get('/create_meta/{funcionario}', [UserController::class, 'create_meta'])->name('create_meta');
-        Route::get('/acesso', [UserController::class, 'acesso'])->name('acesso');
+        Route::get('/register', [myUserController::class, 'showRegister'])->name('register');
+        Route::get('/home', [myUserController::class, 'home'])->name('home');
+        Route::get('/logout', [myUserController::class, 'logout'])->name('logout');
+        Route::get('/login', [myUserController::class, 'showLogin'])->name('login');
+        Route::get('/adm', [myUserController::class, 'showAdm'])->name('adm');
+        Route::get('/edit_funcionario/{user}', [myUserController::class, 'showEdit_funcionario'])->name('edit_funcionario');
+        Route::get('/create_meta/{funcionario}', [myUserController::class, 'create_meta'])->name('create_meta');
+        Route::get('/acesso', [myUserController::class, 'acesso'])->name('acesso');
         //Post
-        Route::post('/register/do', [UserController::class, 'getRegister'])->name('register.do');
-        Route::post('/login/do', [UserController::class, 'getLogin'])->name('login.do');
-        Route::post('/store_meta/{funcionario}', [UserController::class, 'store_meta'])->name('store_meta');
+        Route::post('/register/do', [myUserController::class, 'getRegister'])->name('register.do');
+        Route::post('/login/do', [myUserController::class, 'getLogin'])->name('login.do');
+        Route::post('/store_meta/{funcionario}', [myUserController::class, 'store_meta'])->name('store_meta');
         //Put
-        Route::put('/edit_funcionario/do', [UserController::class, 'getEdit_funcionario'])->name('edit_funcionario.do');
+        Route::put('/edit_funcionario/do', [myUserController::class, 'getEdit_funcionario'])->name('edit_funcionario.do');
         //Delete
-        Route::delete('destroy/{user}', [UserController::class, 'destroy'])->name('destroy');
+        Route::delete('destroy/{user}', [myUserController::class, 'destroy'])->name('destroy');
 
     });
 });

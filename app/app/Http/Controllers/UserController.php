@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
 
-    public function __construct(private readonly UserService $userService)
+    public function __construct(protected readonly UserService $userService)
     {
 
     }

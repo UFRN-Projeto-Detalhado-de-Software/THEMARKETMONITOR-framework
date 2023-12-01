@@ -8,12 +8,10 @@ use App\Repositories\VendasRepositoryInterface;
 class VendasService
 {
     private VendasRepositoryInterface $vendasRepository;
-    protected VendaServiceStrategy $strategy;
 
-    public function __construct(VendasRepositoryInterface $vendasRepository, VendaServiceStrategy $strategy)
+    public function __construct(VendasRepositoryInterface $vendasRepository)
     {
         $this->vendasRepository = $vendasRepository;
-        $this->strategy = $strategy;
     }
 
 

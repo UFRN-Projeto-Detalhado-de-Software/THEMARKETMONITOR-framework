@@ -6,9 +6,10 @@ class VendaDTO
 {
     use ArrayableDTO;
 
+
     public function __construct(
             public ? string $cliente,
-            public ? string $sdr,
+            public ? string $sdr = null,
             public ? string $closer,
             public ? string $produto,
             public ? string $data,
@@ -19,7 +20,9 @@ class VendaDTO
             public ? bool   $deTerceiro,
             public ?string $obs = null
 
-    ){}
+    ){
+        $this->sdr = $sdr;
+    }
 
 
 

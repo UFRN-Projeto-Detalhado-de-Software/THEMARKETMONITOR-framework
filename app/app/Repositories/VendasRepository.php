@@ -9,13 +9,6 @@ use Illuminate\Support\Facades\DB;
 
 class VendasRepository implements VendasRepositoryInterface
 {
-    private $strategy;
-
-    public function __construct(VendaRepositoryStrategy $strategy){
-
-        $this->strategy = $strategy;
-    }
-
 
     public function all(){
 

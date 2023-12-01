@@ -3,50 +3,58 @@
 namespace App\Http\Controllers;
 
 use App\DTOS\VendaDTO;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Abstract\VendaControllerAbs;
 use App\Models\MeioPagamento;
 use App\Models\OrigemVenda;
 use App\Models\Produto;
 use App\Models\TipoVenda;
 use App\Models\Vendas;
-use App\Services\VendaServiceStrategy;
-use App\Services\VendasService;
-use Illuminate\Http\Request;
+use App\Repositories\VendaRepositoryLoja;
+use App\Repositories\VendaRepositoryStrategy;
 use App\Repositories\VendasRepositoryInterface;
+use App\Services\VendaServiceLoja;
+use App\Services\VendaServiceStrategy;
+use Illuminate\Http\Request;
 
- class VendasController extends Controller
+class VendaControllerLoja extends VendaControllerAbs
 {
-    public function __construct(private readonly VendasService $vendaService)
-    {}
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        $vendas = $this->vendaService->all();
 
+   private VendaServiceStrategy $serviceLoja;
+   private VendaRepositoryStrategy $repository;
 
-        return view('venda/vendas',['vendas' => $vendas]);
+    public function __construct() {
+        $repository = new VendaRepositoryLoja();
+        $this->serviceLoja = new VendaServiceLoja($repository);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    public function index()
+    {
+        $vendas = $this->serviceLoja->all();
+
+        return view('loja/index', ["vendas"=>$vendas]);
+
+    }
+
     public function create()
     {
         $origensvendas = OrigemVenda::all();
         $produto = Produto::all();
         $meiopagamento = MeioPagamento::all();
         $tipovenda = TipoVenda::all();
-        $closer = $this->vendaService->get_closer();
-        $sdr = $this->vendaService->get_sdr();
+        $closer = $this->serviceLoja->get_closer();
+        $sdr = $this->serviceLoja->get_sdr();
 
-        return view('venda/venda_create', ['origemdavenda'=>$origensvendas, 'produto'=>$produto, 'meiopagamento'=>$meiopagamento, 'tipovenda'=>$tipovenda, 'closer' => $closer, 'sdr' => $sdr]);
+        return view('loja/venda/create', [
+            'origemdavenda' => $origensvendas,
+            'produto'       => $produto,
+            'meiopagamento' => $meiopagamento,
+            'tipovenda'     => $tipovenda,
+            'closer'        => $closer,
+            'sdr'           => null
+        ]);
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         info($request->all());
@@ -56,7 +64,6 @@ use App\Repositories\VendasRepositoryInterface;
             'produto' => 'required',
             'tipo' => 'required',
             'origem' => 'required',
-            'sdr' => 'required',
             'closer' => 'required',
             'data' => 'required',
             'meioDePagamento' => 'required',
@@ -67,15 +74,15 @@ use App\Repositories\VendasRepositoryInterface;
 
         $request->validate($validationRules);
 
-        // Crie um array para armazenar mensagens sobre campos ausentes
         $missingFields = [];
+
         foreach ($validationRules as $field => $rule) {
             if (!$request->has($field)) {
                 $missingFields[] = $field;
             }
         }
 
-        // Se algum campo obrigatório estiver faltando, redirecione com uma mensagem de erro
+
         if (!empty($missingFields)) {
             return redirect()->back()->withErrors(['message' => 'Por favor, preencha todos os campos obrigatórios. Campos em falta: ' . implode(', ', $missingFields)]);
         }
@@ -83,7 +90,6 @@ use App\Repositories\VendasRepositoryInterface;
 
         $dto = new VendaDTO(
             $request->input('cliente'),
-            $request->input('sdr'),
             $request->input('closer'),
             $request->input('produto'),
             $request->input('data'),
@@ -93,9 +99,9 @@ use App\Repositories\VendasRepositoryInterface;
             $request->input('meioDePagamento'),
             $request->input('deTerceiro'),
             $request->input('obs') ?? null
-            );
+        );
 
-        $venda = $this->vendaService->create($dto);
+        $venda = $this->serviceLoja->create($dto);
 
         if($venda){
             return redirect()->back()->with('message', 'Criado com Sucesso');
@@ -104,29 +110,18 @@ use App\Repositories\VendasRepositoryInterface;
         return redirect()->back()->with('message', 'Erro de Criação');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Vendas $venda)
+    public function show($venda)
     {
-
-        return view('venda/venda_show', ['venda' => $venda]);
+        return view('loja/venda/show', ['venda' => $venda]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Vendas $venda)
+    public function edit($venda)
     {
-        return view('venda/venda_edit', ['venda' => $venda]);
+        return view('loja/venda/edit', ['venda' => $venda]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-
         $dto = new VendaDTO(
             $request->input('cliente'),
             $request->input('sdr'),
@@ -141,7 +136,7 @@ use App\Repositories\VendasRepositoryInterface;
             $request->input('obs'),
         );
 
-        $updated = $this->vendaService->update($dto, $id);
+        $updated = $this->serviceLoja->update($dto, $id);
 
 
         if($updated){
@@ -151,13 +146,12 @@ use App\Repositories\VendasRepositoryInterface;
         return redirect()->back()->with('message', 'Erro família');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        $this->vendaService->delete($id);
+        $this->serviceLoja->delete($id);
 
-        return redirect()->route('vendas.index');
+        return redirect()->route('loja.index');
     }
+
+
 }

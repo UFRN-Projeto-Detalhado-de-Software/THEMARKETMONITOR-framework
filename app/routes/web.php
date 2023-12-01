@@ -1,24 +1,24 @@
 <?php
 
 use App\Http\Controllers\AnaliseProdutoController;
+use App\Http\Controllers\CargoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\FaturamentoController;
+use App\Http\Controllers\FuncionarioController;
+use App\Http\Controllers\HistoricoFuncionarioController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MeioPagamentoController;
-use App\Http\Controllers\ProdutoController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\VendasController;
-use App\Http\Controllers\TipoVendaController;
-use App\Http\Controllers\RankingController;
+use App\Http\Controllers\MetaController;
 use App\Http\Controllers\OrigemVendaController;
 use App\Http\Controllers\PeriodoController;
 use App\Http\Controllers\PeriodoTipoController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\FuncionarioController;
+use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\RankingController;
+use App\Http\Controllers\TipoVendaController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\MetaController;
-use App\Http\Controllers\HistoricoFuncionarioController;
-use App\Http\Controllers\CargoController;
+use App\Http\Controllers\VendaControllerLoja;
+use App\Http\Controllers\VendasController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,7 +72,7 @@ Route::name('funcionario.')->group(function (){
 
 
 // Rotas Vendas
-Route::resource('/venda/vendas', VendasController::class);
+//Route::resource('/venda/vendas', VendasController::class);
 
 // Rotas Origens de Venda
 Route::resource('/origensvendas/origemvenda', OrigemVendaController::class);
@@ -218,5 +218,12 @@ Route::name('cargo.')->group(function (){
         // Delete
         Route::delete('/destroy/{id}', [CargoController::class, 'destroy'])->name('destroy');
     });
+
+
 });
+//ROTAS DA INSTÂNCIA LOJA
+
+//Route::get('/loja', [VendaControllerLoja::class, 'index'])->name('index');
+//Route::get('/loja/venda/create', [VendaControllerLoja::class, 'create'])->name('create');
+Route::resource('/loja', VendaControllerLoja::class);
 

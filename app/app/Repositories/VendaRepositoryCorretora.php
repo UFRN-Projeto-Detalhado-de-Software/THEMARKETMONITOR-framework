@@ -8,6 +8,7 @@ use App\Repositories\VendasRepository;
 use App\Transformers\VendaTransformer;
 use League\Fractal\Manager;
 
+
 class VendaRepositoryCorretora extends VendasRepository implements VendaRepositoryStrategy
 {
 

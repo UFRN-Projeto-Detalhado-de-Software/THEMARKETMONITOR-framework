@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\DTOS\VendaDTO;
 use App\Transformers\VendaTransformer;
 use League\Fractal\Manager;
 use \League\Fractal\Scope;
@@ -9,8 +10,9 @@ use App\Models\Vendas;
 
 
 
-class VendaRepositoryLoja extends VendasRepository implements VendaRepositoryStrategy
+class VendaRepositoryLoja  extends VendasRepository implements VendaRepositoryStrategy
 {
+
 
     public function convert_model_to_dto($vendaId){
 
@@ -36,4 +38,6 @@ class VendaRepositoryLoja extends VendasRepository implements VendaRepositoryStr
 
         return $vendaModel;
     }
+
+
 }

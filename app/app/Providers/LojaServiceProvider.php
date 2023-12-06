@@ -16,9 +16,8 @@ class LojaServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(VendasService::class, VendaServiceLoja::class);
-        $this->app->bind(VendaRepositoryStrategy::class, VendaRepositoryLoja::class);
         $this->app->bind(VendaServiceStrategy::class, VendaServiceLoja::class);
+        $this->app->bind(VendaRepositoryStrategy::class, VendaRepositoryLoja::class);
 
 
     }

@@ -14,17 +14,17 @@ use App\Repositories\VendaRepositoryStrategy;
 use App\Repositories\VendasRepositoryInterface;
 use App\Services\VendaServiceLoja;
 use App\Services\VendaServiceStrategy;
+use App\Services\VendasService;
 use Illuminate\Http\Request;
 
 class VendaControllerLoja extends VendaControllerAbs
 {
 
-   private VendaServiceStrategy $serviceLoja;
-   private VendaRepositoryStrategy $repository;
+   private VendasService $serviceLoja;
 
-    public function __construct() {
-        $repository = new VendaRepositoryLoja();
-        $this->serviceLoja = new VendaServiceLoja($repository);
+    public function __construct(VendasService $serviceLoja) {
+
+        $this->serviceLoja = $serviceLoja;
     }
 
     public function index()

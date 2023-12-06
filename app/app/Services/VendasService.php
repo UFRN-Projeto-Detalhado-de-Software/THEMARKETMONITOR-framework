@@ -9,9 +9,12 @@ class VendasService
 {
     private VendasRepositoryInterface $vendasRepository;
 
-    public function __construct(VendasRepositoryInterface $vendasRepository)
+    private VendaServiceStrategy $strategy;
+
+    public function __construct(VendasRepositoryInterface $vendasRepository, VendaServiceStrategy $strategy)
     {
         $this->vendasRepository = $vendasRepository;
+        $this->strategy = $strategy;
     }
 
 
@@ -22,13 +25,19 @@ class VendasService
 
     public function create(VendaDTO $dados)
     {
-        return $this->vendasRepository->store($dados);
+        if ($this->strategy->validate_create($dados)){
+            return $this->vendasRepository->store($dados);
+        }
+
     }
 
     public function update(VendaDTO $vendaDTO, $id)
     {
+        if($this->strategy->validate_update($id)){
+            return $this->vendasRepository->update($vendaDTO, $id);
+        }
 
-        return $this->vendasRepository->update($vendaDTO, $id);
+
     }
 
     public function find($id)
@@ -39,8 +48,9 @@ class VendasService
 
     public function delete($id)
     {
-
-        return $this->vendasRepository->destroy($id);
+        if($this->strategy->validate_delete($id)){
+            return $this->vendasRepository->destroy($id);
+        }
     }
 
     public function get_closer(){

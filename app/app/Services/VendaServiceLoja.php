@@ -5,7 +5,7 @@ namespace App\Services;
 use App\Services\VendaServiceStrategy;
 use App\Services\VendasService;
 
-class VendaServiceLoja extends VendasService implements VendaServiceStrategy
+class VendaServiceLoja implements VendaServiceStrategy
 {
 
     public function validate_create($dados)
@@ -15,7 +15,7 @@ class VendaServiceLoja extends VendasService implements VendaServiceStrategy
             throw new \Exception('O valor da venda deve ser igual ou superior a ' . $limiteMinimo);
         }
 
-        parent::create($dados);
+        return true;
     }
 
     public function validate_update($dados, $id)
@@ -24,7 +24,7 @@ class VendaServiceLoja extends VendasService implements VendaServiceStrategy
         if ($venda = null) {
             throw new \Exception('Você não tem permissão para atualizar esta venda.');
         }
-        parent::update($dados, $id);
+        return true;
     }
 
     public function validate_delete($id)
@@ -34,6 +34,6 @@ class VendaServiceLoja extends VendasService implements VendaServiceStrategy
             throw new \Exception('Não é possível excluir esta venda de acordo com as regras da corretora.');
         }
 
-        parent::delete($id);
+        return true;
     }
 }

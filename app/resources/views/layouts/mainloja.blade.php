@@ -10,7 +10,7 @@
 <nav class="navbar">
     <div class="logo_item">
         <i class="bx bx-menu" id="sidebarOpen"></i>
-        LOJA DE CRIA
+        LOJA DE ROUPAS
     </div>
 
     <div class="navbar_content">

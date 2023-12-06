@@ -31,6 +31,7 @@ class VendasRepository implements VendasRepositoryInterface
             }
 
             // Valide e sanitize os dados do DTO conforme necessário
+            //to do convert_dto_model();
             $venda = Vendas::create($dadosVenda);
 
             return ['success' => true, 'data' => $venda];
@@ -66,7 +67,6 @@ class VendasRepository implements VendasRepositoryInterface
 
     public function get_sdr()
     {
-        // TODO: Implement get_sdr() method.
 
         $query =  DB::table('funcionarios')
             ->select('nome', 'id')
@@ -84,7 +84,6 @@ class VendasRepository implements VendasRepositoryInterface
 
     public function get_closer()
     {
-        // TODO: Implement get_closer() method.
         $query =  DB::table('funcionarios')
             ->select('nome', 'id')
             ->where('cargo', "=", 2)
